@@ -17,11 +17,17 @@
     background: #ffffff; padding: 16px 18px; border-radius: 10px;
     max-width: 280px; box-shadow: 0 2px 12px rgba(0,0,0,0.12); border: 1px solid #eee;
   }
-  #ui h1 { font-size: 17px; margin: 0 0 10px; color: var(--forest); font-weight: 700; }
+  #ui h1 {
+    font-size: 17px; margin: 0 0 10px; padding-bottom: 8px; color: var(--ink);
+    font-weight: 700; border-bottom: 3px solid var(--forest);
+  }
   #ui label { display: block; font-size: 13px; margin-top: 12px; color: var(--ink); }
   #ui input[type="range"] { width: 100%; accent-color: var(--forest); }
   #legend { margin-top: 14px; max-height: 220px; overflow-y: auto; font-size: 12px; }
-  #legend h3 { font-size: 13px; margin: 0 0 6px; color: var(--forest); font-weight: 700; }
+  #legend h3 {
+    font-size: 12px; margin: 0 0 6px; color: var(--muted); font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.04em;
+  }
   .legend-row { display: flex; align-items: center; margin-bottom: 3px; }
   .swatch { display: inline-block; width: 12px; height: 12px; margin-right: 6px; border: 1px solid #0002; flex-shrink: 0; border-radius: 2px; }
   #disclaimer {

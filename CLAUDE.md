@@ -36,7 +36,10 @@ backtest/                   run_backtest.py, outputs/
 report/                     report.html (final deliverable), figures/
 
 ## Visual style (web/, report/, and any agent chat UI)
-- White background, forest green (#1E5631) for headers/accents, Arial/Helvetica font.
+- White background, Arial/Helvetica font, dark neutral text (not green) for all
+  headings and body copy -- forest green (#1E5631) is an accent only (e.g. a border,
+  underline, or slider handle), never text color on white; green text on white read
+  as clashing when tried.
 - Clean and simple: the audience is a smart manager/farmer who has never seen the app,
   not a GIS specialist, so prefer plain language and minimal clutter over dense detail.
 
