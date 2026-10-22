@@ -12,7 +12,7 @@ const exagLabel = document.getElementById('exag-label');
 const legendEl = document.getElementById('legend');
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0xcfd8dc);
+scene.background = new THREE.Color(0xffffff);
 
 const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 20000);
 

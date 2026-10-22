@@ -17,7 +17,7 @@ import numpy as np
 import rasterio
 import requests
 import yaml
-from PIL import Image
+from PIL import Image, ImageFilter
 from rasterio.features import sieve
 from rasterio.warp import Resampling, reproject, transform_bounds
 
@@ -34,8 +34,9 @@ GRID_CRS = "EPSG:32611"  # UTM zone 11N: local to the study area, unlike EPSG:50
                           # this longitude and rotates the bbox enough to lose ~28% of
                           # the source data at the shared grid's corners
 GRID_RESOLUTION_M = 10  # matches the DEM's native ~10 m resolution
-SIEVE_MIN_PIXELS = 9  # one native 30 m CDL cell = 3x3 pixels at our 10 m grid; smaller
-                       # specks are resampling/classification noise, not real fields
+SIEVE_MIN_PIXELS = 16  # one native 30 m CDL cell = 3x3 pixels at our 10 m grid; a bit
+                        # above that threshold cleans up more stray classification
+                        # noise while still keeping real small field patches intact
 
 CDL_LEGEND_ITEM = (
     "https://planetarycomputer.microsoft.com/api/stac/v1/collections/usda-cdl/items/"
@@ -140,7 +141,13 @@ def process_cdl_years(cfg, transform, width, height, palette):
                 },
             )
 
-        Image.fromarray(rgb, mode="RGB").save(PROCESSED_DIR / f"cdl_{year}.png")
+        # Upscale 2x and blur slightly so the rendered texture looks clean rather than
+        # blocky at the 3D viewer's zoom levels. Cosmetic only -- crop codes and field
+        # history are computed separately from the un-blurred raster data.
+        img = Image.fromarray(rgb, mode="RGB")
+        img = img.resize((width * 2, height * 2), Image.LANCZOS)
+        img = img.filter(ImageFilter.GaussianBlur(radius=1.2))
+        img.save(PROCESSED_DIR / f"cdl_{year}.png")
         print(f"cdl_{year}.png saved ({len(codes_present)} crop codes present)")
 
     (PROCESSED_DIR / "cdl_legend.json").write_text(json.dumps(legend, indent=2))

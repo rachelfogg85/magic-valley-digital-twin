@@ -71,15 +71,6 @@
       225
     ]
   },
-  "37": {
-    "name": "Hay (non-alfalfa)",
-    "official_name": "Other Hay/Non Alfalfa",
-    "color": [
-      164,
-      241,
-      139
-    ]
-  },
   "41": {
     "name": "Sugar Beets",
     "official_name": "Sugarbeets",
@@ -179,24 +170,6 @@
       190
     ]
   },
-  "190": {
-    "name": "Wetland (trees)",
-    "official_name": "Woody Wetlands",
-    "color": [
-      125,
-      176,
-      176
-    ]
-  },
-  "195": {
-    "name": "Wetland (marsh)",
-    "official_name": "Herbaceous Wetlands",
-    "color": [
-      125,
-      176,
-      176
-    ]
-  },
   "205": {
     "name": "Triticale (wheat-rye grain)",
     "official_name": "Triticale",
@@ -204,24 +177,6 @@
       213,
       158,
       187
-    ]
-  },
-  "25": {
-    "name": "Other Grains",
-    "official_name": "Other Small Grains",
-    "color": [
-      213,
-      158,
-      187
-    ]
-  },
-  "44": {
-    "name": "Other Crops",
-    "official_name": "Other Crops",
-    "color": [
-      0,
-      174,
-      74
     ]
   },
   "4": {
@@ -233,6 +188,15 @@
       10
     ]
   },
+  "37": {
+    "name": "Hay (non-alfalfa)",
+    "official_name": "Other Hay/Non Alfalfa",
+    "color": [
+      164,
+      241,
+      139
+    ]
+  },
   "59": {
     "name": "Lawn Sod / Grass Seed",
     "official_name": "Sod/Grass Seed",
@@ -240,24 +204,6 @@
       174,
       255,
       221
-    ]
-  },
-  "63": {
-    "name": "Forest",
-    "official_name": "Forest",
-    "color": [
-      146,
-      204,
-      146
-    ]
-  },
-  "112": {
-    "name": "Ice / Snow",
-    "official_name": "Perennial Ice/Snow",
-    "color": [
-      210,
-      225,
-      248
     ]
   },
   "131": {
@@ -269,24 +215,6 @@
       162
     ]
   },
-  "57": {
-    "name": "Herbs",
-    "official_name": "Herbs",
-    "color": [
-      125,
-      210,
-      255
-    ]
-  },
-  "27": {
-    "name": "Rye",
-    "official_name": "Rye",
-    "color": [
-      172,
-      0,
-      123
-    ]
-  },
   "67": {
     "name": "Peaches",
     "official_name": "Peaches",
@@ -296,22 +224,13 @@
       170
     ]
   },
-  "70": {
-    "name": "Christmas Trees",
-    "official_name": "Christmas Trees",
+  "44": {
+    "name": "Other Crops",
+    "official_name": "Other Crops",
     "color": [
       0,
-      119,
-      119
-    ]
-  },
-  "33": {
-    "name": "Safflower",
-    "official_name": "Safflower",
-    "color": [
-      213,
-      213,
-      0
+      174,
+      74
     ]
   },
   "49": {
@@ -323,6 +242,15 @@
       102
     ]
   },
+  "195": {
+    "name": "Wetland (marsh)",
+    "official_name": "Herbaceous Wetlands",
+    "color": [
+      125,
+      176,
+      176
+    ]
+  },
   "225": {
     "name": "Wheat then Corn (double crop)",
     "official_name": "Winter Wheat/Corn",
@@ -332,31 +260,13 @@
       0
     ]
   },
-  "142": {
-    "name": "Evergreen Forest",
-    "official_name": "Evergreen Forest",
+  "190": {
+    "name": "Wetland (trees)",
+    "official_name": "Woody Wetlands",
     "color": [
-      146,
-      204,
-      146
-    ]
-  },
-  "206": {
-    "name": "Carrots",
-    "official_name": "Carrots",
-    "color": [
-      255,
-      102,
-      102
-    ]
-  },
-  "66": {
-    "name": "Cherries",
-    "official_name": "Cherries",
-    "color": [
-      255,
-      0,
-      255
+      125,
+      176,
+      176
     ]
   },
   "68": {
@@ -377,24 +287,6 @@
       0
     ]
   },
-  "14": {
-    "name": "Mint",
-    "official_name": "Mint",
-    "color": [
-      125,
-      210,
-      255
-    ]
-  },
-  "228": {
-    "name": "Triticale then Corn (double crop)",
-    "official_name": "Triticale/Corn",
-    "color": [
-      255,
-      102,
-      102
-    ]
-  },
   "124": {
     "name": "City / Dense Buildings",
     "official_name": "Developed/High Intensity",
@@ -402,6 +294,15 @@
       154,
       154,
       154
+    ]
+  },
+  "206": {
+    "name": "Carrots",
+    "official_name": "Carrots",
+    "color": [
+      255,
+      102,
+      102
     ]
   }
 }
