@@ -10,7 +10,9 @@ study_area:
 
 years:
   start: 2008
-  end: 2024  # update once pipeline/02_download_cdl.py confirms the latest CDL year available
+  end: 2021  # Microsoft Planetary Computer's usda-cdl mirror covers 2008-2021 (conveniently
+             # through our drought year); the original CropScape web service covers later
+             # years too but was unreliable (timeouts/502s) when tested on 2026-10-22
 
 drought_year: 2021  # to be confirmed against IDWR / Reclamation water-supply records
 
