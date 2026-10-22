@@ -81,6 +81,52 @@ export function updateFieldOutlineHeights(lines, meta, heights, exaggeration) {
   }
 }
 
+// Solid, semi-transparent fill for each field, hidden by default -- shown (and
+// colored) only for fields matching the active crop filter, so "find a crop" is
+// unmistakable even against the busy crop texture underneath.
+export function buildFieldFills(outlines, meta, heights, exaggeration) {
+  const group = new THREE.Group();
+  const fillsByFieldId = new Map();
+  for (const field of outlines) {
+    const shapePoints = field.ring.map(([x, z]) => new THREE.Vector2(x, z));
+    const shape = new THREE.Shape(shapePoints);
+    const geometry = new THREE.ShapeGeometry(shape);
+    const position = geometry.attributes.position;
+    for (let i = 0; i < position.count; i++) {
+      const worldX = position.getX(i);
+      const worldZ = position.getY(i);
+      const y = sampleHeight(meta, heights, worldX, worldZ, exaggeration) + 2.0;
+      position.setXYZ(i, worldX, y, worldZ);
+    }
+    position.needsUpdate = true;
+    geometry.computeVertexNormals();
+    const material = new THREE.MeshBasicMaterial({
+      color: 0xc0392b,
+      transparent: true,
+      opacity: 0.65,
+      side: THREE.DoubleSide,
+      depthWrite: false,
+    });
+    const mesh = new THREE.Mesh(geometry, material);
+    mesh.visible = false;
+    group.add(mesh);
+    fillsByFieldId.set(field.field_id, mesh);
+  }
+  return { group, fillsByFieldId };
+}
+
+export function updateFieldFillHeights(fillsByFieldId, meta, heights, exaggeration) {
+  for (const mesh of fillsByFieldId.values()) {
+    const position = mesh.geometry.attributes.position;
+    for (let i = 0; i < position.count; i++) {
+      const x = position.getX(i);
+      const z = position.getZ(i);
+      position.setY(i, sampleHeight(meta, heights, x, z, exaggeration) + 2.0);
+    }
+    position.needsUpdate = true;
+  }
+}
+
 export function loadCdlTexture(year) {
   const loader = new THREE.TextureLoader();
   const texture = loader.load(`/data/cdl_${year}.png`);

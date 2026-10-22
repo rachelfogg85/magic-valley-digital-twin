@@ -42,6 +42,14 @@
     border: 1px solid #ddd; box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   }
   #compass-arrow { width: 100%; height: 100%; transform-origin: 50% 50%; }
+  #locator {
+    position: absolute; bottom: 20px; left: 20px; z-index: 10;
+    width: 90px; background: #ffffffdd; border: 1px solid #ddd; border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15); padding: 6px 6px 4px;
+    text-align: center;
+  }
+  #locator svg { width: 100%; height: auto; display: block; }
+  #locator span { font-size: 10px; color: var(--muted); }
   #field-tooltip {
     position: absolute; z-index: 20; pointer-events: none; display: none;
     background: #ffffff; border: 1px solid #ddd; border-radius: 6px;
@@ -76,6 +84,14 @@
     <polygon points="27,48 32,27 27,31 22,27" fill="#999"/>
     <text x="27" y="14" font-size="8" text-anchor="middle" fill="#c0392b" font-family="Arial">N</text>
   </svg>
+</div>
+<div id="locator" title="Where this study area is in Idaho">
+  <svg viewBox="0 0 220 320">
+    <path d="M 45.8,10.0 L 45.8,53.9 L 55.5,65.8 L 55.7,77.6 L 61.5,82.7 L 67.5,84.6 L 68.2,87.6 L 79.4,99.1 L 80.7,103.8 L 88.6,108.3 L 88.9,111.1 L 97.6,110.9 L 93.4,126.8 L 92.5,136.9 L 95.7,143.5 L 90.2,148.2 L 92.4,152.6 L 90.9,157.3 L 97.3,161.8 L 104.7,155.9 L 107.7,151.2 L 113.1,155.4 L 112.3,158.9 L 115.2,167.2 L 120.2,175.8 L 123.8,178.9 L 123.6,187.1 L 127.1,190.6 L 133.3,191.1 L 137.3,204.9 L 140.7,207.3 L 143.8,203.3 L 153.2,203.5 L 160.1,199.8 L 164.2,201.9 L 171.3,200.0 L 172.8,202.3 L 178.8,200.7 L 185.8,191.8 L 190.5,199.3 L 195.9,203.7 L 195.9,309.8 L 162.4,310.0 L 106.0,310.0 L 16.4,309.8 L 16.4,231.4 L 20.4,217.3 L 17.9,213.8 L 12.1,213.1 L 10.0,207.3 L 16.1,192.0 L 19.2,190.6 L 22.3,184.3 L 21.8,180.3 L 25.3,175.1 L 27.1,167.6 L 33.3,155.0 L 30.9,149.1 L 23.8,146.0 L 19.7,138.8 L 19.5,131.3 L 15.6,123.8 L 16.1,120.2 L 15.9,63.0 L 16.2,10.0 L 45.8,10.0 Z"
+          fill="#e8f1ea" stroke="#1E5631" stroke-width="3"/>
+    <circle cx="91.7" cy="276.0" r="9" fill="#c0392b" stroke="white" stroke-width="2.5"/>
+  </svg>
+  <span>Idaho &mdash; you are here</span>
 </div>
 <script type="importmap">
 {

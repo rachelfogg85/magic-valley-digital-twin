@@ -8,12 +8,15 @@ import {
   loadFieldData,
   buildFieldOutlines,
   updateFieldOutlineHeights,
+  buildFieldFills,
+  updateFieldFillHeights,
 } from './terrain.js';
 
 const DEFAULT_EXAGGERATION = 4;
 const HIGHLIGHT_COLOR = 0xc0392b;
 const NORMAL_COLOR = 0x333333;
 const DIM_COLOR = 0xdddddd;
+const DIMMED_TERRAIN_TINT = 0x999999;
 
 const canvas = document.getElementById('scene');
 const yearSlider = document.getElementById('year-slider');
@@ -52,6 +55,7 @@ let currentMeta = null;
 let currentHeights = null;
 let fieldData = null; // { outlines, zone, crops }
 let outlineLines = null; // [{ fieldId, acres, line }]
+let fillsByFieldId = null; // Map(fieldId -> Mesh)
 
 async function init() {
   const [{ meta, heights }, fields] = await Promise.all([loadTerrainData(), loadFieldData()]);
@@ -69,6 +73,10 @@ async function init() {
   const { group, lines } = buildFieldOutlines(fields.outlines, meta, heights, DEFAULT_EXAGGERATION);
   scene.add(group);
   outlineLines = lines;
+
+  const fills = buildFieldFills(fields.outlines, meta, heights, DEFAULT_EXAGGERATION);
+  scene.add(fills.group);
+  fillsByFieldId = fills.fillsByFieldId;
 
   const span = Math.max(meta.width, meta.height) * meta.meters_per_pixel;
   camera.position.set(0, span * 0.6, span * 0.6);
@@ -112,14 +120,17 @@ function buildCropFilter(legend) {
 function applyCropFilter() {
   const target = cropFilterEl.value;
   const year = yearSlider.value;
+
+  // Dim the base crop texture so highlighted fields actually stand out against it,
+  // rather than relying on a thin outline color change that's easy to miss.
+  if (mesh) mesh.material.color.setHex(target ? DIMMED_TERRAIN_TINT : 0xffffff);
+
   for (const { fieldId, line } of outlineLines) {
-    if (!target) {
-      line.material.color.setHex(NORMAL_COLOR);
-      continue;
-    }
     const crop = fieldData.crops[fieldId]?.[year];
-    const matches = crop && crop.crop_name === target;
-    line.material.color.setHex(matches ? HIGHLIGHT_COLOR : DIM_COLOR);
+    const matches = Boolean(target) && crop && crop.crop_name === target;
+    line.material.color.setHex(!target ? NORMAL_COLOR : matches ? HIGHLIGHT_COLOR : DIM_COLOR);
+    const fill = fillsByFieldId.get(fieldId);
+    if (fill) fill.visible = matches;
   }
 }
 
@@ -179,6 +190,7 @@ exagSlider.addEventListener('input', () => {
   const exaggeration = Number(exagSlider.value);
   applyExaggeration(mesh.geometry, currentMeta, currentHeights, exaggeration);
   if (outlineLines) updateFieldOutlineHeights(outlineLines, currentMeta, currentHeights, exaggeration);
+  if (fillsByFieldId) updateFieldFillHeights(fillsByFieldId, currentMeta, currentHeights, exaggeration);
 });
 
 window.addEventListener('resize', () => {
