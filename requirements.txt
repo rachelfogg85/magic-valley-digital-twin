@@ -1,4 +1,5 @@
 rasterio==1.4.3
+requests
 geopandas
 shapely
 numpy
