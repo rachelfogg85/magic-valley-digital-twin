@@ -1,0 +1,12 @@
+rasterio==1.4.3
+geopandas
+shapely
+numpy
+pandas
+Pillow
+pulp
+flask
+openai
+python-dotenv
+pytest
+pyyaml

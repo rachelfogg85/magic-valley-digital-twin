@@ -1,0 +1,26 @@
+# Magic Valley Digital Twin — study area and project configuration
+
+study_area:
+  # decimal degrees, confirmed on satellite imagery: pivot-irrigated farmland
+  # northeast of Jerome, ID (dairies, creeks, no town)
+  west: -114.58
+  south: 42.77
+  east: -114.52
+  north: 42.81
+
+years:
+  start: 2008
+  end: 2024  # update once pipeline/02_download_cdl.py confirms the latest CDL year available
+
+drought_year: 2021  # to be confirmed against IDWR / Reclamation water-supply records
+
+paths:
+  raw_dem: data/raw/dem
+  raw_cdl: data/raw/cdl
+  raw_nass: data/raw/nass
+  raw_budgets: data/raw/budgets
+  raw_agrimet: data/raw/agrimet
+  processed: data/processed
+
+contracts:
+  sugar_beet_acreage_cap: null  # fill in once we know total traced acreage (Step 9)
