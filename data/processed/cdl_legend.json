@@ -1,6 +1,7 @@
 {
   "0": {
-    "name": "Unknown (0)",
+    "name": "No Data",
+    "official_name": "Unknown",
     "color": [
       0,
       0,
@@ -9,6 +10,7 @@
   },
   "1": {
     "name": "Corn",
+    "official_name": "Corn",
     "color": [
       255,
       210,
@@ -17,6 +19,7 @@
   },
   "12": {
     "name": "Sweet Corn",
+    "official_name": "Sweet Corn",
     "color": [
       221,
       164,
@@ -25,6 +28,7 @@
   },
   "21": {
     "name": "Barley",
+    "official_name": "Barley",
     "color": [
       225,
       0,
@@ -32,7 +36,8 @@
     ]
   },
   "23": {
-    "name": "Spring Wheat",
+    "name": "Wheat (spring)",
+    "official_name": "Spring Wheat",
     "color": [
       215,
       181,
@@ -40,7 +45,8 @@
     ]
   },
   "24": {
-    "name": "Winter Wheat",
+    "name": "Wheat (winter)",
+    "official_name": "Winter Wheat",
     "color": [
       164,
       111,
@@ -49,6 +55,7 @@
   },
   "28": {
     "name": "Oats",
+    "official_name": "Oats",
     "color": [
       159,
       88,
@@ -57,6 +64,7 @@
   },
   "36": {
     "name": "Alfalfa",
+    "official_name": "Alfalfa",
     "color": [
       255,
       164,
@@ -64,7 +72,8 @@
     ]
   },
   "37": {
-    "name": "Other Hay/Non Alfalfa",
+    "name": "Hay (non-alfalfa)",
+    "official_name": "Other Hay/Non Alfalfa",
     "color": [
       164,
       241,
@@ -72,7 +81,8 @@
     ]
   },
   "41": {
-    "name": "Sugarbeets",
+    "name": "Sugar Beets",
+    "official_name": "Sugarbeets",
     "color": [
       168,
       0,
@@ -80,7 +90,8 @@
     ]
   },
   "42": {
-    "name": "Dry Beans",
+    "name": "Beans",
+    "official_name": "Dry Beans",
     "color": [
       164,
       0,
@@ -89,6 +100,7 @@
   },
   "43": {
     "name": "Potatoes",
+    "official_name": "Potatoes",
     "color": [
       111,
       37,
@@ -97,6 +109,7 @@
   },
   "53": {
     "name": "Peas",
+    "official_name": "Peas",
     "color": [
       83,
       255,
@@ -104,7 +117,8 @@
     ]
   },
   "61": {
-    "name": "Fallow/Idle Cropland",
+    "name": "Unplanted Field (resting)",
+    "official_name": "Fallow/Idle Cropland",
     "color": [
       190,
       190,
@@ -112,7 +126,8 @@
     ]
   },
   "111": {
-    "name": "Open Water",
+    "name": "Water",
+    "official_name": "Open Water",
     "color": [
       74,
       111,
@@ -120,7 +135,8 @@
     ]
   },
   "121": {
-    "name": "Developed/Open Space",
+    "name": "Roads / Yards",
+    "official_name": "Developed/Open Space",
     "color": [
       154,
       154,
@@ -128,7 +144,8 @@
     ]
   },
   "122": {
-    "name": "Developed/Low Intensity",
+    "name": "Houses (scattered)",
+    "official_name": "Developed/Low Intensity",
     "color": [
       154,
       154,
@@ -136,7 +153,8 @@
     ]
   },
   "123": {
-    "name": "Developed/Med Intensity",
+    "name": "Houses / Buildings",
+    "official_name": "Developed/Med Intensity",
     "color": [
       154,
       154,
@@ -144,7 +162,8 @@
     ]
   },
   "152": {
-    "name": "Shrubland",
+    "name": "Shrubs / Brush",
+    "official_name": "Shrubland",
     "color": [
       197,
       213,
@@ -152,7 +171,8 @@
     ]
   },
   "176": {
-    "name": "Grassland/Pasture",
+    "name": "Pasture / Grazing Land",
+    "official_name": "Grassland/Pasture",
     "color": [
       232,
       255,
@@ -160,7 +180,8 @@
     ]
   },
   "190": {
-    "name": "Woody Wetlands",
+    "name": "Wetland (trees)",
+    "official_name": "Woody Wetlands",
     "color": [
       125,
       176,
@@ -168,7 +189,8 @@
     ]
   },
   "195": {
-    "name": "Herbaceous Wetlands",
+    "name": "Wetland (marsh)",
+    "official_name": "Herbaceous Wetlands",
     "color": [
       125,
       176,
@@ -176,7 +198,8 @@
     ]
   },
   "205": {
-    "name": "Triticale",
+    "name": "Triticale (wheat-rye grain)",
+    "official_name": "Triticale",
     "color": [
       213,
       158,
@@ -184,7 +207,8 @@
     ]
   },
   "25": {
-    "name": "Other Small Grains",
+    "name": "Other Grains",
+    "official_name": "Other Small Grains",
     "color": [
       213,
       158,
@@ -193,6 +217,7 @@
   },
   "44": {
     "name": "Other Crops",
+    "official_name": "Other Crops",
     "color": [
       0,
       174,
@@ -201,6 +226,7 @@
   },
   "4": {
     "name": "Sorghum",
+    "official_name": "Sorghum",
     "color": [
       255,
       158,
@@ -208,7 +234,8 @@
     ]
   },
   "59": {
-    "name": "Sod/Grass Seed",
+    "name": "Lawn Sod / Grass Seed",
+    "official_name": "Sod/Grass Seed",
     "color": [
       174,
       255,
@@ -217,6 +244,7 @@
   },
   "63": {
     "name": "Forest",
+    "official_name": "Forest",
     "color": [
       146,
       204,
@@ -224,7 +252,8 @@
     ]
   },
   "112": {
-    "name": "Perennial Ice/Snow",
+    "name": "Ice / Snow",
+    "official_name": "Perennial Ice/Snow",
     "color": [
       210,
       225,
@@ -232,31 +261,17 @@
     ]
   },
   "131": {
-    "name": "Barren",
+    "name": "Bare Ground",
+    "official_name": "Barren",
     "color": [
       204,
       190,
       162
     ]
   },
-  "31": {
-    "name": "Canola",
-    "color": [
-      209,
-      255,
-      0
-    ]
-  },
-  "49": {
-    "name": "Onions",
-    "color": [
-      255,
-      204,
-      102
-    ]
-  },
   "57": {
     "name": "Herbs",
+    "official_name": "Herbs",
     "color": [
       125,
       210,
@@ -265,6 +280,7 @@
   },
   "27": {
     "name": "Rye",
+    "official_name": "Rye",
     "color": [
       172,
       0,
@@ -273,6 +289,7 @@
   },
   "67": {
     "name": "Peaches",
+    "official_name": "Peaches",
     "color": [
       255,
       142,
@@ -281,6 +298,7 @@
   },
   "70": {
     "name": "Christmas Trees",
+    "official_name": "Christmas Trees",
     "color": [
       0,
       119,
@@ -289,14 +307,25 @@
   },
   "33": {
     "name": "Safflower",
+    "official_name": "Safflower",
     "color": [
       213,
       213,
       0
     ]
   },
+  "49": {
+    "name": "Onions",
+    "official_name": "Onions",
+    "color": [
+      255,
+      204,
+      102
+    ]
+  },
   "225": {
-    "name": "Winter Wheat/Corn",
+    "name": "Wheat then Corn (double crop)",
+    "official_name": "Winter Wheat/Corn",
     "color": [
       255,
       210,
@@ -305,6 +334,7 @@
   },
   "142": {
     "name": "Evergreen Forest",
+    "official_name": "Evergreen Forest",
     "color": [
       146,
       204,
@@ -313,6 +343,7 @@
   },
   "206": {
     "name": "Carrots",
+    "official_name": "Carrots",
     "color": [
       255,
       102,
@@ -321,6 +352,7 @@
   },
   "66": {
     "name": "Cherries",
+    "official_name": "Cherries",
     "color": [
       255,
       0,
@@ -329,6 +361,7 @@
   },
   "68": {
     "name": "Apples",
+    "official_name": "Apples",
     "color": [
       185,
       0,
@@ -336,7 +369,8 @@
     ]
   },
   "237": {
-    "name": "Barley/Corn",
+    "name": "Barley then Corn (double crop)",
+    "official_name": "Barley/Corn",
     "color": [
       255,
       210,
@@ -345,6 +379,7 @@
   },
   "14": {
     "name": "Mint",
+    "official_name": "Mint",
     "color": [
       125,
       210,
@@ -352,7 +387,8 @@
     ]
   },
   "228": {
-    "name": "Triticale/Corn",
+    "name": "Triticale then Corn (double crop)",
+    "official_name": "Triticale/Corn",
     "color": [
       255,
       102,
@@ -360,7 +396,8 @@
     ]
   },
   "124": {
-    "name": "Developed/High Intensity",
+    "name": "City / Dense Buildings",
+    "official_name": "Developed/High Intensity",
     "color": [
       154,
       154,

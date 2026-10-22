@@ -58,10 +58,10 @@ async function init() {
 async function buildLegend() {
   const legend = await fetch('/data/cdl_legend.json').then((r) => r.json());
   const entries = Object.entries(legend).sort((a, b) => a[1].name.localeCompare(b[1].name));
-  legendEl.innerHTML = '<h3>Crops in this area</h3>' + entries
+  legendEl.innerHTML = '<h3>What\'s growing here</h3>' + entries
     .map(([code, info]) => {
       const [r, g, b] = info.color;
-      return `<div class="legend-row"><span class="swatch" style="background: rgb(${r},${g},${b})"></span>${info.name}</div>`;
+      return `<div class="legend-row" title="USDA category: ${info.official_name}"><span class="swatch" style="background: rgb(${r},${g},${b})"></span>${info.name}</div>`;
     })
     .join('');
 }

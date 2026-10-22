@@ -34,8 +34,12 @@ export function loadCdlTexture(year) {
   const loader = new THREE.TextureLoader();
   const texture = loader.load(`/data/cdl_${year}.png`);
   texture.colorSpace = THREE.SRGBColorSpace;
-  texture.magFilter = THREE.NearestFilter;
-  texture.minFilter = THREE.NearestFilter;
-  texture.generateMipmaps = false;
+  // Linear filtering (vs. nearest) softens the raw 10 m pixel grid so field edges
+  // don't look like hard blocks up close, and mipmaps keep distant fields from
+  // shimmering/aliasing when zoomed out.
+  texture.magFilter = THREE.LinearFilter;
+  texture.minFilter = THREE.LinearMipmapLinearFilter;
+  texture.generateMipmaps = true;
+  texture.anisotropy = 8;
   return texture;
 }

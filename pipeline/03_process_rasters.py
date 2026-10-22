@@ -18,7 +18,10 @@ import rasterio
 import requests
 import yaml
 from PIL import Image
+from rasterio.features import sieve
 from rasterio.warp import Resampling, reproject, transform_bounds
+
+from cdl_layman_names import layman_name
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = ROOT / "config.yaml"
@@ -31,6 +34,8 @@ GRID_CRS = "EPSG:32611"  # UTM zone 11N: local to the study area, unlike EPSG:50
                           # this longitude and rotates the bbox enough to lose ~28% of
                           # the source data at the shared grid's corners
 GRID_RESOLUTION_M = 10  # matches the DEM's native ~10 m resolution
+SIEVE_MIN_PIXELS = 9  # one native 30 m CDL cell = 3x3 pixels at our 10 m grid; smaller
+                       # specks are resampling/classification noise, not real fields
 
 CDL_LEGEND_ITEM = (
     "https://planetarycomputer.microsoft.com/api/stac/v1/collections/usda-cdl/items/"
@@ -120,12 +125,20 @@ def process_cdl_years(cfg, transform, width, height, palette):
             continue
 
         arr = reproject_to_grid(src_path, transform, width, height, Resampling.nearest, np.uint8)
+        arr = sieve(arr, size=SIEVE_MIN_PIXELS, connectivity=8)
         rgb = np.zeros((height, width, 3), dtype=np.uint8)
         codes_present = np.unique(arr)
         for code in codes_present:
-            entry = palette.get(int(code), {"name": f"Unknown ({int(code)})", "color": (0, 0, 0)})
+            entry = palette.get(int(code), {"name": "Unknown", "color": (0, 0, 0)})
             rgb[arr == code] = entry["color"]
-            legend.setdefault(str(int(code)), {"name": entry["name"], "color": list(entry["color"])})
+            legend.setdefault(
+                str(int(code)),
+                {
+                    "name": layman_name(entry["name"]),
+                    "official_name": entry["name"],
+                    "color": list(entry["color"]),
+                },
+            )
 
         Image.fromarray(rgb, mode="RGB").save(PROCESSED_DIR / f"cdl_{year}.png")
         print(f"cdl_{year}.png saved ({len(codes_present)} crop codes present)")
