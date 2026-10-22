@@ -16,7 +16,8 @@ pip install -r requirements.txt
 python server/app.py
 ```
 
-Open http://localhost:5000. The year slider and scenario sliders work without any API key. The chat
+Open http://localhost:5050 (port 5000 is avoided since macOS's AirPlay Receiver often squats on it).
+The year slider and scenario sliders work without any API key. The chat
 box needs a `.env` file (copy `.env.example`) with `PORTKEY_API_KEY` set to use the in-app agent.
 
 ## Data
