@@ -30,6 +30,57 @@ export function applyExaggeration(geometry, meta, heights, exaggeration) {
   geometry.computeVertexNormals();
 }
 
+export async function loadFieldData() {
+  const [outlines, zoneBuffer, crops] = await Promise.all([
+    fetch('/data/field_outlines.json').then((r) => r.json()),
+    fetch('/data/field_zone.bin').then((r) => r.arrayBuffer()),
+    fetch('/data/field_crops.json').then((r) => r.json()),
+  ]);
+  return { outlines, zone: new Int16Array(zoneBuffer), crops };
+}
+
+function sampleHeight(meta, heights, localX, localZ, exaggeration) {
+  const totalWidth = meta.width * meta.meters_per_pixel;
+  const totalHeight = meta.height * meta.meters_per_pixel;
+  const col = Math.round((localX + totalWidth / 2) / meta.meters_per_pixel);
+  const row = Math.round((localZ + totalHeight / 2) / meta.meters_per_pixel);
+  const c = Math.min(Math.max(col, 0), meta.width - 1);
+  const r = Math.min(Math.max(row, 0), meta.height - 1);
+  return (heights[r * meta.width + c] - meta.min_elevation_m) * exaggeration;
+}
+
+// Field outlines are drawn as thin loops lifted slightly above the terrain surface
+// (sampled per-vertex so they hug the hills) so they stay visible without z-fighting.
+export function buildFieldOutlines(outlines, meta, heights, exaggeration) {
+  const group = new THREE.Group();
+  const lines = [];
+  for (const field of outlines) {
+    const points = field.ring.map(([x, z]) => {
+      const y = sampleHeight(meta, heights, x, z, exaggeration) + 1.5;
+      return new THREE.Vector3(x, y, z);
+    });
+    const geometry = new THREE.BufferGeometry().setFromPoints(points);
+    const material = new THREE.LineBasicMaterial({ color: 0x333333 });
+    const line = new THREE.LineLoop(geometry, material);
+    line.userData.fieldId = field.field_id;
+    group.add(line);
+    lines.push({ fieldId: field.field_id, acres: field.acres, line });
+  }
+  return { group, lines };
+}
+
+export function updateFieldOutlineHeights(lines, meta, heights, exaggeration) {
+  for (const { line } of lines) {
+    const pos = line.geometry.attributes.position;
+    for (let i = 0; i < pos.count; i++) {
+      const x = pos.getX(i);
+      const z = pos.getZ(i);
+      pos.setY(i, sampleHeight(meta, heights, x, z, exaggeration) + 1.5);
+    }
+    pos.needsUpdate = true;
+  }
+}
+
 export function loadCdlTexture(year) {
   const loader = new THREE.TextureLoader();
   const texture = loader.load(`/data/cdl_${year}.png`);

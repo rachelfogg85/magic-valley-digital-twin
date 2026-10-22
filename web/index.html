@@ -22,7 +22,7 @@
     font-weight: 700; border-bottom: 3px solid var(--forest);
   }
   #ui label { display: block; font-size: 13px; margin-top: 12px; color: var(--ink); }
-  #ui input[type="range"] { width: 100%; accent-color: var(--forest); }
+  #ui input[type="range"] { width: 100%; accent-color: #555555; }
   #legend { margin-top: 14px; max-height: 220px; overflow-y: auto; font-size: 12px; }
   #legend h3 {
     font-size: 12px; margin: 0 0 6px; color: var(--muted); font-weight: 700;
@@ -34,20 +34,48 @@
     margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--forest-light);
     font-size: 11px; color: var(--muted); font-style: italic;
   }
+  #location { font-size: 12px; color: var(--muted); margin: -4px 0 4px; }
+  #crop-filter { width: 100%; margin-top: 4px; font-family: inherit; font-size: 12px; padding: 4px; }
+  #compass {
+    position: absolute; bottom: 20px; right: 20px; z-index: 10;
+    width: 54px; height: 54px; border-radius: 50%; background: #ffffffdd;
+    border: 1px solid #ddd; box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  #compass-arrow { width: 100%; height: 100%; transform-origin: 50% 50%; }
+  #field-tooltip {
+    position: absolute; z-index: 20; pointer-events: none; display: none;
+    background: #ffffff; border: 1px solid #ddd; border-radius: 6px;
+    padding: 8px 10px; font-size: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    max-width: 220px;
+  }
+  #field-tooltip b { display: block; margin-bottom: 2px; }
 </style>
 </head>
 <body>
 <canvas id="scene"></canvas>
 <div id="ui">
   <h1>Magic Valley Digital Twin</h1>
+  <div id="location">Jerome, ID study area &middot; <span id="area-size"></span></div>
   <label>Year: <span id="year-label"></span>
     <input type="range" id="year-slider" min="2008" max="2021" step="1" value="2021">
   </label>
   <label>Vertical exaggeration: <span id="exag-label"></span>
     <input type="range" id="exag-slider" min="1" max="10" step="0.5" value="4">
   </label>
+  <label>Find a crop:
+    <select id="crop-filter"><option value="">All crops</option></select>
+  </label>
   <div id="legend"></div>
-  <div id="disclaimer">Decision aid, not farm advice.</div>
+  <div id="disclaimer">Decision aid, not farm advice. Click a field for details.</div>
+</div>
+<div id="field-tooltip"></div>
+<div id="compass" title="Compass (red = north)">
+  <svg id="compass-arrow" viewBox="0 0 54 54">
+    <circle cx="27" cy="27" r="25" fill="none" stroke="#ccc" stroke-width="1"/>
+    <polygon points="27,6 32,27 27,23 22,27" fill="#c0392b"/>
+    <polygon points="27,48 32,27 27,31 22,27" fill="#999"/>
+    <text x="27" y="14" font-size="8" text-anchor="middle" fill="#c0392b" font-family="Arial">N</text>
+  </svg>
 </div>
 <script type="importmap">
 {

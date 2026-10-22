@@ -2,7 +2,16 @@
 find the majority CDL crop code inside the polygon (zonal majority) and the share of
 pixels it covers, plus the field's area in acres. Saves data/processed/field_history.csv
 with columns field_id, acres, year, crop_code, crop_name, majority_share.
+
+Also exports three files the 3D viewer uses for the field outlines / click-to-inspect
+/ search-by-crop features:
+- field_outlines.json: each field's exterior ring already converted to the terrain
+  mesh's local (x, z) space, so the browser needs no geographic projection math.
+- field_zone.bin (Int16, row-major): which field index (or -1) owns each heightmap
+  pixel, for turning a raycast hit into "which field did I click".
+- field_crops.json: field_id -> year -> {crop_code, crop_name, majority_share}.
 """
+import json
 from pathlib import Path
 
 import geopandas as gpd
@@ -13,6 +22,9 @@ import requests
 import yaml
 from rasterio.features import rasterize, sieve
 from rasterio.warp import Resampling, reproject, transform_bounds
+from shapely.geometry import MultiPolygon, Polygon
+
+from cdl_layman_names import layman_name
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = ROOT / "config.yaml"
@@ -60,6 +72,22 @@ def reproject_cdl(src_path, transform, width, height):
     return sieve(dst, size=SIEVE_MIN_PIXELS, connectivity=8)
 
 
+def to_local_xz(easting, northing, gw, gn, total_width_m, total_height_m):
+    """Convert a grid-CRS point to the terrain mesh's local (x, z) space -- see
+    web/terrain.js for why row 0 / the north edge maps to z = -height/2."""
+    x = easting - gw - total_width_m / 2
+    z = (gn - northing) - total_height_m / 2
+    return x, z
+
+
+def largest_polygon(geom):
+    if isinstance(geom, Polygon):
+        return geom
+    if isinstance(geom, MultiPolygon):
+        return max(geom.geoms, key=lambda g: g.area)
+    raise ValueError(f"Unexpected geometry type: {geom.geom_type}")
+
+
 def fetch_cdl_names():
     resp = requests.get(CDL_LEGEND_ITEM, timeout=30)
     resp.raise_for_status()
@@ -85,6 +113,7 @@ def main():
 
     names = fetch_cdl_names()
     rows = []
+    crops_by_field = {fid: {} for fid in fields["field_id"]}
     for year in range(cfg["years"]["start"], cfg["years"]["end"] + 1):
         src_path = RAW_CDL_DIR / f"cdl_{year}.tif"
         if not src_path.exists():
@@ -100,22 +129,46 @@ def main():
             top = np.argmax(counts)
             crop_code = int(vals[top])
             majority_share = counts[top] / field_pixels.size
-            rows.append(
-                {
-                    "field_id": field["field_id"],
-                    "acres": round(field["acres"], 1),
-                    "year": year,
-                    "crop_code": crop_code,
-                    "crop_name": names.get(crop_code, "Unknown"),
-                    "majority_share": round(float(majority_share), 3),
-                }
-            )
+            entry = {
+                "field_id": field["field_id"],
+                "acres": round(field["acres"], 1),
+                "year": year,
+                "crop_code": crop_code,
+                "crop_name": layman_name(names.get(crop_code, "Unknown")),
+                "majority_share": round(float(majority_share), 3),
+            }
+            rows.append(entry)
+            crops_by_field[field["field_id"]][str(year)] = {
+                "crop_code": crop_code,
+                "crop_name": entry["crop_name"],
+                "majority_share": entry["majority_share"],
+            }
         print(f"{year}: done")
 
     df = pd.DataFrame(rows)
     out_path = PROCESSED_DIR / "field_history.csv"
     df.to_csv(out_path, index=False)
     print(f"Saved {len(df)} rows ({fields.shape[0]} fields x up to {cfg['years']['end'] - cfg['years']['start'] + 1} years) to {out_path.relative_to(ROOT)}")
+
+    (PROCESSED_DIR / "field_crops.json").write_text(json.dumps(crops_by_field))
+    print("Saved field_crops.json")
+
+    gw, gn = transform.c, transform.f
+    total_width_m = width * GRID_RESOLUTION_M
+    total_height_m = height * GRID_RESOLUTION_M
+    outlines = []
+    for _, field in fields.iterrows():
+        poly = largest_polygon(field.geometry)
+        ring = [
+            to_local_xz(e, n, gw, gn, total_width_m, total_height_m)
+            for e, n in poly.exterior.coords
+        ]
+        outlines.append({"field_id": field["field_id"], "acres": round(field["acres"], 1), "ring": ring})
+    (PROCESSED_DIR / "field_outlines.json").write_text(json.dumps(outlines))
+    print(f"Saved field_outlines.json ({len(outlines)} fields)")
+
+    (PROCESSED_DIR / "field_zone.bin").write_bytes(zone_raster.astype(np.int16).tobytes(order="C"))
+    print("Saved field_zone.bin")
 
 
 if __name__ == "__main__":

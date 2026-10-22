@@ -1,12 +1,12 @@
 field_id,acres,year,crop_code,crop_name,majority_share
 F01,615.9,2008,1,Corn,0.55
 F02,338.3,2008,36,Alfalfa,0.559
-F03,292.0,2008,23,Spring Wheat,0.383
+F03,292.0,2008,23,Wheat (spring),0.383
 F04,273.6,2008,1,Corn,0.755
 F05,273.5,2008,36,Alfalfa,0.613
-F06,234.8,2008,24,Winter Wheat,0.965
+F06,234.8,2008,24,Wheat (winter),0.965
 F07,228.8,2008,1,Corn,0.773
-F08,216.8,2008,24,Winter Wheat,0.771
+F08,216.8,2008,24,Wheat (winter),0.771
 F09,212.3,2008,1,Corn,0.671
 F10,182.0,2008,1,Corn,0.753
 F11,139.2,2008,1,Corn,0.816
@@ -15,10 +15,10 @@ F13,111.0,2008,12,Sweet Corn,0.766
 F14,101.0,2008,1,Corn,0.51
 F15,94.5,2008,36,Alfalfa,0.957
 F16,93.4,2008,1,Corn,0.879
-F17,91.4,2008,24,Winter Wheat,0.914
-F18,83.9,2008,24,Winter Wheat,0.645
+F17,91.4,2008,24,Wheat (winter),0.914
+F18,83.9,2008,24,Wheat (winter),0.645
 F19,66.7,2008,1,Corn,0.973
-F20,61.2,2008,23,Spring Wheat,0.855
+F20,61.2,2008,23,Wheat (spring),0.855
 F21,60.2,2008,36,Alfalfa,0.507
 F22,47.3,2008,36,Alfalfa,0.746
 F23,47.1,2008,1,Corn,0.939
@@ -26,78 +26,78 @@ F24,47.0,2008,1,Corn,0.797
 F25,43.7,2008,1,Corn,0.443
 F26,41.9,2008,36,Alfalfa,0.866
 F27,39.4,2008,1,Corn,0.921
-F28,38.4,2008,24,Winter Wheat,0.713
-F29,31.3,2008,176,Grassland/Pasture,0.49
-F30,30.0,2008,24,Winter Wheat,0.601
+F28,38.4,2008,24,Wheat (winter),0.713
+F29,31.3,2008,176,Pasture / Grazing Land,0.49
+F30,30.0,2008,24,Wheat (winter),0.601
 F31,29.2,2008,36,Alfalfa,0.87
 F32,28.7,2008,12,Sweet Corn,0.821
-F33,27.6,2008,121,Developed/Open Space,0.415
-F34,27.2,2008,61,Fallow/Idle Cropland,0.657
+F33,27.6,2008,121,Roads / Yards,0.415
+F34,27.2,2008,61,Unplanted Field (resting),0.657
 F35,23.1,2008,36,Alfalfa,0.249
 F36,22.9,2008,12,Sweet Corn,0.764
-F37,21.6,2008,61,Fallow/Idle Cropland,0.416
+F37,21.6,2008,61,Unplanted Field (resting),0.416
 F38,19.9,2008,1,Corn,0.51
-F39,19.6,2008,176,Grassland/Pasture,0.552
+F39,19.6,2008,176,Pasture / Grazing Land,0.552
 F40,18.1,2008,1,Corn,0.571
-F41,17.9,2008,176,Grassland/Pasture,0.483
+F41,17.9,2008,176,Pasture / Grazing Land,0.483
 F42,17.7,2008,36,Alfalfa,0.832
 F43,15.8,2008,1,Corn,1.0
 F44,15.6,2008,1,Corn,0.502
 F45,15.3,2008,36,Alfalfa,1.0
-F46,14.7,2008,176,Grassland/Pasture,0.422
-F47,14.3,2008,61,Fallow/Idle Cropland,0.718
+F46,14.7,2008,176,Pasture / Grazing Land,0.422
+F47,14.3,2008,61,Unplanted Field (resting),0.718
 F48,13.5,2008,1,Corn,0.945
-F49,12.9,2008,61,Fallow/Idle Cropland,0.739
-F50,12.8,2008,176,Grassland/Pasture,0.553
-F51,12.5,2008,61,Fallow/Idle Cropland,0.496
-F52,11.0,2008,61,Fallow/Idle Cropland,0.615
-F53,10.8,2008,152,Shrubland,0.308
-F54,10.8,2008,61,Fallow/Idle Cropland,0.509
+F49,12.9,2008,61,Unplanted Field (resting),0.739
+F50,12.8,2008,176,Pasture / Grazing Land,0.553
+F51,12.5,2008,61,Unplanted Field (resting),0.496
+F52,11.0,2008,61,Unplanted Field (resting),0.615
+F53,10.8,2008,152,Shrubs / Brush,0.308
+F54,10.8,2008,61,Unplanted Field (resting),0.509
 F55,10.7,2008,36,Alfalfa,0.444
 F56,10.6,2008,36,Alfalfa,0.935
-F57,9.7,2008,61,Fallow/Idle Cropland,0.316
+F57,9.7,2008,61,Unplanted Field (resting),0.316
 F58,9.1,2008,36,Alfalfa,0.954
 F59,9.1,2008,36,Alfalfa,1.0
 F60,9.1,2008,36,Alfalfa,0.312
 F61,8.9,2008,36,Alfalfa,0.682
-F62,8.7,2008,61,Fallow/Idle Cropland,0.337
-F63,8.4,2008,24,Winter Wheat,1.0
+F62,8.7,2008,61,Unplanted Field (resting),0.337
+F63,8.4,2008,24,Wheat (winter),1.0
 F64,8.0,2008,1,Corn,0.495
-F65,7.9,2008,176,Grassland/Pasture,0.48
-F66,7.8,2008,61,Fallow/Idle Cropland,0.4
-F67,7.6,2008,61,Fallow/Idle Cropland,0.529
-F68,7.2,2008,61,Fallow/Idle Cropland,0.498
+F65,7.9,2008,176,Pasture / Grazing Land,0.48
+F66,7.8,2008,61,Unplanted Field (resting),0.4
+F67,7.6,2008,61,Unplanted Field (resting),0.529
+F68,7.2,2008,61,Unplanted Field (resting),0.498
 F69,7.0,2008,36,Alfalfa,0.709
 F70,7.0,2008,36,Alfalfa,0.498
 F71,6.9,2008,36,Alfalfa,0.968
-F72,6.7,2008,61,Fallow/Idle Cropland,0.835
-F73,6.5,2008,176,Grassland/Pasture,0.455
+F72,6.7,2008,61,Unplanted Field (resting),0.835
+F73,6.5,2008,176,Pasture / Grazing Land,0.455
 F74,6.4,2008,36,Alfalfa,0.414
 F75,6.3,2008,36,Alfalfa,0.929
-F76,6.2,2008,61,Fallow/Idle Cropland,0.284
+F76,6.2,2008,61,Unplanted Field (resting),0.284
 F77,6.2,2008,36,Alfalfa,0.506
-F78,5.8,2008,23,Spring Wheat,0.27
-F79,5.7,2008,176,Grassland/Pasture,0.784
+F78,5.8,2008,23,Wheat (spring),0.27
+F79,5.7,2008,176,Pasture / Grazing Land,0.784
 F80,5.6,2008,12,Sweet Corn,0.317
-F81,5.5,2008,61,Fallow/Idle Cropland,0.434
+F81,5.5,2008,61,Unplanted Field (resting),0.434
 F82,5.5,2008,36,Alfalfa,0.598
 F83,5.5,2008,1,Corn,0.435
-F84,5.4,2008,61,Fallow/Idle Cropland,0.667
-F85,5.2,2008,61,Fallow/Idle Cropland,0.429
-F86,5.2,2008,176,Grassland/Pasture,0.476
-F87,5.1,2008,176,Grassland/Pasture,0.43
-F88,4.9,2008,176,Grassland/Pasture,0.374
+F84,5.4,2008,61,Unplanted Field (resting),0.667
+F85,5.2,2008,61,Unplanted Field (resting),0.429
+F86,5.2,2008,176,Pasture / Grazing Land,0.476
+F87,5.1,2008,176,Pasture / Grazing Land,0.43
+F88,4.9,2008,176,Pasture / Grazing Land,0.374
 F89,4.6,2008,36,Alfalfa,0.718
 F90,4.5,2008,1,Corn,0.401
 F91,4.2,2008,1,Corn,1.0
-F92,4.0,2008,61,Fallow/Idle Cropland,0.556
+F92,4.0,2008,61,Unplanted Field (resting),0.556
 F93,3.6,2008,36,Alfalfa,0.821
-F94,3.6,2008,152,Shrubland,0.694
+F94,3.6,2008,152,Shrubs / Brush,0.694
 F95,3.6,2008,36,Alfalfa,0.938
 F96,3.5,2008,1,Corn,0.692
 F97,3.4,2008,36,Alfalfa,0.772
-F98,3.3,2008,61,Fallow/Idle Cropland,0.933
-F99,3.3,2008,176,Grassland/Pasture,0.459
+F98,3.3,2008,61,Unplanted Field (resting),0.933
+F99,3.3,2008,176,Pasture / Grazing Land,0.459
 F100,3.3,2008,36,Alfalfa,0.615
 F101,3.2,2008,53,Peas,0.488
 F102,3.1,2008,36,Alfalfa,0.413
@@ -109,7 +109,7 @@ F05,273.5,2009,36,Alfalfa,0.576
 F06,234.8,2009,1,Corn,0.964
 F07,228.8,2009,1,Corn,0.972
 F08,216.8,2009,12,Sweet Corn,0.672
-F09,212.3,2009,42,Dry Beans,0.445
+F09,212.3,2009,42,Beans,0.445
 F10,182.0,2009,1,Corn,0.978
 F11,139.2,2009,1,Corn,0.842
 F12,130.6,2009,1,Corn,0.98
@@ -129,93 +129,93 @@ F25,43.7,2009,1,Corn,0.478
 F26,41.9,2009,36,Alfalfa,0.616
 F27,39.4,2009,1,Corn,0.928
 F28,38.4,2009,36,Alfalfa,0.891
-F29,31.3,2009,176,Grassland/Pasture,0.67
+F29,31.3,2009,176,Pasture / Grazing Land,0.67
 F30,30.0,2009,36,Alfalfa,1.0
 F31,29.2,2009,36,Alfalfa,0.786
 F32,28.7,2009,1,Corn,0.968
-F33,27.6,2009,121,Developed/Open Space,0.37
-F34,27.2,2009,61,Fallow/Idle Cropland,0.909
+F33,27.6,2009,121,Roads / Yards,0.37
+F34,27.2,2009,61,Unplanted Field (resting),0.909
 F35,23.1,2009,36,Alfalfa,0.713
 F36,22.9,2009,1,Corn,1.0
-F37,21.6,2009,176,Grassland/Pasture,0.651
+F37,21.6,2009,176,Pasture / Grazing Land,0.651
 F38,19.9,2009,1,Corn,0.737
-F39,19.6,2009,176,Grassland/Pasture,0.491
+F39,19.6,2009,176,Pasture / Grazing Land,0.491
 F40,18.1,2009,1,Corn,0.988
-F41,17.9,2009,176,Grassland/Pasture,0.345
+F41,17.9,2009,176,Pasture / Grazing Land,0.345
 F42,17.7,2009,1,Corn,0.772
 F43,15.8,2009,1,Corn,1.0
 F44,15.6,2009,1,Corn,0.9
 F45,15.3,2009,36,Alfalfa,0.987
-F46,14.7,2009,176,Grassland/Pasture,0.374
-F47,14.3,2009,176,Grassland/Pasture,0.578
-F48,13.5,2009,23,Spring Wheat,0.564
-F49,12.9,2009,176,Grassland/Pasture,0.552
-F50,12.8,2009,176,Grassland/Pasture,0.501
-F51,12.5,2009,176,Grassland/Pasture,0.506
-F52,11.0,2009,61,Fallow/Idle Cropland,0.482
-F53,10.8,2009,61,Fallow/Idle Cropland,0.438
-F54,10.8,2009,176,Grassland/Pasture,0.427
+F46,14.7,2009,176,Pasture / Grazing Land,0.374
+F47,14.3,2009,176,Pasture / Grazing Land,0.578
+F48,13.5,2009,23,Wheat (spring),0.564
+F49,12.9,2009,176,Pasture / Grazing Land,0.552
+F50,12.8,2009,176,Pasture / Grazing Land,0.501
+F51,12.5,2009,176,Pasture / Grazing Land,0.506
+F52,11.0,2009,61,Unplanted Field (resting),0.482
+F53,10.8,2009,61,Unplanted Field (resting),0.438
+F54,10.8,2009,176,Pasture / Grazing Land,0.427
 F55,10.7,2009,36,Alfalfa,0.507
 F56,10.6,2009,36,Alfalfa,1.0
-F57,9.7,2009,176,Grassland/Pasture,0.529
-F58,9.1,2009,42,Dry Beans,0.761
+F57,9.7,2009,176,Pasture / Grazing Land,0.529
+F58,9.1,2009,42,Beans,0.761
 F59,9.1,2009,36,Alfalfa,1.0
 F60,9.1,2009,1,Corn,0.378
 F61,8.9,2009,36,Alfalfa,0.5
-F62,8.7,2009,176,Grassland/Pasture,0.482
+F62,8.7,2009,176,Pasture / Grazing Land,0.482
 F63,8.4,2009,36,Alfalfa,1.0
 F64,8.0,2009,1,Corn,0.828
-F65,7.9,2009,176,Grassland/Pasture,0.658
-F66,7.8,2009,176,Grassland/Pasture,0.34
-F67,7.6,2009,176,Grassland/Pasture,0.818
-F68,7.2,2009,61,Fallow/Idle Cropland,0.746
+F65,7.9,2009,176,Pasture / Grazing Land,0.658
+F66,7.8,2009,176,Pasture / Grazing Land,0.34
+F67,7.6,2009,176,Pasture / Grazing Land,0.818
+F68,7.2,2009,61,Unplanted Field (resting),0.746
 F69,7.0,2009,36,Alfalfa,0.709
-F70,7.0,2009,61,Fallow/Idle Cropland,0.682
+F70,7.0,2009,61,Unplanted Field (resting),0.682
 F71,6.9,2009,36,Alfalfa,0.609
-F72,6.7,2009,176,Grassland/Pasture,0.63
-F73,6.5,2009,176,Grassland/Pasture,0.42
-F74,6.4,2009,176,Grassland/Pasture,0.659
+F72,6.7,2009,176,Pasture / Grazing Land,0.63
+F73,6.5,2009,176,Pasture / Grazing Land,0.42
+F74,6.4,2009,176,Pasture / Grazing Land,0.659
 F75,6.3,2009,36,Alfalfa,0.862
-F76,6.2,2009,176,Grassland/Pasture,0.396
+F76,6.2,2009,176,Pasture / Grazing Land,0.396
 F77,6.2,2009,36,Alfalfa,0.357
 F78,5.8,2009,36,Alfalfa,0.343
-F79,5.7,2009,176,Grassland/Pasture,0.628
+F79,5.7,2009,176,Pasture / Grazing Land,0.628
 F80,5.6,2009,1,Corn,0.885
-F81,5.5,2009,176,Grassland/Pasture,0.665
+F81,5.5,2009,176,Pasture / Grazing Land,0.665
 F82,5.5,2009,1,Corn,0.545
-F83,5.5,2009,176,Grassland/Pasture,0.516
-F84,5.4,2009,61,Fallow/Idle Cropland,0.753
-F85,5.2,2009,61,Fallow/Idle Cropland,0.552
-F86,5.2,2009,61,Fallow/Idle Cropland,0.524
+F83,5.5,2009,176,Pasture / Grazing Land,0.516
+F84,5.4,2009,61,Unplanted Field (resting),0.753
+F85,5.2,2009,61,Unplanted Field (resting),0.552
+F86,5.2,2009,61,Unplanted Field (resting),0.524
 F87,5.1,2009,1,Corn,0.425
 F88,4.9,2009,36,Alfalfa,0.414
 F89,4.6,2009,1,Corn,0.574
-F90,4.5,2009,176,Grassland/Pasture,0.555
-F91,4.2,2009,23,Spring Wheat,0.789
-F92,4.0,2009,61,Fallow/Idle Cropland,0.722
-F93,3.6,2009,176,Grassland/Pasture,0.497
-F94,3.6,2009,176,Grassland/Pasture,0.556
+F90,4.5,2009,176,Pasture / Grazing Land,0.555
+F91,4.2,2009,23,Wheat (spring),0.789
+F92,4.0,2009,61,Unplanted Field (resting),0.722
+F93,3.6,2009,176,Pasture / Grazing Land,0.497
+F94,3.6,2009,176,Pasture / Grazing Land,0.556
 F95,3.6,2009,36,Alfalfa,0.883
 F96,3.5,2009,1,Corn,1.0
 F97,3.4,2009,36,Alfalfa,0.507
-F98,3.3,2009,61,Fallow/Idle Cropland,1.0
-F99,3.3,2009,176,Grassland/Pasture,0.667
-F100,3.3,2009,176,Grassland/Pasture,0.459
+F98,3.3,2009,61,Unplanted Field (resting),1.0
+F99,3.3,2009,176,Pasture / Grazing Land,0.667
+F100,3.3,2009,176,Pasture / Grazing Land,0.459
 F101,3.2,2009,36,Alfalfa,0.705
-F102,3.1,2009,121,Developed/Open Space,0.452
+F102,3.1,2009,121,Roads / Yards,0.452
 F01,615.9,2010,1,Corn,0.478
 F02,338.3,2010,1,Corn,0.791
 F03,292.0,2010,43,Potatoes,0.42
 F04,273.6,2010,1,Corn,0.758
 F05,273.5,2010,1,Corn,0.494
-F06,234.8,2010,42,Dry Beans,0.942
+F06,234.8,2010,42,Beans,0.942
 F07,228.8,2010,43,Potatoes,0.567
 F08,216.8,2010,1,Corn,0.961
 F09,212.3,2010,1,Corn,0.478
 F10,182.0,2010,36,Alfalfa,0.639
 F11,139.2,2010,1,Corn,0.842
 F12,130.6,2010,1,Corn,0.955
-F13,111.0,2010,24,Winter Wheat,0.907
+F13,111.0,2010,24,Wheat (winter),0.907
 F14,101.0,2010,1,Corn,0.497
 F15,94.5,2010,36,Alfalfa,0.897
 F16,93.4,2010,1,Corn,0.885
@@ -224,189 +224,189 @@ F18,83.9,2010,1,Corn,0.73
 F19,66.7,2010,1,Corn,0.993
 F20,61.2,2010,1,Corn,0.952
 F21,60.2,2010,36,Alfalfa,0.501
-F22,47.3,2010,176,Grassland/Pasture,0.764
+F22,47.3,2010,176,Pasture / Grazing Land,0.764
 F23,47.1,2010,1,Corn,0.939
 F24,47.0,2010,1,Corn,0.522
 F25,43.7,2010,1,Corn,0.518
 F26,41.9,2010,1,Corn,0.988
 F27,39.4,2010,1,Corn,0.814
 F28,38.4,2010,36,Alfalfa,0.832
-F29,31.3,2010,176,Grassland/Pasture,0.828
+F29,31.3,2010,176,Pasture / Grazing Land,0.828
 F30,30.0,2010,36,Alfalfa,0.933
 F31,29.2,2010,36,Alfalfa,0.765
-F32,28.7,2010,41,Sugarbeets,0.96
+F32,28.7,2010,41,Sugar Beets,0.96
 F33,27.6,2010,36,Alfalfa,0.525
-F34,27.2,2010,176,Grassland/Pasture,0.692
+F34,27.2,2010,176,Pasture / Grazing Land,0.692
 F35,23.1,2010,36,Alfalfa,0.433
-F36,22.9,2010,41,Sugarbeets,0.896
-F37,21.6,2010,176,Grassland/Pasture,0.77
+F36,22.9,2010,41,Sugar Beets,0.896
+F37,21.6,2010,176,Pasture / Grazing Land,0.77
 F38,19.9,2010,36,Alfalfa,0.491
-F39,19.6,2010,176,Grassland/Pasture,0.694
+F39,19.6,2010,176,Pasture / Grazing Land,0.694
 F40,18.1,2010,36,Alfalfa,0.495
-F41,17.9,2010,176,Grassland/Pasture,0.702
+F41,17.9,2010,176,Pasture / Grazing Land,0.702
 F42,17.7,2010,1,Corn,0.712
 F43,15.8,2010,1,Corn,0.931
 F44,15.6,2010,1,Corn,0.784
 F45,15.3,2010,1,Corn,0.668
-F46,14.7,2010,176,Grassland/Pasture,0.742
-F47,14.3,2010,176,Grassland/Pasture,0.905
+F46,14.7,2010,176,Pasture / Grazing Land,0.742
+F47,14.3,2010,176,Pasture / Grazing Land,0.905
 F48,13.5,2010,1,Corn,0.705
-F49,12.9,2010,176,Grassland/Pasture,0.774
-F50,12.8,2010,176,Grassland/Pasture,0.561
-F51,12.5,2010,176,Grassland/Pasture,0.704
-F52,11.0,2010,176,Grassland/Pasture,0.714
-F53,10.8,2010,176,Grassland/Pasture,0.667
-F54,10.8,2010,176,Grassland/Pasture,0.694
-F55,10.7,2010,176,Grassland/Pasture,0.734
+F49,12.9,2010,176,Pasture / Grazing Land,0.774
+F50,12.8,2010,176,Pasture / Grazing Land,0.561
+F51,12.5,2010,176,Pasture / Grazing Land,0.704
+F52,11.0,2010,176,Pasture / Grazing Land,0.714
+F53,10.8,2010,176,Pasture / Grazing Land,0.667
+F54,10.8,2010,176,Pasture / Grazing Land,0.694
+F55,10.7,2010,176,Pasture / Grazing Land,0.734
 F56,10.6,2010,1,Corn,0.807
-F57,9.7,2010,176,Grassland/Pasture,0.819
+F57,9.7,2010,176,Pasture / Grazing Land,0.819
 F58,9.1,2010,1,Corn,0.924
 F59,9.1,2010,36,Alfalfa,0.832
-F60,9.1,2010,176,Grassland/Pasture,0.606
-F61,8.9,2010,176,Grassland/Pasture,0.925
-F62,8.7,2010,176,Grassland/Pasture,0.598
+F60,9.1,2010,176,Pasture / Grazing Land,0.606
+F61,8.9,2010,176,Pasture / Grazing Land,0.925
+F62,8.7,2010,176,Pasture / Grazing Land,0.598
 F63,8.4,2010,36,Alfalfa,0.921
 F64,8.0,2010,36,Alfalfa,0.529
-F65,7.9,2010,176,Grassland/Pasture,0.972
-F66,7.8,2010,176,Grassland/Pasture,0.714
-F67,7.6,2010,176,Grassland/Pasture,0.825
-F68,7.2,2010,176,Grassland/Pasture,0.722
+F65,7.9,2010,176,Pasture / Grazing Land,0.972
+F66,7.8,2010,176,Pasture / Grazing Land,0.714
+F67,7.6,2010,176,Pasture / Grazing Land,0.825
+F68,7.2,2010,176,Pasture / Grazing Land,0.722
 F69,7.0,2010,36,Alfalfa,0.479
-F70,7.0,2010,176,Grassland/Pasture,0.629
+F70,7.0,2010,176,Pasture / Grazing Land,0.629
 F71,6.9,2010,36,Alfalfa,0.685
-F72,6.7,2010,176,Grassland/Pasture,0.762
-F73,6.5,2010,176,Grassland/Pasture,0.799
-F74,6.4,2010,176,Grassland/Pasture,0.724
+F72,6.7,2010,176,Pasture / Grazing Land,0.762
+F73,6.5,2010,176,Pasture / Grazing Land,0.799
+F74,6.4,2010,176,Pasture / Grazing Land,0.724
 F75,6.3,2010,36,Alfalfa,0.791
-F76,6.2,2010,176,Grassland/Pasture,0.54
-F77,6.2,2010,176,Grassland/Pasture,0.614
-F78,5.8,2010,176,Grassland/Pasture,0.85
-F79,5.7,2010,176,Grassland/Pasture,0.801
-F80,5.6,2010,41,Sugarbeets,0.731
-F81,5.5,2010,176,Grassland/Pasture,0.824
-F82,5.5,2010,176,Grassland/Pasture,0.924
-F83,5.5,2010,176,Grassland/Pasture,0.601
-F84,5.4,2010,176,Grassland/Pasture,0.543
-F85,5.2,2010,176,Grassland/Pasture,0.69
-F86,5.2,2010,176,Grassland/Pasture,0.829
-F87,5.1,2010,176,Grassland/Pasture,0.444
-F88,4.9,2010,176,Grassland/Pasture,0.318
+F76,6.2,2010,176,Pasture / Grazing Land,0.54
+F77,6.2,2010,176,Pasture / Grazing Land,0.614
+F78,5.8,2010,176,Pasture / Grazing Land,0.85
+F79,5.7,2010,176,Pasture / Grazing Land,0.801
+F80,5.6,2010,41,Sugar Beets,0.731
+F81,5.5,2010,176,Pasture / Grazing Land,0.824
+F82,5.5,2010,176,Pasture / Grazing Land,0.924
+F83,5.5,2010,176,Pasture / Grazing Land,0.601
+F84,5.4,2010,176,Pasture / Grazing Land,0.543
+F85,5.2,2010,176,Pasture / Grazing Land,0.69
+F86,5.2,2010,176,Pasture / Grazing Land,0.829
+F87,5.1,2010,176,Pasture / Grazing Land,0.444
+F88,4.9,2010,176,Pasture / Grazing Land,0.318
 F89,4.6,2010,1,Corn,0.58
-F90,4.5,2010,176,Grassland/Pasture,0.456
+F90,4.5,2010,176,Pasture / Grazing Land,0.456
 F91,4.2,2010,1,Corn,0.532
-F92,4.0,2010,176,Grassland/Pasture,0.611
+F92,4.0,2010,176,Pasture / Grazing Land,0.611
 F93,3.6,2010,1,Corn,0.386
-F94,3.6,2010,152,Shrubland,0.556
+F94,3.6,2010,152,Shrubs / Brush,0.556
 F95,3.6,2010,36,Alfalfa,0.931
 F96,3.5,2010,36,Alfalfa,0.552
-F97,3.4,2010,176,Grassland/Pasture,0.801
-F98,3.3,2010,176,Grassland/Pasture,0.858
-F99,3.3,2010,176,Grassland/Pasture,0.741
-F100,3.3,2010,176,Grassland/Pasture,0.667
+F97,3.4,2010,176,Pasture / Grazing Land,0.801
+F98,3.3,2010,176,Pasture / Grazing Land,0.858
+F99,3.3,2010,176,Pasture / Grazing Land,0.741
+F100,3.3,2010,176,Pasture / Grazing Land,0.667
 F101,3.2,2010,1,Corn,0.713
-F102,3.1,2010,176,Grassland/Pasture,0.627
+F102,3.1,2010,176,Pasture / Grazing Land,0.627
 F01,615.9,2011,36,Alfalfa,0.324
 F02,338.3,2011,1,Corn,0.753
-F03,292.0,2011,24,Winter Wheat,0.454
+F03,292.0,2011,24,Wheat (winter),0.454
 F04,273.6,2011,1,Corn,0.618
 F05,273.5,2011,1,Corn,0.449
-F06,234.8,2011,24,Winter Wheat,0.953
+F06,234.8,2011,24,Wheat (winter),0.953
 F07,228.8,2011,1,Corn,0.805
 F08,216.8,2011,1,Corn,0.947
 F09,212.3,2011,1,Corn,0.976
 F10,182.0,2011,43,Potatoes,0.935
 F11,139.2,2011,1,Corn,0.84
-F12,130.6,2011,23,Spring Wheat,0.428
-F13,111.0,2011,41,Sugarbeets,0.903
+F12,130.6,2011,23,Wheat (spring),0.428
+F13,111.0,2011,41,Sugar Beets,0.903
 F14,101.0,2011,43,Potatoes,0.497
 F15,94.5,2011,1,Corn,0.939
 F16,93.4,2011,1,Corn,0.884
-F17,91.4,2011,24,Winter Wheat,0.885
+F17,91.4,2011,24,Wheat (winter),0.885
 F18,83.9,2011,1,Corn,0.757
 F19,66.7,2011,43,Potatoes,0.943
 F20,61.2,2011,43,Potatoes,0.912
 F21,60.2,2011,36,Alfalfa,0.484
-F22,47.3,2011,176,Grassland/Pasture,0.895
+F22,47.3,2011,176,Pasture / Grazing Land,0.895
 F23,47.1,2011,43,Potatoes,0.849
 F24,47.0,2011,1,Corn,0.518
 F25,43.7,2011,36,Alfalfa,0.599
-F26,41.9,2011,41,Sugarbeets,0.919
+F26,41.9,2011,41,Sugar Beets,0.919
 F27,39.4,2011,1,Corn,0.905
 F28,38.4,2011,36,Alfalfa,0.818
-F29,31.3,2011,152,Shrubland,0.368
-F30,30.0,2011,23,Spring Wheat,0.948
+F29,31.3,2011,152,Shrubs / Brush,0.368
+F30,30.0,2011,23,Wheat (spring),0.948
 F31,29.2,2011,36,Alfalfa,0.588
-F32,28.7,2011,24,Winter Wheat,0.975
+F32,28.7,2011,24,Wheat (winter),0.975
 F33,27.6,2011,36,Alfalfa,0.603
-F34,27.2,2011,61,Fallow/Idle Cropland,0.428
+F34,27.2,2011,61,Unplanted Field (resting),0.428
 F35,23.1,2011,36,Alfalfa,0.521
-F36,22.9,2011,24,Winter Wheat,0.99
-F37,21.6,2011,176,Grassland/Pasture,0.695
+F36,22.9,2011,24,Wheat (winter),0.99
+F37,21.6,2011,176,Pasture / Grazing Land,0.695
 F38,19.9,2011,43,Potatoes,0.641
-F39,19.6,2011,176,Grassland/Pasture,0.735
+F39,19.6,2011,176,Pasture / Grazing Land,0.735
 F40,18.1,2011,43,Potatoes,0.951
-F41,17.9,2011,176,Grassland/Pasture,0.59
+F41,17.9,2011,176,Pasture / Grazing Land,0.59
 F42,17.7,2011,1,Corn,0.797
 F43,15.8,2011,1,Corn,0.972
 F44,15.6,2011,1,Corn,0.732
-F45,15.3,2011,42,Dry Beans,0.776
-F46,14.7,2011,176,Grassland/Pasture,0.696
-F47,14.3,2011,61,Fallow/Idle Cropland,0.749
+F45,15.3,2011,42,Beans,0.776
+F46,14.7,2011,176,Pasture / Grazing Land,0.696
+F47,14.3,2011,61,Unplanted Field (resting),0.749
 F48,13.5,2011,1,Corn,0.969
-F49,12.9,2011,61,Fallow/Idle Cropland,0.621
-F50,12.8,2011,176,Grassland/Pasture,0.412
-F51,12.5,2011,61,Fallow/Idle Cropland,0.733
-F52,11.0,2011,61,Fallow/Idle Cropland,0.755
-F53,10.8,2011,176,Grassland/Pasture,0.4
-F54,10.8,2011,152,Shrubland,0.603
-F55,10.7,2011,176,Grassland/Pasture,0.625
+F49,12.9,2011,61,Unplanted Field (resting),0.621
+F50,12.8,2011,176,Pasture / Grazing Land,0.412
+F51,12.5,2011,61,Unplanted Field (resting),0.733
+F52,11.0,2011,61,Unplanted Field (resting),0.755
+F53,10.8,2011,176,Pasture / Grazing Land,0.4
+F54,10.8,2011,152,Shrubs / Brush,0.603
+F55,10.7,2011,176,Pasture / Grazing Land,0.625
 F56,10.6,2011,1,Corn,0.812
-F57,9.7,2011,176,Grassland/Pasture,0.59
-F58,9.1,2011,176,Grassland/Pasture,0.731
-F59,9.1,2011,41,Sugarbeets,1.0
-F60,9.1,2011,176,Grassland/Pasture,0.777
-F61,8.9,2011,176,Grassland/Pasture,0.851
-F62,8.7,2011,176,Grassland/Pasture,0.773
+F57,9.7,2011,176,Pasture / Grazing Land,0.59
+F58,9.1,2011,176,Pasture / Grazing Land,0.731
+F59,9.1,2011,41,Sugar Beets,1.0
+F60,9.1,2011,176,Pasture / Grazing Land,0.777
+F61,8.9,2011,176,Pasture / Grazing Land,0.851
+F62,8.7,2011,176,Pasture / Grazing Land,0.773
 F63,8.4,2011,36,Alfalfa,1.0
 F64,8.0,2011,43,Potatoes,0.828
-F65,7.9,2011,61,Fallow/Idle Cropland,0.464
-F66,7.8,2011,176,Grassland/Pasture,0.6
-F67,7.6,2011,176,Grassland/Pasture,0.503
-F68,7.2,2011,61,Fallow/Idle Cropland,0.364
+F65,7.9,2011,61,Unplanted Field (resting),0.464
+F66,7.8,2011,176,Pasture / Grazing Land,0.6
+F67,7.6,2011,176,Pasture / Grazing Land,0.503
+F68,7.2,2011,61,Unplanted Field (resting),0.364
 F69,7.0,2011,36,Alfalfa,0.61
-F70,7.0,2011,176,Grassland/Pasture,0.724
-F71,6.9,2011,176,Grassland/Pasture,0.616
-F72,6.7,2011,152,Shrubland,0.44
-F73,6.5,2011,176,Grassland/Pasture,0.591
-F74,6.4,2011,176,Grassland/Pasture,1.0
-F75,6.3,2011,41,Sugarbeets,0.822
-F76,6.2,2011,176,Grassland/Pasture,0.464
-F77,6.2,2011,176,Grassland/Pasture,0.574
-F78,5.8,2011,176,Grassland/Pasture,0.691
-F79,5.7,2011,176,Grassland/Pasture,0.602
-F80,5.6,2011,24,Winter Wheat,0.885
-F81,5.5,2011,176,Grassland/Pasture,0.792
-F82,5.5,2011,176,Grassland/Pasture,0.924
-F83,5.5,2011,176,Grassland/Pasture,0.552
+F70,7.0,2011,176,Pasture / Grazing Land,0.724
+F71,6.9,2011,176,Pasture / Grazing Land,0.616
+F72,6.7,2011,152,Shrubs / Brush,0.44
+F73,6.5,2011,176,Pasture / Grazing Land,0.591
+F74,6.4,2011,176,Pasture / Grazing Land,1.0
+F75,6.3,2011,41,Sugar Beets,0.822
+F76,6.2,2011,176,Pasture / Grazing Land,0.464
+F77,6.2,2011,176,Pasture / Grazing Land,0.574
+F78,5.8,2011,176,Pasture / Grazing Land,0.691
+F79,5.7,2011,176,Pasture / Grazing Land,0.602
+F80,5.6,2011,24,Wheat (winter),0.885
+F81,5.5,2011,176,Pasture / Grazing Land,0.792
+F82,5.5,2011,176,Pasture / Grazing Land,0.924
+F83,5.5,2011,176,Pasture / Grazing Land,0.552
 F84,5.4,2011,1,Corn,0.712
-F85,5.2,2011,61,Fallow/Idle Cropland,0.557
-F86,5.2,2011,61,Fallow/Idle Cropland,0.695
-F87,5.1,2011,152,Shrubland,0.57
-F88,4.9,2011,176,Grassland/Pasture,0.722
+F85,5.2,2011,61,Unplanted Field (resting),0.557
+F86,5.2,2011,61,Unplanted Field (resting),0.695
+F87,5.1,2011,152,Shrubs / Brush,0.57
+F88,4.9,2011,176,Pasture / Grazing Land,0.722
 F89,4.6,2011,1,Corn,0.904
-F90,4.5,2011,176,Grassland/Pasture,0.495
+F90,4.5,2011,176,Pasture / Grazing Land,0.495
 F91,4.2,2011,1,Corn,1.0
-F92,4.0,2011,152,Shrubland,0.623
-F93,3.6,2011,176,Grassland/Pasture,0.69
-F94,3.6,2011,61,Fallow/Idle Cropland,0.486
+F92,4.0,2011,152,Shrubs / Brush,0.623
+F93,3.6,2011,176,Pasture / Grazing Land,0.69
+F94,3.6,2011,61,Unplanted Field (resting),0.486
 F95,3.6,2011,36,Alfalfa,0.8
 F96,3.5,2011,43,Potatoes,0.748
-F97,3.4,2011,176,Grassland/Pasture,0.743
-F98,3.3,2011,176,Grassland/Pasture,0.455
-F99,3.3,2011,152,Shrubland,0.659
-F100,3.3,2011,61,Fallow/Idle Cropland,0.533
+F97,3.4,2011,176,Pasture / Grazing Land,0.743
+F98,3.3,2011,176,Pasture / Grazing Land,0.455
+F99,3.3,2011,152,Shrubs / Brush,0.659
+F100,3.3,2011,61,Unplanted Field (resting),0.533
 F101,3.2,2011,1,Corn,0.93
-F102,3.1,2011,121,Developed/Open Space,0.373
+F102,3.1,2011,121,Roads / Yards,0.373
 F01,615.9,2012,36,Alfalfa,0.423
 F02,338.3,2012,1,Corn,0.784
 F03,292.0,2012,36,Alfalfa,0.638
@@ -414,101 +414,101 @@ F04,273.6,2012,36,Alfalfa,0.485
 F05,273.5,2012,1,Corn,0.89
 F06,234.8,2012,36,Alfalfa,0.952
 F07,228.8,2012,1,Corn,0.912
-F08,216.8,2012,41,Sugarbeets,0.639
+F08,216.8,2012,41,Sugar Beets,0.639
 F09,212.3,2012,1,Corn,0.974
 F10,182.0,2012,1,Corn,0.551
 F11,139.2,2012,36,Alfalfa,0.661
 F12,130.6,2012,1,Corn,0.961
-F13,111.0,2012,24,Winter Wheat,0.954
-F14,101.0,2012,41,Sugarbeets,0.48
+F13,111.0,2012,24,Wheat (winter),0.954
+F14,101.0,2012,41,Sugar Beets,0.48
 F15,94.5,2012,1,Corn,0.952
 F16,93.4,2012,1,Corn,0.917
 F17,91.4,2012,36,Alfalfa,0.917
 F18,83.9,2012,1,Corn,0.797
 F19,66.7,2012,1,Corn,0.98
-F20,61.2,2012,41,Sugarbeets,0.496
+F20,61.2,2012,41,Sugar Beets,0.496
 F21,60.2,2012,36,Alfalfa,0.497
-F22,47.3,2012,176,Grassland/Pasture,0.878
+F22,47.3,2012,176,Pasture / Grazing Land,0.878
 F23,47.1,2012,1,Corn,0.954
 F24,47.0,2012,1,Corn,0.497
 F25,43.7,2012,36,Alfalfa,0.877
-F26,41.9,2012,24,Winter Wheat,1.0
+F26,41.9,2012,24,Wheat (winter),1.0
 F27,39.4,2012,1,Corn,0.831
 F28,38.4,2012,36,Alfalfa,0.891
-F29,31.3,2012,152,Shrubland,0.405
+F29,31.3,2012,152,Shrubs / Brush,0.405
 F30,30.0,2012,1,Corn,0.976
 F31,29.2,2012,36,Alfalfa,0.664
 F32,28.7,2012,12,Sweet Corn,0.929
 F33,27.6,2012,36,Alfalfa,0.513
-F34,27.2,2012,61,Fallow/Idle Cropland,0.801
-F35,23.1,2012,176,Grassland/Pasture,0.382
+F34,27.2,2012,61,Unplanted Field (resting),0.801
+F35,23.1,2012,176,Pasture / Grazing Land,0.382
 F36,22.9,2012,12,Sweet Corn,0.893
-F37,21.6,2012,176,Grassland/Pasture,0.739
+F37,21.6,2012,176,Pasture / Grazing Land,0.739
 F38,19.9,2012,1,Corn,0.435
-F39,19.6,2012,176,Grassland/Pasture,0.783
+F39,19.6,2012,176,Pasture / Grazing Land,0.783
 F40,18.1,2012,1,Corn,0.684
-F41,17.9,2012,176,Grassland/Pasture,0.392
+F41,17.9,2012,176,Pasture / Grazing Land,0.392
 F42,17.7,2012,1,Corn,0.862
 F43,15.8,2012,1,Corn,1.0
 F44,15.6,2012,1,Corn,0.683
-F45,15.3,2012,24,Winter Wheat,0.939
-F46,14.7,2012,176,Grassland/Pasture,0.703
-F47,14.3,2012,61,Fallow/Idle Cropland,0.798
+F45,15.3,2012,24,Wheat (winter),0.939
+F46,14.7,2012,176,Pasture / Grazing Land,0.703
+F47,14.3,2012,61,Unplanted Field (resting),0.798
 F48,13.5,2012,1,Corn,0.985
-F49,12.9,2012,61,Fallow/Idle Cropland,0.778
-F50,12.8,2012,176,Grassland/Pasture,0.572
-F51,12.5,2012,61,Fallow/Idle Cropland,0.838
-F52,11.0,2012,61,Fallow/Idle Cropland,0.752
-F53,10.8,2012,176,Grassland/Pasture,0.436
-F54,10.8,2012,61,Fallow/Idle Cropland,0.452
-F55,10.7,2012,176,Grassland/Pasture,0.549
+F49,12.9,2012,61,Unplanted Field (resting),0.778
+F50,12.8,2012,176,Pasture / Grazing Land,0.572
+F51,12.5,2012,61,Unplanted Field (resting),0.838
+F52,11.0,2012,61,Unplanted Field (resting),0.752
+F53,10.8,2012,176,Pasture / Grazing Land,0.436
+F54,10.8,2012,61,Unplanted Field (resting),0.452
+F55,10.7,2012,176,Pasture / Grazing Land,0.549
 F56,10.6,2012,1,Corn,0.898
-F57,9.7,2012,176,Grassland/Pasture,0.771
+F57,9.7,2012,176,Pasture / Grazing Land,0.771
 F58,9.1,2012,36,Alfalfa,0.807
-F59,9.1,2012,24,Winter Wheat,1.0
-F60,9.1,2012,176,Grassland/Pasture,0.81
-F61,8.9,2012,176,Grassland/Pasture,1.0
-F62,8.7,2012,176,Grassland/Pasture,0.841
+F59,9.1,2012,24,Wheat (winter),1.0
+F60,9.1,2012,176,Pasture / Grazing Land,0.81
+F61,8.9,2012,176,Pasture / Grazing Land,1.0
+F62,8.7,2012,176,Pasture / Grazing Land,0.841
 F63,8.4,2012,36,Alfalfa,1.0
 F64,8.0,2012,1,Corn,0.883
-F65,7.9,2012,152,Shrubland,0.608
-F66,7.8,2012,176,Grassland/Pasture,0.575
-F67,7.6,2012,176,Grassland/Pasture,0.727
-F68,7.2,2012,61,Fallow/Idle Cropland,0.784
+F65,7.9,2012,152,Shrubs / Brush,0.608
+F66,7.8,2012,176,Pasture / Grazing Land,0.575
+F67,7.6,2012,176,Pasture / Grazing Land,0.727
+F68,7.2,2012,61,Unplanted Field (resting),0.784
 F69,7.0,2012,36,Alfalfa,0.603
-F70,7.0,2012,61,Fallow/Idle Cropland,0.608
+F70,7.0,2012,61,Unplanted Field (resting),0.608
 F71,6.9,2012,36,Alfalfa,0.548
-F72,6.7,2012,61,Fallow/Idle Cropland,0.513
-F73,6.5,2012,61,Fallow/Idle Cropland,0.557
-F74,6.4,2012,176,Grassland/Pasture,0.966
-F75,6.3,2012,24,Winter Wheat,0.964
-F76,6.2,2012,176,Grassland/Pasture,0.824
-F77,6.2,2012,176,Grassland/Pasture,0.755
-F78,5.8,2012,176,Grassland/Pasture,0.605
-F79,5.7,2012,176,Grassland/Pasture,0.779
-F80,5.6,2012,42,Dry Beans,0.326
-F81,5.5,2012,176,Grassland/Pasture,0.76
-F82,5.5,2012,176,Grassland/Pasture,0.728
+F72,6.7,2012,61,Unplanted Field (resting),0.513
+F73,6.5,2012,61,Unplanted Field (resting),0.557
+F74,6.4,2012,176,Pasture / Grazing Land,0.966
+F75,6.3,2012,24,Wheat (winter),0.964
+F76,6.2,2012,176,Pasture / Grazing Land,0.824
+F77,6.2,2012,176,Pasture / Grazing Land,0.755
+F78,5.8,2012,176,Pasture / Grazing Land,0.605
+F79,5.7,2012,176,Pasture / Grazing Land,0.779
+F80,5.6,2012,42,Beans,0.326
+F81,5.5,2012,176,Pasture / Grazing Land,0.76
+F82,5.5,2012,176,Pasture / Grazing Land,0.728
 F83,5.5,2012,1,Corn,0.48
-F84,5.4,2012,61,Fallow/Idle Cropland,0.534
-F85,5.2,2012,61,Fallow/Idle Cropland,0.738
-F86,5.2,2012,61,Fallow/Idle Cropland,1.0
-F87,5.1,2012,176,Grassland/Pasture,0.609
-F88,4.9,2012,176,Grassland/Pasture,0.768
+F84,5.4,2012,61,Unplanted Field (resting),0.534
+F85,5.2,2012,61,Unplanted Field (resting),0.738
+F86,5.2,2012,61,Unplanted Field (resting),1.0
+F87,5.1,2012,176,Pasture / Grazing Land,0.609
+F88,4.9,2012,176,Pasture / Grazing Land,0.768
 F89,4.6,2012,1,Corn,0.851
-F90,4.5,2012,176,Grassland/Pasture,0.516
+F90,4.5,2012,176,Pasture / Grazing Land,0.516
 F91,4.2,2012,1,Corn,1.0
-F92,4.0,2012,152,Shrubland,0.778
-F93,3.6,2012,176,Grassland/Pasture,0.814
-F94,3.6,2012,176,Grassland/Pasture,0.556
-F95,3.6,2012,176,Grassland/Pasture,0.628
-F96,3.5,2012,24,Winter Wheat,0.427
-F97,3.4,2012,176,Grassland/Pasture,0.404
-F98,3.3,2012,61,Fallow/Idle Cropland,0.597
-F99,3.3,2012,176,Grassland/Pasture,0.541
-F100,3.3,2012,61,Fallow/Idle Cropland,0.933
+F92,4.0,2012,152,Shrubs / Brush,0.778
+F93,3.6,2012,176,Pasture / Grazing Land,0.814
+F94,3.6,2012,176,Pasture / Grazing Land,0.556
+F95,3.6,2012,176,Pasture / Grazing Land,0.628
+F96,3.5,2012,24,Wheat (winter),0.427
+F97,3.4,2012,176,Pasture / Grazing Land,0.404
+F98,3.3,2012,61,Unplanted Field (resting),0.597
+F99,3.3,2012,176,Pasture / Grazing Land,0.541
+F100,3.3,2012,61,Unplanted Field (resting),0.933
 F101,3.2,2012,1,Corn,0.636
-F102,3.1,2012,176,Grassland/Pasture,0.627
+F102,3.1,2012,176,Pasture / Grazing Land,0.627
 F01,615.9,2013,1,Corn,0.56
 F02,338.3,2013,1,Corn,0.651
 F03,292.0,2013,36,Alfalfa,0.694
@@ -517,8 +517,8 @@ F05,273.5,2013,1,Corn,0.929
 F06,234.8,2013,36,Alfalfa,0.954
 F07,228.8,2013,1,Corn,0.946
 F08,216.8,2013,1,Corn,0.95
-F09,212.3,2013,24,Winter Wheat,0.981
-F10,182.0,2013,42,Dry Beans,0.49
+F09,212.3,2013,24,Wheat (winter),0.981
+F10,182.0,2013,42,Beans,0.49
 F11,139.2,2013,36,Alfalfa,0.94
 F12,130.6,2013,12,Sweet Corn,0.907
 F13,111.0,2013,1,Corn,0.925
@@ -528,89 +528,89 @@ F16,93.4,2013,1,Corn,0.898
 F17,91.4,2013,36,Alfalfa,0.935
 F18,83.9,2013,1,Corn,0.846
 F19,66.7,2013,1,Corn,0.993
-F20,61.2,2013,24,Winter Wheat,0.96
+F20,61.2,2013,24,Wheat (winter),0.96
 F21,60.2,2013,36,Alfalfa,0.501
-F22,47.3,2013,176,Grassland/Pasture,0.962
+F22,47.3,2013,176,Pasture / Grazing Land,0.962
 F23,47.1,2013,1,Corn,0.916
 F24,47.0,2013,1,Corn,0.506
 F25,43.7,2013,36,Alfalfa,0.845
 F26,41.9,2013,1,Corn,0.85
 F27,39.4,2013,1,Corn,0.887
 F28,38.4,2013,36,Alfalfa,0.839
-F29,31.3,2013,176,Grassland/Pasture,0.606
+F29,31.3,2013,176,Pasture / Grazing Land,0.606
 F30,30.0,2013,1,Corn,0.985
 F31,29.2,2013,1,Corn,0.578
-F32,28.7,2013,24,Winter Wheat,0.967
+F32,28.7,2013,24,Wheat (winter),0.967
 F33,27.6,2013,36,Alfalfa,0.457
-F34,27.2,2013,61,Fallow/Idle Cropland,0.883
+F34,27.2,2013,61,Unplanted Field (resting),0.883
 F35,23.1,2013,36,Alfalfa,0.404
-F36,22.9,2013,24,Winter Wheat,0.971
-F37,21.6,2013,176,Grassland/Pasture,0.907
-F38,19.9,2013,42,Dry Beans,0.537
-F39,19.6,2013,176,Grassland/Pasture,0.842
-F40,18.1,2013,42,Dry Beans,0.899
-F41,17.9,2013,176,Grassland/Pasture,0.642
+F36,22.9,2013,24,Wheat (winter),0.971
+F37,21.6,2013,176,Pasture / Grazing Land,0.907
+F38,19.9,2013,42,Beans,0.537
+F39,19.6,2013,176,Pasture / Grazing Land,0.842
+F40,18.1,2013,42,Beans,0.899
+F41,17.9,2013,176,Pasture / Grazing Land,0.642
 F42,17.7,2013,1,Corn,0.434
 F43,15.8,2013,1,Corn,0.944
 F44,15.6,2013,1,Corn,0.805
-F45,15.3,2013,42,Dry Beans,0.966
-F46,14.7,2013,176,Grassland/Pasture,0.761
-F47,14.3,2013,61,Fallow/Idle Cropland,0.789
+F45,15.3,2013,42,Beans,0.966
+F46,14.7,2013,176,Pasture / Grazing Land,0.761
+F47,14.3,2013,61,Unplanted Field (resting),0.789
 F48,13.5,2013,1,Corn,0.985
-F49,12.9,2013,61,Fallow/Idle Cropland,0.741
-F50,12.8,2013,176,Grassland/Pasture,0.85
-F51,12.5,2013,61,Fallow/Idle Cropland,0.7
-F52,11.0,2013,61,Fallow/Idle Cropland,0.791
-F53,10.8,2013,176,Grassland/Pasture,0.683
-F54,10.8,2013,176,Grassland/Pasture,0.918
-F55,10.7,2013,176,Grassland/Pasture,0.775
+F49,12.9,2013,61,Unplanted Field (resting),0.741
+F50,12.8,2013,176,Pasture / Grazing Land,0.85
+F51,12.5,2013,61,Unplanted Field (resting),0.7
+F52,11.0,2013,61,Unplanted Field (resting),0.791
+F53,10.8,2013,176,Pasture / Grazing Land,0.683
+F54,10.8,2013,176,Pasture / Grazing Land,0.918
+F55,10.7,2013,176,Pasture / Grazing Land,0.775
 F56,10.6,2013,1,Corn,0.835
-F57,9.7,2013,176,Grassland/Pasture,0.659
-F58,9.1,2013,176,Grassland/Pasture,0.905
+F57,9.7,2013,176,Pasture / Grazing Land,0.659
+F58,9.1,2013,176,Pasture / Grazing Land,0.905
 F59,9.1,2013,21,Barley,0.951
-F60,9.1,2013,61,Fallow/Idle Cropland,0.467
-F61,8.9,2013,176,Grassland/Pasture,0.865
-F62,8.7,2013,176,Grassland/Pasture,0.796
+F60,9.1,2013,61,Unplanted Field (resting),0.467
+F61,8.9,2013,176,Pasture / Grazing Land,0.865
+F62,8.7,2013,176,Pasture / Grazing Land,0.796
 F63,8.4,2013,36,Alfalfa,1.0
 F64,8.0,2013,1,Corn,0.495
-F65,7.9,2013,176,Grassland/Pasture,0.893
-F66,7.8,2013,176,Grassland/Pasture,0.597
-F67,7.6,2013,176,Grassland/Pasture,0.708
-F68,7.2,2013,61,Fallow/Idle Cropland,0.845
+F65,7.9,2013,176,Pasture / Grazing Land,0.893
+F66,7.8,2013,176,Pasture / Grazing Land,0.597
+F67,7.6,2013,176,Pasture / Grazing Land,0.708
+F68,7.2,2013,61,Unplanted Field (resting),0.845
 F69,7.0,2013,36,Alfalfa,0.543
-F70,7.0,2013,61,Fallow/Idle Cropland,0.537
-F71,6.9,2013,176,Grassland/Pasture,0.706
-F72,6.7,2013,176,Grassland/Pasture,0.597
-F73,6.5,2013,176,Grassland/Pasture,0.636
-F74,6.4,2013,176,Grassland/Pasture,0.866
+F70,7.0,2013,61,Unplanted Field (resting),0.537
+F71,6.9,2013,176,Pasture / Grazing Land,0.706
+F72,6.7,2013,176,Pasture / Grazing Land,0.597
+F73,6.5,2013,176,Pasture / Grazing Land,0.636
+F74,6.4,2013,176,Pasture / Grazing Land,0.866
 F75,6.3,2013,21,Barley,0.644
-F76,6.2,2013,176,Grassland/Pasture,0.568
-F77,6.2,2013,176,Grassland/Pasture,0.578
-F78,5.8,2013,176,Grassland/Pasture,0.575
-F79,5.7,2013,176,Grassland/Pasture,0.61
-F80,5.6,2013,24,Winter Wheat,0.925
-F81,5.5,2013,176,Grassland/Pasture,0.801
-F82,5.5,2013,176,Grassland/Pasture,0.884
-F83,5.5,2013,176,Grassland/Pasture,0.646
-F84,5.4,2013,61,Fallow/Idle Cropland,0.872
-F85,5.2,2013,61,Fallow/Idle Cropland,0.91
-F86,5.2,2013,61,Fallow/Idle Cropland,0.567
-F87,5.1,2013,176,Grassland/Pasture,0.874
-F88,4.9,2013,176,Grassland/Pasture,0.864
+F76,6.2,2013,176,Pasture / Grazing Land,0.568
+F77,6.2,2013,176,Pasture / Grazing Land,0.578
+F78,5.8,2013,176,Pasture / Grazing Land,0.575
+F79,5.7,2013,176,Pasture / Grazing Land,0.61
+F80,5.6,2013,24,Wheat (winter),0.925
+F81,5.5,2013,176,Pasture / Grazing Land,0.801
+F82,5.5,2013,176,Pasture / Grazing Land,0.884
+F83,5.5,2013,176,Pasture / Grazing Land,0.646
+F84,5.4,2013,61,Unplanted Field (resting),0.872
+F85,5.2,2013,61,Unplanted Field (resting),0.91
+F86,5.2,2013,61,Unplanted Field (resting),0.567
+F87,5.1,2013,176,Pasture / Grazing Land,0.874
+F88,4.9,2013,176,Pasture / Grazing Land,0.864
 F89,4.6,2013,1,Corn,0.952
 F90,4.5,2013,36,Alfalfa,0.451
 F91,4.2,2013,1,Corn,1.0
-F92,4.0,2013,176,Grassland/Pasture,0.944
-F93,3.6,2013,176,Grassland/Pasture,0.566
-F94,3.6,2013,176,Grassland/Pasture,0.424
+F92,4.0,2013,176,Pasture / Grazing Land,0.944
+F93,3.6,2013,176,Pasture / Grazing Land,0.566
+F94,3.6,2013,176,Pasture / Grazing Land,0.424
 F95,3.6,2013,36,Alfalfa,0.628
-F96,3.5,2013,42,Dry Beans,0.49
-F97,3.4,2013,176,Grassland/Pasture,0.566
-F98,3.3,2013,61,Fallow/Idle Cropland,0.597
-F99,3.3,2013,61,Fallow/Idle Cropland,0.4
-F100,3.3,2013,61,Fallow/Idle Cropland,0.741
+F96,3.5,2013,42,Beans,0.49
+F97,3.4,2013,176,Pasture / Grazing Land,0.566
+F98,3.3,2013,61,Unplanted Field (resting),0.597
+F99,3.3,2013,61,Unplanted Field (resting),0.4
+F100,3.3,2013,61,Unplanted Field (resting),0.741
 F101,3.2,2013,36,Alfalfa,1.0
-F102,3.1,2013,176,Grassland/Pasture,0.698
+F102,3.1,2013,176,Pasture / Grazing Land,0.698
 F01,615.9,2014,36,Alfalfa,0.371
 F02,338.3,2014,36,Alfalfa,0.741
 F03,292.0,2014,36,Alfalfa,0.705
@@ -626,93 +626,93 @@ F12,130.6,2014,1,Corn,0.963
 F13,111.0,2014,1,Corn,0.928
 F14,101.0,2014,1,Corn,0.498
 F15,94.5,2014,43,Potatoes,0.884
-F16,93.4,2014,176,Grassland/Pasture,0.574
+F16,93.4,2014,176,Pasture / Grazing Land,0.574
 F17,91.4,2014,36,Alfalfa,0.939
-F18,83.9,2014,42,Dry Beans,0.839
+F18,83.9,2014,42,Beans,0.839
 F19,66.7,2014,1,Corn,0.994
-F20,61.2,2014,42,Dry Beans,0.765
+F20,61.2,2014,42,Beans,0.765
 F21,60.2,2014,43,Potatoes,0.916
-F22,47.3,2014,176,Grassland/Pasture,0.932
+F22,47.3,2014,176,Pasture / Grazing Land,0.932
 F23,47.1,2014,1,Corn,0.92
 F24,47.0,2014,1,Corn,0.38
 F25,43.7,2014,36,Alfalfa,0.896
-F26,41.9,2014,41,Sugarbeets,0.856
+F26,41.9,2014,41,Sugar Beets,0.856
 F27,39.4,2014,36,Alfalfa,0.282
 F28,38.4,2014,36,Alfalfa,0.837
-F29,31.3,2014,176,Grassland/Pasture,0.775
+F29,31.3,2014,176,Pasture / Grazing Land,0.775
 F30,30.0,2014,1,Corn,0.962
 F31,29.2,2014,36,Alfalfa,0.701
-F32,28.7,2014,41,Sugarbeets,0.952
+F32,28.7,2014,41,Sugar Beets,0.952
 F33,27.6,2014,36,Alfalfa,0.613
-F34,27.2,2014,61,Fallow/Idle Cropland,0.833
+F34,27.2,2014,61,Unplanted Field (resting),0.833
 F35,23.1,2014,36,Alfalfa,0.556
-F36,22.9,2014,41,Sugarbeets,0.951
-F37,21.6,2014,176,Grassland/Pasture,0.915
-F38,19.9,2014,176,Grassland/Pasture,0.213
-F39,19.6,2014,176,Grassland/Pasture,0.874
-F40,18.1,2014,205,Triticale,0.574
-F41,17.9,2014,176,Grassland/Pasture,0.767
+F36,22.9,2014,41,Sugar Beets,0.951
+F37,21.6,2014,176,Pasture / Grazing Land,0.915
+F38,19.9,2014,176,Pasture / Grazing Land,0.213
+F39,19.6,2014,176,Pasture / Grazing Land,0.874
+F40,18.1,2014,205,Triticale (wheat-rye grain),0.574
+F41,17.9,2014,176,Pasture / Grazing Land,0.767
 F42,17.7,2014,1,Corn,0.632
 F43,15.8,2014,1,Corn,1.0
 F44,15.6,2014,43,Potatoes,0.77
-F45,15.3,2014,24,Winter Wheat,0.908
-F46,14.7,2014,176,Grassland/Pasture,0.88
-F47,14.3,2014,61,Fallow/Idle Cropland,0.875
+F45,15.3,2014,24,Wheat (winter),0.908
+F46,14.7,2014,176,Pasture / Grazing Land,0.88
+F47,14.3,2014,61,Unplanted Field (resting),0.875
 F48,13.5,2014,1,Corn,0.921
-F49,12.9,2014,61,Fallow/Idle Cropland,0.795
-F50,12.8,2014,176,Grassland/Pasture,0.782
-F51,12.5,2014,61,Fallow/Idle Cropland,0.423
-F52,11.0,2014,61,Fallow/Idle Cropland,0.669
-F53,10.8,2014,176,Grassland/Pasture,0.639
-F54,10.8,2014,176,Grassland/Pasture,0.811
-F55,10.7,2014,176,Grassland/Pasture,0.734
+F49,12.9,2014,61,Unplanted Field (resting),0.795
+F50,12.8,2014,176,Pasture / Grazing Land,0.782
+F51,12.5,2014,61,Unplanted Field (resting),0.423
+F52,11.0,2014,61,Unplanted Field (resting),0.669
+F53,10.8,2014,176,Pasture / Grazing Land,0.639
+F54,10.8,2014,176,Pasture / Grazing Land,0.811
+F55,10.7,2014,176,Pasture / Grazing Land,0.734
 F56,10.6,2014,36,Alfalfa,0.749
-F57,9.7,2014,176,Grassland/Pasture,0.751
+F57,9.7,2014,176,Pasture / Grazing Land,0.751
 F58,9.1,2014,36,Alfalfa,0.976
 F59,9.1,2014,36,Alfalfa,1.0
-F60,9.1,2014,176,Grassland/Pasture,0.875
-F61,8.9,2014,176,Grassland/Pasture,0.975
-F62,8.7,2014,176,Grassland/Pasture,0.773
+F60,9.1,2014,176,Pasture / Grazing Land,0.875
+F61,8.9,2014,176,Pasture / Grazing Land,0.975
+F62,8.7,2014,176,Pasture / Grazing Land,0.773
 F63,8.4,2014,36,Alfalfa,1.0
 F64,8.0,2014,36,Alfalfa,0.772
-F65,7.9,2014,176,Grassland/Pasture,0.969
-F66,7.8,2014,176,Grassland/Pasture,0.848
-F67,7.6,2014,176,Grassland/Pasture,0.945
-F68,7.2,2014,61,Fallow/Idle Cropland,0.656
+F65,7.9,2014,176,Pasture / Grazing Land,0.969
+F66,7.8,2014,176,Pasture / Grazing Land,0.848
+F67,7.6,2014,176,Pasture / Grazing Land,0.945
+F68,7.2,2014,61,Unplanted Field (resting),0.656
 F69,7.0,2014,36,Alfalfa,0.642
-F70,7.0,2014,61,Fallow/Idle Cropland,0.491
+F70,7.0,2014,61,Unplanted Field (resting),0.491
 F71,6.9,2014,36,Alfalfa,0.516
-F72,6.7,2014,176,Grassland/Pasture,0.875
-F73,6.5,2014,176,Grassland/Pasture,0.758
-F74,6.4,2014,176,Grassland/Pasture,0.962
+F72,6.7,2014,176,Pasture / Grazing Land,0.875
+F73,6.5,2014,176,Pasture / Grazing Land,0.758
+F74,6.4,2014,176,Pasture / Grazing Land,0.962
 F75,6.3,2014,36,Alfalfa,0.929
-F76,6.2,2014,176,Grassland/Pasture,0.896
-F77,6.2,2014,176,Grassland/Pasture,0.859
-F78,5.8,2014,176,Grassland/Pasture,0.961
-F79,5.7,2014,176,Grassland/Pasture,0.961
-F80,5.6,2014,41,Sugarbeets,0.683
-F81,5.5,2014,176,Grassland/Pasture,0.828
-F82,5.5,2014,176,Grassland/Pasture,1.0
-F83,5.5,2014,176,Grassland/Pasture,0.646
-F84,5.4,2014,61,Fallow/Idle Cropland,0.584
-F85,5.2,2014,24,Winter Wheat,0.429
-F86,5.2,2014,61,Fallow/Idle Cropland,0.643
-F87,5.1,2014,176,Grassland/Pasture,0.957
-F88,4.9,2014,176,Grassland/Pasture,0.864
+F76,6.2,2014,176,Pasture / Grazing Land,0.896
+F77,6.2,2014,176,Pasture / Grazing Land,0.859
+F78,5.8,2014,176,Pasture / Grazing Land,0.961
+F79,5.7,2014,176,Pasture / Grazing Land,0.961
+F80,5.6,2014,41,Sugar Beets,0.683
+F81,5.5,2014,176,Pasture / Grazing Land,0.828
+F82,5.5,2014,176,Pasture / Grazing Land,1.0
+F83,5.5,2014,176,Pasture / Grazing Land,0.646
+F84,5.4,2014,61,Unplanted Field (resting),0.584
+F85,5.2,2014,24,Wheat (winter),0.429
+F86,5.2,2014,61,Unplanted Field (resting),0.643
+F87,5.1,2014,176,Pasture / Grazing Land,0.957
+F88,4.9,2014,176,Pasture / Grazing Land,0.864
 F89,4.6,2014,1,Corn,0.559
 F90,4.5,2014,36,Alfalfa,0.692
 F91,4.2,2014,1,Corn,0.947
-F92,4.0,2014,176,Grassland/Pasture,0.667
-F93,3.6,2014,176,Grassland/Pasture,0.752
-F94,3.6,2014,176,Grassland/Pasture,1.0
-F95,3.6,2014,176,Grassland/Pasture,0.386
+F92,4.0,2014,176,Pasture / Grazing Land,0.667
+F93,3.6,2014,176,Pasture / Grazing Land,0.752
+F94,3.6,2014,176,Pasture / Grazing Land,1.0
+F95,3.6,2014,176,Pasture / Grazing Land,0.386
 F96,3.5,2014,36,Alfalfa,0.378
-F97,3.4,2014,176,Grassland/Pasture,0.824
-F98,3.3,2014,176,Grassland/Pasture,0.59
-F99,3.3,2014,176,Grassland/Pasture,0.933
-F100,3.3,2014,61,Fallow/Idle Cropland,0.793
+F97,3.4,2014,176,Pasture / Grazing Land,0.824
+F98,3.3,2014,176,Pasture / Grazing Land,0.59
+F99,3.3,2014,176,Pasture / Grazing Land,0.933
+F100,3.3,2014,61,Unplanted Field (resting),0.793
 F101,3.2,2014,36,Alfalfa,1.0
-F102,3.1,2014,176,Grassland/Pasture,0.627
+F102,3.1,2014,176,Pasture / Grazing Land,0.627
 F01,615.9,2015,36,Alfalfa,0.744
 F02,338.3,2015,36,Alfalfa,0.613
 F03,292.0,2015,36,Alfalfa,0.74
@@ -720,7 +720,7 @@ F04,273.6,2015,36,Alfalfa,0.967
 F05,273.5,2015,36,Alfalfa,0.69
 F06,234.8,2015,36,Alfalfa,0.984
 F07,228.8,2015,1,Corn,0.956
-F08,216.8,2015,24,Winter Wheat,0.757
+F08,216.8,2015,24,Wheat (winter),0.757
 F09,212.3,2015,36,Alfalfa,0.993
 F10,182.0,2015,36,Alfalfa,0.485
 F11,139.2,2015,36,Alfalfa,0.887
@@ -732,89 +732,89 @@ F16,93.4,2015,1,Corn,0.747
 F17,91.4,2015,36,Alfalfa,0.951
 F18,83.9,2015,36,Alfalfa,0.906
 F19,66.7,2015,1,Corn,1.0
-F20,61.2,2015,41,Sugarbeets,0.945
-F21,60.2,2015,24,Winter Wheat,0.937
-F22,47.3,2015,176,Grassland/Pasture,0.915
+F20,61.2,2015,41,Sugar Beets,0.945
+F21,60.2,2015,24,Wheat (winter),0.937
+F22,47.3,2015,176,Pasture / Grazing Land,0.915
 F23,47.1,2015,1,Corn,0.93
 F24,47.0,2015,1,Corn,0.521
 F25,43.7,2015,36,Alfalfa,0.55
 F26,41.9,2015,1,Corn,0.984
 F27,39.4,2015,1,Corn,0.875
 F28,38.4,2015,1,Corn,0.764
-F29,31.3,2015,176,Grassland/Pasture,0.437
-F30,30.0,2015,41,Sugarbeets,0.956
+F29,31.3,2015,176,Pasture / Grazing Land,0.437
+F30,30.0,2015,41,Sugar Beets,0.956
 F31,29.2,2015,36,Alfalfa,0.747
 F32,28.7,2015,21,Barley,0.968
 F33,27.6,2015,36,Alfalfa,0.579
-F34,27.2,2015,61,Fallow/Idle Cropland,0.916
+F34,27.2,2015,61,Unplanted Field (resting),0.916
 F35,23.1,2015,36,Alfalfa,0.603
 F36,22.9,2015,21,Barley,0.953
-F37,21.6,2015,176,Grassland/Pasture,0.672
-F38,19.9,2015,61,Fallow/Idle Cropland,0.516
-F39,19.6,2015,176,Grassland/Pasture,0.861
+F37,21.6,2015,176,Pasture / Grazing Land,0.672
+F38,19.9,2015,61,Unplanted Field (resting),0.516
+F39,19.6,2015,176,Pasture / Grazing Land,0.861
 F40,18.1,2015,36,Alfalfa,0.421
-F41,17.9,2015,176,Grassland/Pasture,0.496
+F41,17.9,2015,176,Pasture / Grazing Land,0.496
 F42,17.7,2015,36,Alfalfa,0.545
 F43,15.8,2015,1,Corn,1.0
 F44,15.6,2015,1,Corn,0.725
 F45,15.3,2015,36,Alfalfa,0.981
-F46,14.7,2015,176,Grassland/Pasture,0.739
-F47,14.3,2015,61,Fallow/Idle Cropland,0.92
+F46,14.7,2015,176,Pasture / Grazing Land,0.739
+F47,14.3,2015,61,Unplanted Field (resting),0.92
 F48,13.5,2015,1,Corn,0.974
-F49,12.9,2015,61,Fallow/Idle Cropland,0.738
-F50,12.8,2015,176,Grassland/Pasture,0.41
-F51,12.5,2015,61,Fallow/Idle Cropland,0.747
-F52,11.0,2015,61,Fallow/Idle Cropland,0.836
-F53,10.8,2015,176,Grassland/Pasture,0.53
-F54,10.8,2015,176,Grassland/Pasture,0.635
-F55,10.7,2015,176,Grassland/Pasture,0.65
+F49,12.9,2015,61,Unplanted Field (resting),0.738
+F50,12.8,2015,176,Pasture / Grazing Land,0.41
+F51,12.5,2015,61,Unplanted Field (resting),0.747
+F52,11.0,2015,61,Unplanted Field (resting),0.836
+F53,10.8,2015,176,Pasture / Grazing Land,0.53
+F54,10.8,2015,176,Pasture / Grazing Land,0.635
+F55,10.7,2015,176,Pasture / Grazing Land,0.65
 F56,10.6,2015,36,Alfalfa,0.935
-F57,9.7,2015,176,Grassland/Pasture,0.41
+F57,9.7,2015,176,Pasture / Grazing Land,0.41
 F58,9.1,2015,36,Alfalfa,0.81
 F59,9.1,2015,36,Alfalfa,1.0
-F60,9.1,2015,176,Grassland/Pasture,0.609
-F61,8.9,2015,176,Grassland/Pasture,0.829
-F62,8.7,2015,176,Grassland/Pasture,0.799
+F60,9.1,2015,176,Pasture / Grazing Land,0.609
+F61,8.9,2015,176,Pasture / Grazing Land,0.829
+F62,8.7,2015,176,Pasture / Grazing Land,0.799
 F63,8.4,2015,36,Alfalfa,1.0
 F64,8.0,2015,36,Alfalfa,0.778
-F65,7.9,2015,176,Grassland/Pasture,0.63
-F66,7.8,2015,176,Grassland/Pasture,0.594
-F67,7.6,2015,176,Grassland/Pasture,0.675
-F68,7.2,2015,61,Fallow/Idle Cropland,0.756
+F65,7.9,2015,176,Pasture / Grazing Land,0.63
+F66,7.8,2015,176,Pasture / Grazing Land,0.594
+F67,7.6,2015,176,Pasture / Grazing Land,0.675
+F68,7.2,2015,61,Unplanted Field (resting),0.756
 F69,7.0,2015,36,Alfalfa,0.702
-F70,7.0,2015,61,Fallow/Idle Cropland,0.488
+F70,7.0,2015,61,Unplanted Field (resting),0.488
 F71,6.9,2015,36,Alfalfa,0.674
-F72,6.7,2015,176,Grassland/Pasture,0.469
-F73,6.5,2015,176,Grassland/Pasture,0.443
-F74,6.4,2015,176,Grassland/Pasture,0.835
+F72,6.7,2015,176,Pasture / Grazing Land,0.469
+F73,6.5,2015,176,Pasture / Grazing Land,0.443
+F74,6.4,2015,176,Pasture / Grazing Land,0.835
 F75,6.3,2015,36,Alfalfa,0.893
-F76,6.2,2015,176,Grassland/Pasture,0.708
-F77,6.2,2015,176,Grassland/Pasture,0.679
-F78,5.8,2015,176,Grassland/Pasture,0.768
-F79,5.7,2015,176,Grassland/Pasture,0.745
+F76,6.2,2015,176,Pasture / Grazing Land,0.708
+F77,6.2,2015,176,Pasture / Grazing Land,0.679
+F78,5.8,2015,176,Pasture / Grazing Land,0.768
+F79,5.7,2015,176,Pasture / Grazing Land,0.745
 F80,5.6,2015,21,Barley,0.559
-F81,5.5,2015,176,Grassland/Pasture,0.606
-F82,5.5,2015,176,Grassland/Pasture,0.79
-F83,5.5,2015,176,Grassland/Pasture,0.363
-F84,5.4,2015,61,Fallow/Idle Cropland,0.826
-F85,5.2,2015,61,Fallow/Idle Cropland,0.91
-F86,5.2,2015,61,Fallow/Idle Cropland,0.562
-F87,5.1,2015,176,Grassland/Pasture,0.696
-F88,4.9,2015,176,Grassland/Pasture,0.449
+F81,5.5,2015,176,Pasture / Grazing Land,0.606
+F82,5.5,2015,176,Pasture / Grazing Land,0.79
+F83,5.5,2015,176,Pasture / Grazing Land,0.363
+F84,5.4,2015,61,Unplanted Field (resting),0.826
+F85,5.2,2015,61,Unplanted Field (resting),0.91
+F86,5.2,2015,61,Unplanted Field (resting),0.562
+F87,5.1,2015,176,Pasture / Grazing Land,0.696
+F88,4.9,2015,176,Pasture / Grazing Land,0.449
 F89,4.6,2015,1,Corn,0.612
 F90,4.5,2015,36,Alfalfa,0.698
 F91,4.2,2015,1,Corn,1.0
-F92,4.0,2015,176,Grassland/Pasture,0.463
-F93,3.6,2015,176,Grassland/Pasture,0.634
-F94,3.6,2015,152,Shrubland,0.569
+F92,4.0,2015,176,Pasture / Grazing Land,0.463
+F93,3.6,2015,176,Pasture / Grazing Land,0.634
+F94,3.6,2015,152,Shrubs / Brush,0.569
 F95,3.6,2015,36,Alfalfa,0.745
-F96,3.5,2015,61,Fallow/Idle Cropland,0.685
-F97,3.4,2015,176,Grassland/Pasture,0.765
-F98,3.3,2015,176,Grassland/Pasture,0.455
-F99,3.3,2015,176,Grassland/Pasture,0.807
-F100,3.3,2015,61,Fallow/Idle Cropland,0.807
+F96,3.5,2015,61,Unplanted Field (resting),0.685
+F97,3.4,2015,176,Pasture / Grazing Land,0.765
+F98,3.3,2015,176,Pasture / Grazing Land,0.455
+F99,3.3,2015,176,Pasture / Grazing Land,0.807
+F100,3.3,2015,61,Unplanted Field (resting),0.807
 F101,3.2,2015,36,Alfalfa,1.0
-F102,3.1,2015,176,Grassland/Pasture,0.563
+F102,3.1,2015,176,Pasture / Grazing Land,0.563
 F01,615.9,2016,36,Alfalfa,0.497
 F02,338.3,2016,36,Alfalfa,0.598
 F03,292.0,2016,1,Corn,0.692
@@ -822,12 +822,12 @@ F04,273.6,2016,36,Alfalfa,0.93
 F05,273.5,2016,36,Alfalfa,0.927
 F06,234.8,2016,1,Corn,0.961
 F07,228.8,2016,36,Alfalfa,0.976
-F08,216.8,2016,41,Sugarbeets,0.722
+F08,216.8,2016,41,Sugar Beets,0.722
 F09,212.3,2016,36,Alfalfa,0.993
 F10,182.0,2016,4,Sorghum,0.693
 F11,139.2,2016,36,Alfalfa,0.958
 F12,130.6,2016,43,Potatoes,0.938
-F13,111.0,2016,24,Winter Wheat,0.9
+F13,111.0,2016,24,Wheat (winter),0.9
 F14,101.0,2016,1,Corn,0.498
 F15,94.5,2016,1,Corn,0.962
 F16,93.4,2016,1,Corn,0.741
@@ -836,97 +836,97 @@ F18,83.9,2016,36,Alfalfa,0.879
 F19,66.7,2016,1,Corn,1.0
 F20,61.2,2016,1,Corn,0.971
 F21,60.2,2016,1,Corn,0.97
-F22,47.3,2016,176,Grassland/Pasture,0.63
+F22,47.3,2016,176,Pasture / Grazing Land,0.63
 F23,47.1,2016,1,Corn,0.958
 F24,47.0,2016,1,Corn,0.54
 F25,43.7,2016,36,Alfalfa,0.806
 F26,41.9,2016,43,Potatoes,0.86
 F27,39.4,2016,43,Potatoes,0.854
 F28,38.4,2016,1,Corn,0.759
-F29,31.3,2016,176,Grassland/Pasture,0.58
-F30,30.0,2016,24,Winter Wheat,0.857
+F29,31.3,2016,176,Pasture / Grazing Land,0.58
+F30,30.0,2016,24,Wheat (winter),0.857
 F31,29.2,2016,36,Alfalfa,0.94
 F32,28.7,2016,1,Corn,0.975
 F33,27.6,2016,36,Alfalfa,0.45
-F34,27.2,2016,61,Fallow/Idle Cropland,0.729
+F34,27.2,2016,61,Unplanted Field (resting),0.729
 F35,23.1,2016,36,Alfalfa,0.432
 F36,22.9,2016,1,Corn,1.0
-F37,21.6,2016,176,Grassland/Pasture,0.543
+F37,21.6,2016,176,Pasture / Grazing Land,0.543
 F38,19.9,2016,4,Sorghum,0.432
-F39,19.6,2016,176,Grassland/Pasture,0.62
+F39,19.6,2016,176,Pasture / Grazing Land,0.62
 F40,18.1,2016,4,Sorghum,0.816
-F41,17.9,2016,176,Grassland/Pasture,0.53
+F41,17.9,2016,176,Pasture / Grazing Land,0.53
 F42,17.7,2016,1,Corn,0.876
 F43,15.8,2016,1,Corn,0.986
 F44,15.6,2016,36,Alfalfa,0.8
 F45,15.3,2016,36,Alfalfa,0.981
-F46,14.7,2016,176,Grassland/Pasture,0.637
-F47,14.3,2016,61,Fallow/Idle Cropland,0.796
+F46,14.7,2016,176,Pasture / Grazing Land,0.637
+F47,14.3,2016,61,Unplanted Field (resting),0.796
 F48,13.5,2016,1,Corn,0.971
-F49,12.9,2016,61,Fallow/Idle Cropland,0.847
-F50,12.8,2016,176,Grassland/Pasture,0.701
-F51,12.5,2016,61,Fallow/Idle Cropland,0.516
-F52,11.0,2016,61,Fallow/Idle Cropland,0.836
-F53,10.8,2016,176,Grassland/Pasture,0.459
-F54,10.8,2016,176,Grassland/Pasture,0.642
-F55,10.7,2016,176,Grassland/Pasture,0.449
+F49,12.9,2016,61,Unplanted Field (resting),0.847
+F50,12.8,2016,176,Pasture / Grazing Land,0.701
+F51,12.5,2016,61,Unplanted Field (resting),0.516
+F52,11.0,2016,61,Unplanted Field (resting),0.836
+F53,10.8,2016,176,Pasture / Grazing Land,0.459
+F54,10.8,2016,176,Pasture / Grazing Land,0.642
+F55,10.7,2016,176,Pasture / Grazing Land,0.449
 F56,10.6,2016,36,Alfalfa,0.898
-F57,9.7,2016,176,Grassland/Pasture,0.728
+F57,9.7,2016,176,Pasture / Grazing Land,0.728
 F58,9.1,2016,36,Alfalfa,0.807
 F59,9.1,2016,36,Alfalfa,1.0
-F60,9.1,2016,61,Fallow/Idle Cropland,0.478
-F61,8.9,2016,176,Grassland/Pasture,0.724
-F62,8.7,2016,176,Grassland/Pasture,0.773
+F60,9.1,2016,61,Unplanted Field (resting),0.478
+F61,8.9,2016,176,Pasture / Grazing Land,0.724
+F62,8.7,2016,176,Pasture / Grazing Land,0.773
 F63,8.4,2016,43,Potatoes,0.947
 F64,8.0,2016,36,Alfalfa,0.529
-F65,7.9,2016,176,Grassland/Pasture,0.683
-F66,7.8,2016,176,Grassland/Pasture,0.546
-F67,7.6,2016,176,Grassland/Pasture,0.672
-F68,7.2,2016,61,Fallow/Idle Cropland,0.557
+F65,7.9,2016,176,Pasture / Grazing Land,0.683
+F66,7.8,2016,176,Pasture / Grazing Land,0.546
+F67,7.6,2016,176,Pasture / Grazing Land,0.672
+F68,7.2,2016,61,Unplanted Field (resting),0.557
 F69,7.0,2016,36,Alfalfa,0.794
-F70,7.0,2016,61,Fallow/Idle Cropland,0.601
+F70,7.0,2016,61,Unplanted Field (resting),0.601
 F71,6.9,2016,36,Alfalfa,0.968
-F72,6.7,2016,176,Grassland/Pasture,0.875
-F73,6.5,2016,176,Grassland/Pasture,0.545
-F74,6.4,2016,176,Grassland/Pasture,0.517
+F72,6.7,2016,176,Pasture / Grazing Land,0.875
+F73,6.5,2016,176,Pasture / Grazing Land,0.545
+F74,6.4,2016,176,Pasture / Grazing Land,0.517
 F75,6.3,2016,36,Alfalfa,0.929
-F76,6.2,2016,176,Grassland/Pasture,0.64
-F77,6.2,2016,176,Grassland/Pasture,0.606
-F78,5.8,2016,176,Grassland/Pasture,0.476
-F79,5.7,2016,176,Grassland/Pasture,0.71
+F76,6.2,2016,176,Pasture / Grazing Land,0.64
+F77,6.2,2016,176,Pasture / Grazing Land,0.606
+F78,5.8,2016,176,Pasture / Grazing Land,0.476
+F79,5.7,2016,176,Pasture / Grazing Land,0.71
 F80,5.6,2016,1,Corn,0.925
-F81,5.5,2016,176,Grassland/Pasture,0.67
+F81,5.5,2016,176,Pasture / Grazing Land,0.67
 F82,5.5,2016,36,Alfalfa,0.482
 F83,5.5,2016,36,Alfalfa,0.35
 F84,5.4,2016,36,Alfalfa,0.461
-F85,5.2,2016,61,Fallow/Idle Cropland,0.91
-F86,5.2,2016,61,Fallow/Idle Cropland,0.871
-F87,5.1,2016,176,Grassland/Pasture,0.7
-F88,4.9,2016,176,Grassland/Pasture,0.636
+F85,5.2,2016,61,Unplanted Field (resting),0.91
+F86,5.2,2016,61,Unplanted Field (resting),0.871
+F87,5.1,2016,176,Pasture / Grazing Land,0.7
+F88,4.9,2016,176,Pasture / Grazing Land,0.636
 F89,4.6,2016,1,Corn,0.809
 F90,4.5,2016,36,Alfalfa,0.808
 F91,4.2,2016,1,Corn,1.0
-F92,4.0,2016,176,Grassland/Pasture,0.66
+F92,4.0,2016,176,Pasture / Grazing Land,0.66
 F93,3.6,2016,36,Alfalfa,0.49
-F94,3.6,2016,176,Grassland/Pasture,0.812
+F94,3.6,2016,176,Pasture / Grazing Land,0.812
 F95,3.6,2016,36,Alfalfa,0.807
 F96,3.5,2016,4,Sorghum,0.748
 F97,3.4,2016,36,Alfalfa,0.353
-F98,3.3,2016,176,Grassland/Pasture,0.522
-F99,3.3,2016,176,Grassland/Pasture,0.467
-F100,3.3,2016,61,Fallow/Idle Cropland,0.526
+F98,3.3,2016,176,Pasture / Grazing Land,0.522
+F99,3.3,2016,176,Pasture / Grazing Land,0.467
+F100,3.3,2016,61,Unplanted Field (resting),0.526
 F101,3.2,2016,36,Alfalfa,1.0
-F102,3.1,2016,176,Grassland/Pasture,0.421
+F102,3.1,2016,176,Pasture / Grazing Land,0.421
 F01,615.9,2017,36,Alfalfa,0.499
 F02,338.3,2017,36,Alfalfa,0.587
 F03,292.0,2017,1,Corn,0.782
 F04,273.6,2017,36,Alfalfa,0.74
 F05,273.5,2017,36,Alfalfa,0.951
-F06,234.8,2017,42,Dry Beans,0.956
+F06,234.8,2017,42,Beans,0.956
 F07,228.8,2017,36,Alfalfa,0.971
 F08,216.8,2017,1,Corn,0.957
 F09,212.3,2017,36,Alfalfa,0.994
-F10,182.0,2017,205,Triticale,0.776
+F10,182.0,2017,205,Triticale (wheat-rye grain),0.776
 F11,139.2,2017,1,Corn,0.805
 F12,130.6,2017,1,Corn,0.981
 F13,111.0,2017,36,Alfalfa,0.972
@@ -937,94 +937,94 @@ F17,91.4,2017,1,Corn,0.958
 F18,83.9,2017,36,Alfalfa,0.96
 F19,66.7,2017,1,Corn,0.987
 F20,61.2,2017,1,Corn,0.982
-F21,60.2,2017,24,Winter Wheat,0.952
-F22,47.3,2017,176,Grassland/Pasture,0.899
+F21,60.2,2017,24,Wheat (winter),0.952
+F22,47.3,2017,176,Pasture / Grazing Land,0.899
 F23,47.1,2017,1,Corn,0.949
 F24,47.0,2017,36,Alfalfa,0.493
 F25,43.7,2017,36,Alfalfa,0.571
 F26,41.9,2017,1,Corn,1.0
 F27,39.4,2017,1,Corn,0.888
 F28,38.4,2017,1,Corn,0.864
-F29,31.3,2017,176,Grassland/Pasture,0.516
+F29,31.3,2017,176,Pasture / Grazing Land,0.516
 F30,30.0,2017,1,Corn,0.738
 F31,29.2,2017,36,Alfalfa,0.747
 F32,28.7,2017,1,Corn,0.991
 F33,27.6,2017,36,Alfalfa,0.452
-F34,27.2,2017,61,Fallow/Idle Cropland,0.908
+F34,27.2,2017,61,Unplanted Field (resting),0.908
 F35,23.1,2017,36,Alfalfa,0.5
 F36,22.9,2017,1,Corn,1.0
-F37,21.6,2017,176,Grassland/Pasture,0.776
-F38,19.9,2017,205,Triticale,0.535
-F39,19.6,2017,176,Grassland/Pasture,0.874
-F40,18.1,2017,205,Triticale,0.862
-F41,17.9,2017,176,Grassland/Pasture,0.641
+F37,21.6,2017,176,Pasture / Grazing Land,0.776
+F38,19.9,2017,205,Triticale (wheat-rye grain),0.535
+F39,19.6,2017,176,Pasture / Grazing Land,0.874
+F40,18.1,2017,205,Triticale (wheat-rye grain),0.862
+F41,17.9,2017,176,Pasture / Grazing Land,0.641
 F42,17.7,2017,36,Alfalfa,0.712
 F43,15.8,2017,1,Corn,0.773
 F44,15.6,2017,36,Alfalfa,0.813
 F45,15.3,2017,36,Alfalfa,0.985
-F46,14.7,2017,176,Grassland/Pasture,0.74
-F47,14.3,2017,61,Fallow/Idle Cropland,0.806
+F46,14.7,2017,176,Pasture / Grazing Land,0.74
+F47,14.3,2017,61,Unplanted Field (resting),0.806
 F48,13.5,2017,1,Corn,0.971
-F49,12.9,2017,61,Fallow/Idle Cropland,0.847
-F50,12.8,2017,176,Grassland/Pasture,0.586
-F51,12.5,2017,61,Fallow/Idle Cropland,0.911
-F52,11.0,2017,61,Fallow/Idle Cropland,0.815
-F53,10.8,2017,152,Shrubland,0.589
-F54,10.8,2017,176,Grassland/Pasture,0.591
-F55,10.7,2017,176,Grassland/Pasture,0.549
+F49,12.9,2017,61,Unplanted Field (resting),0.847
+F50,12.8,2017,176,Pasture / Grazing Land,0.586
+F51,12.5,2017,61,Unplanted Field (resting),0.911
+F52,11.0,2017,61,Unplanted Field (resting),0.815
+F53,10.8,2017,152,Shrubs / Brush,0.589
+F54,10.8,2017,176,Pasture / Grazing Land,0.591
+F55,10.7,2017,176,Pasture / Grazing Land,0.549
 F56,10.6,2017,36,Alfalfa,0.958
-F57,9.7,2017,176,Grassland/Pasture,0.753
+F57,9.7,2017,176,Pasture / Grazing Land,0.753
 F58,9.1,2017,36,Alfalfa,0.856
 F59,9.1,2017,36,Alfalfa,1.0
-F60,9.1,2017,176,Grassland/Pasture,0.755
-F61,8.9,2017,176,Grassland/Pasture,0.95
-F62,8.7,2017,176,Grassland/Pasture,0.649
-F63,8.4,2017,41,Sugarbeets,0.871
-F64,8.0,2017,205,Triticale,0.471
-F65,7.9,2017,176,Grassland/Pasture,0.824
-F66,7.8,2017,176,Grassland/Pasture,0.708
-F67,7.6,2017,176,Grassland/Pasture,0.74
-F68,7.2,2017,61,Fallow/Idle Cropland,0.777
+F60,9.1,2017,176,Pasture / Grazing Land,0.755
+F61,8.9,2017,176,Pasture / Grazing Land,0.95
+F62,8.7,2017,176,Pasture / Grazing Land,0.649
+F63,8.4,2017,41,Sugar Beets,0.871
+F64,8.0,2017,205,Triticale (wheat-rye grain),0.471
+F65,7.9,2017,176,Pasture / Grazing Land,0.824
+F66,7.8,2017,176,Pasture / Grazing Land,0.708
+F67,7.6,2017,176,Pasture / Grazing Land,0.74
+F68,7.2,2017,61,Unplanted Field (resting),0.777
 F69,7.0,2017,36,Alfalfa,0.794
-F70,7.0,2017,61,Fallow/Idle Cropland,0.647
+F70,7.0,2017,61,Unplanted Field (resting),0.647
 F71,6.9,2017,36,Alfalfa,0.738
-F72,6.7,2017,176,Grassland/Pasture,0.938
-F73,6.5,2017,176,Grassland/Pasture,0.621
-F74,6.4,2017,176,Grassland/Pasture,0.759
+F72,6.7,2017,176,Pasture / Grazing Land,0.938
+F73,6.5,2017,176,Pasture / Grazing Land,0.621
+F74,6.4,2017,176,Pasture / Grazing Land,0.759
 F75,6.3,2017,36,Alfalfa,0.929
-F76,6.2,2017,176,Grassland/Pasture,0.62
-F77,6.2,2017,176,Grassland/Pasture,0.679
-F78,5.8,2017,176,Grassland/Pasture,0.85
-F79,5.7,2017,176,Grassland/Pasture,0.571
+F76,6.2,2017,176,Pasture / Grazing Land,0.62
+F77,6.2,2017,176,Pasture / Grazing Land,0.679
+F78,5.8,2017,176,Pasture / Grazing Land,0.85
+F79,5.7,2017,176,Pasture / Grazing Land,0.571
 F80,5.6,2017,1,Corn,0.925
-F81,5.5,2017,176,Grassland/Pasture,0.837
-F82,5.5,2017,176,Grassland/Pasture,0.879
+F81,5.5,2017,176,Pasture / Grazing Land,0.837
+F82,5.5,2017,176,Pasture / Grazing Land,0.879
 F83,5.5,2017,36,Alfalfa,0.605
-F84,5.4,2017,61,Fallow/Idle Cropland,0.534
-F85,5.2,2017,61,Fallow/Idle Cropland,0.91
-F86,5.2,2017,61,Fallow/Idle Cropland,0.824
-F87,5.1,2017,152,Shrubland,0.473
-F88,4.9,2017,176,Grassland/Pasture,0.864
+F84,5.4,2017,61,Unplanted Field (resting),0.534
+F85,5.2,2017,61,Unplanted Field (resting),0.91
+F86,5.2,2017,61,Unplanted Field (resting),0.824
+F87,5.1,2017,152,Shrubs / Brush,0.473
+F88,4.9,2017,176,Pasture / Grazing Land,0.864
 F89,4.6,2017,36,Alfalfa,0.904
 F90,4.5,2017,36,Alfalfa,0.341
 F91,4.2,2017,1,Corn,1.0
-F92,4.0,2017,176,Grassland/Pasture,0.889
-F93,3.6,2017,176,Grassland/Pasture,0.814
-F94,3.6,2017,176,Grassland/Pasture,0.938
+F92,4.0,2017,176,Pasture / Grazing Land,0.889
+F93,3.6,2017,176,Pasture / Grazing Land,0.814
+F94,3.6,2017,176,Pasture / Grazing Land,0.938
 F95,3.6,2017,36,Alfalfa,0.869
-F96,3.5,2017,205,Triticale,0.811
-F97,3.4,2017,176,Grassland/Pasture,0.632
-F98,3.3,2017,176,Grassland/Pasture,0.59
-F99,3.3,2017,176,Grassland/Pasture,0.467
-F100,3.3,2017,61,Fallow/Idle Cropland,0.933
+F96,3.5,2017,205,Triticale (wheat-rye grain),0.811
+F97,3.4,2017,176,Pasture / Grazing Land,0.632
+F98,3.3,2017,176,Pasture / Grazing Land,0.59
+F99,3.3,2017,176,Pasture / Grazing Land,0.467
+F100,3.3,2017,61,Unplanted Field (resting),0.933
 F101,3.2,2017,36,Alfalfa,1.0
-F102,3.1,2017,176,Grassland/Pasture,0.698
+F102,3.1,2017,176,Pasture / Grazing Land,0.698
 F01,615.9,2018,36,Alfalfa,0.5
 F02,338.3,2018,36,Alfalfa,0.6
 F03,292.0,2018,1,Corn,0.753
 F04,273.6,2018,36,Alfalfa,0.848
 F05,273.5,2018,1,Corn,0.508
-F06,234.8,2018,24,Winter Wheat,0.959
+F06,234.8,2018,24,Wheat (winter),0.959
 F07,228.8,2018,36,Alfalfa,0.982
 F08,216.8,2018,1,Corn,0.782
 F09,212.3,2018,36,Alfalfa,0.994
@@ -1038,89 +1038,89 @@ F16,93.4,2018,36,Alfalfa,0.964
 F17,91.4,2018,1,Corn,0.946
 F18,83.9,2018,36,Alfalfa,0.982
 F19,66.7,2018,1,Corn,0.983
-F20,61.2,2018,41,Sugarbeets,0.922
+F20,61.2,2018,41,Sugar Beets,0.922
 F21,60.2,2018,43,Potatoes,0.707
-F22,47.3,2018,176,Grassland/Pasture,0.832
+F22,47.3,2018,176,Pasture / Grazing Land,0.832
 F23,47.1,2018,1,Corn,0.954
 F24,47.0,2018,36,Alfalfa,0.907
 F25,43.7,2018,36,Alfalfa,0.938
 F26,41.9,2018,1,Corn,1.0
 F27,39.4,2018,36,Alfalfa,0.927
 F28,38.4,2018,1,Corn,0.808
-F29,31.3,2018,176,Grassland/Pasture,0.572
-F30,30.0,2018,24,Winter Wheat,0.984
+F29,31.3,2018,176,Pasture / Grazing Land,0.572
+F30,30.0,2018,24,Wheat (winter),0.984
 F31,29.2,2018,36,Alfalfa,0.763
-F32,28.7,2018,23,Spring Wheat,0.945
+F32,28.7,2018,23,Wheat (spring),0.945
 F33,27.6,2018,36,Alfalfa,0.652
-F34,27.2,2018,61,Fallow/Idle Cropland,0.925
+F34,27.2,2018,61,Unplanted Field (resting),0.925
 F35,23.1,2018,36,Alfalfa,0.596
-F36,22.9,2018,23,Spring Wheat,0.942
-F37,21.6,2018,176,Grassland/Pasture,0.682
+F36,22.9,2018,23,Wheat (spring),0.942
+F37,21.6,2018,176,Pasture / Grazing Land,0.682
 F38,19.9,2018,36,Alfalfa,0.943
-F39,19.6,2018,176,Grassland/Pasture,0.83
+F39,19.6,2018,176,Pasture / Grazing Land,0.83
 F40,18.1,2018,36,Alfalfa,0.811
-F41,17.9,2018,176,Grassland/Pasture,0.57
+F41,17.9,2018,176,Pasture / Grazing Land,0.57
 F42,17.7,2018,36,Alfalfa,0.483
 F43,15.8,2018,36,Alfalfa,0.768
 F44,15.6,2018,36,Alfalfa,0.857
 F45,15.3,2018,36,Alfalfa,1.0
-F46,14.7,2018,176,Grassland/Pasture,0.789
-F47,14.3,2018,61,Fallow/Idle Cropland,0.934
-F48,13.5,2018,23,Spring Wheat,0.458
-F49,12.9,2018,61,Fallow/Idle Cropland,0.879
-F50,12.8,2018,176,Grassland/Pasture,0.605
-F51,12.5,2018,61,Fallow/Idle Cropland,0.947
-F52,11.0,2018,61,Fallow/Idle Cropland,0.856
-F53,10.8,2018,152,Shrubland,0.47
-F54,10.8,2018,176,Grassland/Pasture,0.815
-F55,10.7,2018,176,Grassland/Pasture,0.655
+F46,14.7,2018,176,Pasture / Grazing Land,0.789
+F47,14.3,2018,61,Unplanted Field (resting),0.934
+F48,13.5,2018,23,Wheat (spring),0.458
+F49,12.9,2018,61,Unplanted Field (resting),0.879
+F50,12.8,2018,176,Pasture / Grazing Land,0.605
+F51,12.5,2018,61,Unplanted Field (resting),0.947
+F52,11.0,2018,61,Unplanted Field (resting),0.856
+F53,10.8,2018,152,Shrubs / Brush,0.47
+F54,10.8,2018,176,Pasture / Grazing Land,0.815
+F55,10.7,2018,176,Pasture / Grazing Land,0.655
 F56,10.6,2018,36,Alfalfa,0.979
-F57,9.7,2018,176,Grassland/Pasture,0.644
+F57,9.7,2018,176,Pasture / Grazing Land,0.644
 F58,9.1,2018,36,Alfalfa,0.88
 F59,9.1,2018,1,Corn,1.0
-F60,9.1,2018,176,Grassland/Pasture,0.541
-F61,8.9,2018,176,Grassland/Pasture,1.0
-F62,8.7,2018,176,Grassland/Pasture,0.827
+F60,9.1,2018,176,Pasture / Grazing Land,0.541
+F61,8.9,2018,176,Pasture / Grazing Land,1.0
+F62,8.7,2018,176,Pasture / Grazing Land,0.827
 F63,8.4,2018,1,Corn,1.0
 F64,8.0,2018,36,Alfalfa,0.582
-F65,7.9,2018,176,Grassland/Pasture,0.734
-F66,7.8,2018,176,Grassland/Pasture,0.578
-F67,7.6,2018,176,Grassland/Pasture,0.672
-F68,7.2,2018,61,Fallow/Idle Cropland,1.0
+F65,7.9,2018,176,Pasture / Grazing Land,0.734
+F66,7.8,2018,176,Pasture / Grazing Land,0.578
+F67,7.6,2018,176,Pasture / Grazing Land,0.672
+F68,7.2,2018,61,Unplanted Field (resting),1.0
 F69,7.0,2018,36,Alfalfa,0.83
-F70,7.0,2018,61,Fallow/Idle Cropland,0.968
+F70,7.0,2018,61,Unplanted Field (resting),0.968
 F71,6.9,2018,36,Alfalfa,0.867
-F72,6.7,2018,176,Grassland/Pasture,0.81
-F73,6.5,2018,176,Grassland/Pasture,0.557
-F74,6.4,2018,176,Grassland/Pasture,0.517
+F72,6.7,2018,176,Pasture / Grazing Land,0.81
+F73,6.5,2018,176,Pasture / Grazing Land,0.557
+F74,6.4,2018,176,Pasture / Grazing Land,0.517
 F75,6.3,2018,1,Corn,0.893
-F76,6.2,2018,176,Grassland/Pasture,0.608
-F77,6.2,2018,176,Grassland/Pasture,0.859
-F78,5.8,2018,176,Grassland/Pasture,0.73
-F79,5.7,2018,176,Grassland/Pasture,0.667
-F80,5.6,2018,23,Spring Wheat,0.639
-F81,5.5,2018,176,Grassland/Pasture,0.873
-F82,5.5,2018,176,Grassland/Pasture,0.955
+F76,6.2,2018,176,Pasture / Grazing Land,0.608
+F77,6.2,2018,176,Pasture / Grazing Land,0.859
+F78,5.8,2018,176,Pasture / Grazing Land,0.73
+F79,5.7,2018,176,Pasture / Grazing Land,0.667
+F80,5.6,2018,23,Wheat (spring),0.639
+F81,5.5,2018,176,Pasture / Grazing Land,0.873
+F82,5.5,2018,176,Pasture / Grazing Land,0.955
 F83,5.5,2018,36,Alfalfa,0.843
-F84,5.4,2018,61,Fallow/Idle Cropland,0.872
-F85,5.2,2018,61,Fallow/Idle Cropland,0.91
-F86,5.2,2018,61,Fallow/Idle Cropland,0.557
-F87,5.1,2018,176,Grassland/Pasture,0.744
+F84,5.4,2018,61,Unplanted Field (resting),0.872
+F85,5.2,2018,61,Unplanted Field (resting),0.91
+F86,5.2,2018,61,Unplanted Field (resting),0.557
+F87,5.1,2018,176,Pasture / Grazing Land,0.744
 F88,4.9,2018,36,Alfalfa,0.455
 F89,4.6,2018,36,Alfalfa,0.569
 F90,4.5,2018,36,Alfalfa,0.951
-F91,4.2,2018,41,Sugarbeets,0.848
-F92,4.0,2018,176,Grassland/Pasture,0.667
-F93,3.6,2018,176,Grassland/Pasture,0.634
-F94,3.6,2018,176,Grassland/Pasture,0.5
+F91,4.2,2018,41,Sugar Beets,0.848
+F92,4.0,2018,176,Pasture / Grazing Land,0.667
+F93,3.6,2018,176,Pasture / Grazing Land,0.634
+F94,3.6,2018,176,Pasture / Grazing Land,0.5
 F95,3.6,2018,36,Alfalfa,0.938
 F96,3.5,2018,36,Alfalfa,1.0
-F97,3.4,2018,176,Grassland/Pasture,0.632
-F98,3.3,2018,176,Grassland/Pasture,0.59
-F99,3.3,2018,176,Grassland/Pasture,0.667
-F100,3.3,2018,61,Fallow/Idle Cropland,1.0
+F97,3.4,2018,176,Pasture / Grazing Land,0.632
+F98,3.3,2018,176,Pasture / Grazing Land,0.59
+F99,3.3,2018,176,Pasture / Grazing Land,0.667
+F100,3.3,2018,61,Unplanted Field (resting),1.0
 F101,3.2,2018,36,Alfalfa,1.0
-F102,3.1,2018,176,Grassland/Pasture,0.698
+F102,3.1,2018,176,Pasture / Grazing Land,0.698
 F01,615.9,2019,1,Corn,0.3
 F02,338.3,2019,1,Corn,0.749
 F03,292.0,2019,1,Corn,0.516
@@ -1130,99 +1130,99 @@ F06,234.8,2019,1,Corn,0.987
 F07,228.8,2019,36,Alfalfa,0.986
 F08,216.8,2019,1,Corn,0.788
 F09,212.3,2019,1,Corn,0.994
-F10,182.0,2019,205,Triticale,0.947
+F10,182.0,2019,205,Triticale (wheat-rye grain),0.947
 F11,139.2,2019,1,Corn,0.846
 F12,130.6,2019,1,Corn,0.998
 F13,111.0,2019,36,Alfalfa,0.985
 F14,101.0,2019,36,Alfalfa,0.498
 F15,94.5,2019,1,Corn,0.979
 F16,93.4,2019,36,Alfalfa,0.975
-F17,91.4,2019,41,Sugarbeets,0.928
+F17,91.4,2019,41,Sugar Beets,0.928
 F18,83.9,2019,36,Alfalfa,0.971
 F19,66.7,2019,1,Corn,0.997
 F20,61.2,2019,1,Corn,0.589
-F21,60.2,2019,24,Winter Wheat,0.925
-F22,47.3,2019,176,Grassland/Pasture,0.976
+F21,60.2,2019,24,Wheat (winter),0.925
+F22,47.3,2019,176,Pasture / Grazing Land,0.976
 F23,47.1,2019,1,Corn,0.971
 F24,47.0,2019,36,Alfalfa,0.926
 F25,43.7,2019,36,Alfalfa,0.543
-F26,41.9,2019,24,Winter Wheat,0.502
+F26,41.9,2019,24,Wheat (winter),0.502
 F27,39.4,2019,36,Alfalfa,0.983
 F28,38.4,2019,1,Corn,0.955
-F29,31.3,2019,176,Grassland/Pasture,0.601
+F29,31.3,2019,176,Pasture / Grazing Land,0.601
 F30,30.0,2019,1,Corn,1.0
 F31,29.2,2019,36,Alfalfa,0.954
 F32,28.7,2019,1,Corn,0.992
 F33,27.6,2019,36,Alfalfa,0.968
-F34,27.2,2019,61,Fallow/Idle Cropland,0.96
+F34,27.2,2019,61,Unplanted Field (resting),0.96
 F35,23.1,2019,36,Alfalfa,0.884
 F36,22.9,2019,1,Corn,0.991
-F37,21.6,2019,176,Grassland/Pasture,0.819
+F37,21.6,2019,176,Pasture / Grazing Land,0.819
 F38,19.9,2019,36,Alfalfa,0.479
-F39,19.6,2019,176,Grassland/Pasture,0.921
-F40,18.1,2019,205,Triticale,0.761
-F41,17.9,2019,176,Grassland/Pasture,0.815
+F39,19.6,2019,176,Pasture / Grazing Land,0.921
+F40,18.1,2019,205,Triticale (wheat-rye grain),0.761
+F41,17.9,2019,176,Pasture / Grazing Land,0.815
 F42,17.7,2019,36,Alfalfa,0.813
 F43,15.8,2019,36,Alfalfa,0.768
 F44,15.6,2019,36,Alfalfa,0.914
-F45,15.3,2019,42,Dry Beans,1.0
-F46,14.7,2019,176,Grassland/Pasture,0.941
-F47,14.3,2019,61,Fallow/Idle Cropland,0.934
+F45,15.3,2019,42,Beans,1.0
+F46,14.7,2019,176,Pasture / Grazing Land,0.941
+F47,14.3,2019,61,Unplanted Field (resting),0.934
 F48,13.5,2019,1,Corn,0.606
-F49,12.9,2019,61,Fallow/Idle Cropland,0.933
-F50,12.8,2019,176,Grassland/Pasture,0.761
-F51,12.5,2019,61,Fallow/Idle Cropland,0.968
-F52,11.0,2019,61,Fallow/Idle Cropland,0.919
-F53,10.8,2019,176,Grassland/Pasture,0.774
-F54,10.8,2019,176,Grassland/Pasture,0.9
-F55,10.7,2019,176,Grassland/Pasture,0.812
+F49,12.9,2019,61,Unplanted Field (resting),0.933
+F50,12.8,2019,176,Pasture / Grazing Land,0.761
+F51,12.5,2019,61,Unplanted Field (resting),0.968
+F52,11.0,2019,61,Unplanted Field (resting),0.919
+F53,10.8,2019,176,Pasture / Grazing Land,0.774
+F54,10.8,2019,176,Pasture / Grazing Land,0.9
+F55,10.7,2019,176,Pasture / Grazing Land,0.812
 F56,10.6,2019,36,Alfalfa,0.979
-F57,9.7,2019,176,Grassland/Pasture,0.865
+F57,9.7,2019,176,Pasture / Grazing Land,0.865
 F58,9.1,2019,36,Alfalfa,0.492
-F59,9.1,2019,41,Sugarbeets,0.976
-F60,9.1,2019,176,Grassland/Pasture,0.878
-F61,8.9,2019,176,Grassland/Pasture,1.0
-F62,8.7,2019,176,Grassland/Pasture,0.873
+F59,9.1,2019,41,Sugar Beets,0.976
+F60,9.1,2019,176,Pasture / Grazing Land,0.878
+F61,8.9,2019,176,Pasture / Grazing Land,1.0
+F62,8.7,2019,176,Pasture / Grazing Land,0.873
 F63,8.4,2019,1,Corn,1.0
 F64,8.0,2019,36,Alfalfa,0.526
-F65,7.9,2019,176,Grassland/Pasture,0.972
-F66,7.8,2019,176,Grassland/Pasture,0.797
-F67,7.6,2019,176,Grassland/Pasture,1.0
-F68,7.2,2019,61,Fallow/Idle Cropland,1.0
+F65,7.9,2019,176,Pasture / Grazing Land,0.972
+F66,7.8,2019,176,Pasture / Grazing Land,0.797
+F67,7.6,2019,176,Pasture / Grazing Land,1.0
+F68,7.2,2019,61,Unplanted Field (resting),1.0
 F69,7.0,2019,36,Alfalfa,0.83
-F70,7.0,2019,61,Fallow/Idle Cropland,1.0
+F70,7.0,2019,61,Unplanted Field (resting),1.0
 F71,6.9,2019,36,Alfalfa,0.9
-F72,6.7,2019,176,Grassland/Pasture,0.938
-F73,6.5,2019,176,Grassland/Pasture,0.686
-F74,6.4,2019,176,Grassland/Pasture,0.973
-F75,6.3,2019,41,Sugarbeets,0.964
-F76,6.2,2019,176,Grassland/Pasture,0.86
-F77,6.2,2019,176,Grassland/Pasture,0.896
-F78,5.8,2019,176,Grassland/Pasture,0.923
-F79,5.7,2019,176,Grassland/Pasture,0.961
+F72,6.7,2019,176,Pasture / Grazing Land,0.938
+F73,6.5,2019,176,Pasture / Grazing Land,0.686
+F74,6.4,2019,176,Pasture / Grazing Land,0.973
+F75,6.3,2019,41,Sugar Beets,0.964
+F76,6.2,2019,176,Pasture / Grazing Land,0.86
+F77,6.2,2019,176,Pasture / Grazing Land,0.896
+F78,5.8,2019,176,Pasture / Grazing Land,0.923
+F79,5.7,2019,176,Pasture / Grazing Land,0.961
 F80,5.6,2019,1,Corn,0.965
-F81,5.5,2019,176,Grassland/Pasture,1.0
-F82,5.5,2019,176,Grassland/Pasture,0.92
+F81,5.5,2019,176,Pasture / Grazing Land,1.0
+F82,5.5,2019,176,Pasture / Grazing Land,0.92
 F83,5.5,2019,36,Alfalfa,0.919
-F84,5.4,2019,61,Fallow/Idle Cropland,0.872
-F85,5.2,2019,61,Fallow/Idle Cropland,0.91
-F86,5.2,2019,42,Dry Beans,0.348
-F87,5.1,2019,176,Grassland/Pasture,0.913
-F88,4.9,2019,176,Grassland/Pasture,0.773
+F84,5.4,2019,61,Unplanted Field (resting),0.872
+F85,5.2,2019,61,Unplanted Field (resting),0.91
+F86,5.2,2019,42,Beans,0.348
+F87,5.1,2019,176,Pasture / Grazing Land,0.913
+F88,4.9,2019,176,Pasture / Grazing Land,0.773
 F89,4.6,2019,36,Alfalfa,0.952
 F90,4.5,2019,36,Alfalfa,0.945
-F91,4.2,2019,42,Dry Beans,0.526
-F92,4.0,2019,176,Grassland/Pasture,0.944
-F93,3.6,2019,176,Grassland/Pasture,0.752
-F94,3.6,2019,176,Grassland/Pasture,1.0
+F91,4.2,2019,42,Beans,0.526
+F92,4.0,2019,176,Pasture / Grazing Land,0.944
+F93,3.6,2019,176,Pasture / Grazing Land,0.752
+F94,3.6,2019,176,Pasture / Grazing Land,1.0
 F95,3.6,2019,36,Alfalfa,0.938
-F96,3.5,2019,205,Triticale,0.874
-F97,3.4,2019,176,Grassland/Pasture,0.699
-F98,3.3,2019,176,Grassland/Pasture,0.59
-F99,3.3,2019,176,Grassland/Pasture,0.933
-F100,3.3,2019,61,Fallow/Idle Cropland,1.0
+F96,3.5,2019,205,Triticale (wheat-rye grain),0.874
+F97,3.4,2019,176,Pasture / Grazing Land,0.699
+F98,3.3,2019,176,Pasture / Grazing Land,0.59
+F99,3.3,2019,176,Pasture / Grazing Land,0.933
+F100,3.3,2019,61,Unplanted Field (resting),1.0
 F101,3.2,2019,1,Corn,0.922
-F102,3.1,2019,176,Grassland/Pasture,0.698
+F102,3.1,2019,176,Pasture / Grazing Land,0.698
 F01,615.9,2020,1,Corn,0.905
 F02,338.3,2020,1,Corn,0.925
 F03,292.0,2020,1,Corn,0.825
@@ -1230,8 +1230,8 @@ F04,273.6,2020,36,Alfalfa,0.989
 F05,273.5,2020,1,Corn,0.977
 F06,234.8,2020,1,Corn,0.993
 F07,228.8,2020,1,Corn,0.99
-F08,216.8,2020,24,Winter Wheat,0.773
-F09,212.3,2020,42,Dry Beans,0.976
+F08,216.8,2020,24,Wheat (winter),0.773
+F09,212.3,2020,42,Beans,0.976
 F10,182.0,2020,21,Barley,0.984
 F11,139.2,2020,36,Alfalfa,0.949
 F12,130.6,2020,1,Corn,1.0
@@ -1244,11 +1244,11 @@ F18,83.9,2020,36,Alfalfa,0.979
 F19,66.7,2020,1,Corn,1.0
 F20,61.2,2020,1,Corn,0.989
 F21,60.2,2020,1,Corn,0.989
-F22,47.3,2020,176,Grassland/Pasture,0.967
+F22,47.3,2020,176,Pasture / Grazing Land,0.967
 F23,47.1,2020,1,Corn,0.971
 F24,47.0,2020,36,Alfalfa,0.991
 F25,43.7,2020,36,Alfalfa,0.939
-F26,41.9,2020,41,Sugarbeets,0.889
+F26,41.9,2020,41,Sugar Beets,0.889
 F27,39.4,2020,36,Alfalfa,1.0
 F28,38.4,2020,1,Corn,0.972
 F29,31.3,2020,1,Corn,0.724
@@ -1256,84 +1256,84 @@ F30,30.0,2020,1,Corn,1.0
 F31,29.2,2020,36,Alfalfa,0.992
 F32,28.7,2020,1,Corn,0.992
 F33,27.6,2020,36,Alfalfa,0.992
-F34,27.2,2020,61,Fallow/Idle Cropland,0.943
+F34,27.2,2020,61,Unplanted Field (resting),0.943
 F35,23.1,2020,36,Alfalfa,0.923
 F36,22.9,2020,1,Corn,1.0
-F37,21.6,2020,176,Grassland/Pasture,0.829
+F37,21.6,2020,176,Pasture / Grazing Land,0.829
 F38,19.9,2020,36,Alfalfa,0.666
-F39,19.6,2020,176,Grassland/Pasture,0.874
+F39,19.6,2020,176,Pasture / Grazing Land,0.874
 F40,18.1,2020,36,Alfalfa,0.697
-F41,17.9,2020,176,Grassland/Pasture,0.793
+F41,17.9,2020,176,Pasture / Grazing Land,0.793
 F42,17.7,2020,36,Alfalfa,0.834
 F43,15.8,2020,36,Alfalfa,0.845
 F44,15.6,2020,1,Corn,0.943
-F45,15.3,2020,24,Winter Wheat,0.985
-F46,14.7,2020,176,Grassland/Pasture,0.894
-F47,14.3,2020,61,Fallow/Idle Cropland,0.919
+F45,15.3,2020,24,Wheat (winter),0.985
+F46,14.7,2020,176,Pasture / Grazing Land,0.894
+F47,14.3,2020,61,Unplanted Field (resting),0.919
 F48,13.5,2020,1,Corn,0.617
-F49,12.9,2020,61,Fallow/Idle Cropland,0.948
-F50,12.8,2020,176,Grassland/Pasture,0.761
-F51,12.5,2020,61,Fallow/Idle Cropland,0.984
-F52,11.0,2020,61,Fallow/Idle Cropland,0.959
-F53,10.8,2020,176,Grassland/Pasture,0.669
-F54,10.8,2020,176,Grassland/Pasture,0.92
-F55,10.7,2020,176,Grassland/Pasture,0.833
+F49,12.9,2020,61,Unplanted Field (resting),0.948
+F50,12.8,2020,176,Pasture / Grazing Land,0.761
+F51,12.5,2020,61,Unplanted Field (resting),0.984
+F52,11.0,2020,61,Unplanted Field (resting),0.959
+F53,10.8,2020,176,Pasture / Grazing Land,0.669
+F54,10.8,2020,176,Pasture / Grazing Land,0.92
+F55,10.7,2020,176,Pasture / Grazing Land,0.833
 F56,10.6,2020,36,Alfalfa,0.935
-F57,9.7,2020,176,Grassland/Pasture,0.865
+F57,9.7,2020,176,Pasture / Grazing Land,0.865
 F58,9.1,2020,36,Alfalfa,0.639
 F59,9.1,2020,1,Corn,1.0
-F60,9.1,2020,176,Grassland/Pasture,0.878
-F61,8.9,2020,176,Grassland/Pasture,1.0
-F62,8.7,2020,176,Grassland/Pasture,0.822
-F63,8.4,2020,41,Sugarbeets,1.0
+F60,9.1,2020,176,Pasture / Grazing Land,0.878
+F61,8.9,2020,176,Pasture / Grazing Land,1.0
+F62,8.7,2020,176,Pasture / Grazing Land,0.822
+F63,8.4,2020,41,Sugar Beets,1.0
 F64,8.0,2020,36,Alfalfa,0.695
-F65,7.9,2020,176,Grassland/Pasture,0.947
-F66,7.8,2020,176,Grassland/Pasture,0.797
-F67,7.6,2020,176,Grassland/Pasture,1.0
-F68,7.2,2020,61,Fallow/Idle Cropland,1.0
+F65,7.9,2020,176,Pasture / Grazing Land,0.947
+F66,7.8,2020,176,Pasture / Grazing Land,0.797
+F67,7.6,2020,176,Pasture / Grazing Land,1.0
+F68,7.2,2020,61,Unplanted Field (resting),1.0
 F69,7.0,2020,36,Alfalfa,0.933
-F70,7.0,2020,61,Fallow/Idle Cropland,1.0
+F70,7.0,2020,61,Unplanted Field (resting),1.0
 F71,6.9,2020,36,Alfalfa,1.0
-F72,6.7,2020,176,Grassland/Pasture,0.938
-F73,6.5,2020,176,Grassland/Pasture,0.686
-F74,6.4,2020,176,Grassland/Pasture,0.973
+F72,6.7,2020,176,Pasture / Grazing Land,0.938
+F73,6.5,2020,176,Pasture / Grazing Land,0.686
+F74,6.4,2020,176,Pasture / Grazing Land,0.973
 F75,6.3,2020,1,Corn,0.964
-F76,6.2,2020,176,Grassland/Pasture,0.748
-F77,6.2,2020,176,Grassland/Pasture,0.827
-F78,5.8,2020,176,Grassland/Pasture,0.803
-F79,5.7,2020,176,Grassland/Pasture,0.961
+F76,6.2,2020,176,Pasture / Grazing Land,0.748
+F77,6.2,2020,176,Pasture / Grazing Land,0.827
+F78,5.8,2020,176,Pasture / Grazing Land,0.803
+F79,5.7,2020,176,Pasture / Grazing Land,0.961
 F80,5.6,2020,1,Corn,1.0
-F81,5.5,2020,176,Grassland/Pasture,0.959
-F82,5.5,2020,176,Grassland/Pasture,0.92
+F81,5.5,2020,176,Pasture / Grazing Land,0.959
+F82,5.5,2020,176,Pasture / Grazing Land,0.92
 F83,5.5,2020,36,Alfalfa,0.843
-F84,5.4,2020,61,Fallow/Idle Cropland,0.913
-F85,5.2,2020,61,Fallow/Idle Cropland,0.91
-F86,5.2,2020,42,Dry Beans,0.476
-F87,5.1,2020,176,Grassland/Pasture,0.831
-F88,4.9,2020,176,Grassland/Pasture,0.778
+F84,5.4,2020,61,Unplanted Field (resting),0.913
+F85,5.2,2020,61,Unplanted Field (resting),0.91
+F86,5.2,2020,42,Beans,0.476
+F87,5.1,2020,176,Pasture / Grazing Land,0.831
+F88,4.9,2020,176,Pasture / Grazing Land,0.778
 F89,4.6,2020,36,Alfalfa,1.0
 F90,4.5,2020,36,Alfalfa,0.945
-F91,4.2,2020,42,Dry Beans,1.0
-F92,4.0,2020,176,Grassland/Pasture,0.895
-F93,3.6,2020,176,Grassland/Pasture,0.69
-F94,3.6,2020,176,Grassland/Pasture,1.0
+F91,4.2,2020,42,Beans,1.0
+F92,4.0,2020,176,Pasture / Grazing Land,0.895
+F93,3.6,2020,176,Pasture / Grazing Land,0.69
+F94,3.6,2020,176,Pasture / Grazing Land,1.0
 F95,3.6,2020,36,Alfalfa,0.931
 F96,3.5,2020,36,Alfalfa,0.944
-F97,3.4,2020,176,Grassland/Pasture,0.765
-F98,3.3,2020,176,Grassland/Pasture,0.59
-F99,3.3,2020,176,Grassland/Pasture,0.933
-F100,3.3,2020,61,Fallow/Idle Cropland,1.0
+F97,3.4,2020,176,Pasture / Grazing Land,0.765
+F98,3.3,2020,176,Pasture / Grazing Land,0.59
+F99,3.3,2020,176,Pasture / Grazing Land,0.933
+F100,3.3,2020,61,Unplanted Field (resting),1.0
 F101,3.2,2020,1,Corn,1.0
-F102,3.1,2020,176,Grassland/Pasture,0.556
+F102,3.1,2020,176,Pasture / Grazing Land,0.556
 F01,615.9,2021,1,Corn,1.0
 F02,338.3,2021,1,Corn,1.0
 F03,292.0,2021,1,Corn,1.0
 F04,273.6,2021,36,Alfalfa,1.0
 F05,273.5,2021,1,Corn,1.0
-F06,234.8,2021,24,Winter Wheat,1.0
+F06,234.8,2021,24,Wheat (winter),1.0
 F07,228.8,2021,1,Corn,1.0
 F08,216.8,2021,36,Alfalfa,1.0
-F09,212.3,2021,24,Winter Wheat,1.0
+F09,212.3,2021,24,Wheat (winter),1.0
 F10,182.0,2021,21,Barley,1.0
 F11,139.2,2021,36,Alfalfa,1.0
 F12,130.6,2021,43,Potatoes,1.0
@@ -1345,85 +1345,85 @@ F17,91.4,2021,1,Corn,1.0
 F18,83.9,2021,36,Alfalfa,1.0
 F19,66.7,2021,1,Corn,1.0
 F20,61.2,2021,43,Potatoes,1.0
-F21,60.2,2021,24,Winter Wheat,1.0
-F22,47.3,2021,176,Grassland/Pasture,1.0
+F21,60.2,2021,24,Wheat (winter),1.0
+F22,47.3,2021,176,Pasture / Grazing Land,1.0
 F23,47.1,2021,1,Corn,1.0
 F24,47.0,2021,36,Alfalfa,1.0
 F25,43.7,2021,36,Alfalfa,1.0
-F26,41.9,2021,42,Dry Beans,1.0
+F26,41.9,2021,42,Beans,1.0
 F27,39.4,2021,36,Alfalfa,1.0
 F28,38.4,2021,1,Corn,1.0
 F29,31.3,2021,1,Corn,1.0
-F30,30.0,2021,41,Sugarbeets,1.0
+F30,30.0,2021,41,Sugar Beets,1.0
 F31,29.2,2021,36,Alfalfa,1.0
-F32,28.7,2021,41,Sugarbeets,1.0
+F32,28.7,2021,41,Sugar Beets,1.0
 F33,27.6,2021,36,Alfalfa,1.0
-F34,27.2,2021,61,Fallow/Idle Cropland,1.0
+F34,27.2,2021,61,Unplanted Field (resting),1.0
 F35,23.1,2021,36,Alfalfa,1.0
-F36,22.9,2021,41,Sugarbeets,1.0
-F37,21.6,2021,176,Grassland/Pasture,1.0
+F36,22.9,2021,41,Sugar Beets,1.0
+F37,21.6,2021,176,Pasture / Grazing Land,1.0
 F38,19.9,2021,36,Alfalfa,1.0
-F39,19.6,2021,176,Grassland/Pasture,1.0
+F39,19.6,2021,176,Pasture / Grazing Land,1.0
 F40,18.1,2021,36,Alfalfa,1.0
-F41,17.9,2021,176,Grassland/Pasture,1.0
+F41,17.9,2021,176,Pasture / Grazing Land,1.0
 F42,17.7,2021,1,Corn,1.0
 F43,15.8,2021,36,Alfalfa,1.0
 F44,15.6,2021,1,Corn,1.0
-F45,15.3,2021,42,Dry Beans,1.0
-F46,14.7,2021,176,Grassland/Pasture,1.0
-F47,14.3,2021,61,Fallow/Idle Cropland,1.0
+F45,15.3,2021,42,Beans,1.0
+F46,14.7,2021,176,Pasture / Grazing Land,1.0
+F47,14.3,2021,61,Unplanted Field (resting),1.0
 F48,13.5,2021,21,Barley,1.0
-F49,12.9,2021,61,Fallow/Idle Cropland,1.0
-F50,12.8,2021,176,Grassland/Pasture,1.0
-F51,12.5,2021,61,Fallow/Idle Cropland,1.0
-F52,11.0,2021,61,Fallow/Idle Cropland,1.0
-F53,10.8,2021,176,Grassland/Pasture,1.0
-F54,10.8,2021,176,Grassland/Pasture,1.0
-F55,10.7,2021,176,Grassland/Pasture,1.0
+F49,12.9,2021,61,Unplanted Field (resting),1.0
+F50,12.8,2021,176,Pasture / Grazing Land,1.0
+F51,12.5,2021,61,Unplanted Field (resting),1.0
+F52,11.0,2021,61,Unplanted Field (resting),1.0
+F53,10.8,2021,176,Pasture / Grazing Land,1.0
+F54,10.8,2021,176,Pasture / Grazing Land,1.0
+F55,10.7,2021,176,Pasture / Grazing Land,1.0
 F56,10.6,2021,36,Alfalfa,1.0
-F57,9.7,2021,176,Grassland/Pasture,1.0
+F57,9.7,2021,176,Pasture / Grazing Land,1.0
 F58,9.1,2021,36,Alfalfa,1.0
-F59,9.1,2021,41,Sugarbeets,1.0
-F60,9.1,2021,176,Grassland/Pasture,1.0
-F61,8.9,2021,176,Grassland/Pasture,1.0
-F62,8.7,2021,176,Grassland/Pasture,1.0
-F63,8.4,2021,42,Dry Beans,1.0
+F59,9.1,2021,41,Sugar Beets,1.0
+F60,9.1,2021,176,Pasture / Grazing Land,1.0
+F61,8.9,2021,176,Pasture / Grazing Land,1.0
+F62,8.7,2021,176,Pasture / Grazing Land,1.0
+F63,8.4,2021,42,Beans,1.0
 F64,8.0,2021,36,Alfalfa,1.0
-F65,7.9,2021,176,Grassland/Pasture,1.0
-F66,7.8,2021,176,Grassland/Pasture,1.0
-F67,7.6,2021,176,Grassland/Pasture,1.0
-F68,7.2,2021,61,Fallow/Idle Cropland,1.0
+F65,7.9,2021,176,Pasture / Grazing Land,1.0
+F66,7.8,2021,176,Pasture / Grazing Land,1.0
+F67,7.6,2021,176,Pasture / Grazing Land,1.0
+F68,7.2,2021,61,Unplanted Field (resting),1.0
 F69,7.0,2021,36,Alfalfa,1.0
-F70,7.0,2021,61,Fallow/Idle Cropland,1.0
+F70,7.0,2021,61,Unplanted Field (resting),1.0
 F71,6.9,2021,36,Alfalfa,1.0
-F72,6.7,2021,176,Grassland/Pasture,1.0
-F73,6.5,2021,176,Grassland/Pasture,1.0
-F74,6.4,2021,176,Grassland/Pasture,1.0
-F75,6.3,2021,41,Sugarbeets,1.0
-F76,6.2,2021,176,Grassland/Pasture,1.0
-F77,6.2,2021,176,Grassland/Pasture,1.0
-F78,5.8,2021,176,Grassland/Pasture,1.0
-F79,5.7,2021,176,Grassland/Pasture,1.0
+F72,6.7,2021,176,Pasture / Grazing Land,1.0
+F73,6.5,2021,176,Pasture / Grazing Land,1.0
+F74,6.4,2021,176,Pasture / Grazing Land,1.0
+F75,6.3,2021,41,Sugar Beets,1.0
+F76,6.2,2021,176,Pasture / Grazing Land,1.0
+F77,6.2,2021,176,Pasture / Grazing Land,1.0
+F78,5.8,2021,176,Pasture / Grazing Land,1.0
+F79,5.7,2021,176,Pasture / Grazing Land,1.0
 F80,5.6,2021,1,Corn,1.0
-F81,5.5,2021,176,Grassland/Pasture,1.0
-F82,5.5,2021,176,Grassland/Pasture,1.0
+F81,5.5,2021,176,Pasture / Grazing Land,1.0
+F82,5.5,2021,176,Pasture / Grazing Land,1.0
 F83,5.5,2021,36,Alfalfa,1.0
-F84,5.4,2021,61,Fallow/Idle Cropland,1.0
-F85,5.2,2021,61,Fallow/Idle Cropland,1.0
-F86,5.2,2021,61,Fallow/Idle Cropland,1.0
-F87,5.1,2021,176,Grassland/Pasture,1.0
-F88,4.9,2021,176,Grassland/Pasture,1.0
+F84,5.4,2021,61,Unplanted Field (resting),1.0
+F85,5.2,2021,61,Unplanted Field (resting),1.0
+F86,5.2,2021,61,Unplanted Field (resting),1.0
+F87,5.1,2021,176,Pasture / Grazing Land,1.0
+F88,4.9,2021,176,Pasture / Grazing Land,1.0
 F89,4.6,2021,36,Alfalfa,1.0
 F90,4.5,2021,36,Alfalfa,1.0
-F91,4.2,2021,24,Winter Wheat,1.0
-F92,4.0,2021,176,Grassland/Pasture,1.0
-F93,3.6,2021,176,Grassland/Pasture,1.0
-F94,3.6,2021,176,Grassland/Pasture,1.0
+F91,4.2,2021,24,Wheat (winter),1.0
+F92,4.0,2021,176,Pasture / Grazing Land,1.0
+F93,3.6,2021,176,Pasture / Grazing Land,1.0
+F94,3.6,2021,176,Pasture / Grazing Land,1.0
 F95,3.6,2021,36,Alfalfa,1.0
 F96,3.5,2021,36,Alfalfa,1.0
-F97,3.4,2021,176,Grassland/Pasture,1.0
-F98,3.3,2021,176,Grassland/Pasture,1.0
-F99,3.3,2021,176,Grassland/Pasture,1.0
-F100,3.3,2021,61,Fallow/Idle Cropland,1.0
+F97,3.4,2021,176,Pasture / Grazing Land,1.0
+F98,3.3,2021,176,Pasture / Grazing Land,1.0
+F99,3.3,2021,176,Pasture / Grazing Land,1.0
+F100,3.3,2021,61,Unplanted Field (resting),1.0
 F101,3.2,2021,43,Potatoes,1.0
-F102,3.1,2021,176,Grassland/Pasture,1.0
+F102,3.1,2021,176,Pasture / Grazing Land,1.0

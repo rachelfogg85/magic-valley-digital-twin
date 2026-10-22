@@ -22,6 +22,8 @@ from rasterio.features import shapes, sieve
 from rasterio.warp import Resampling, reproject, transform_bounds
 from shapely.geometry import shape
 
+from cdl_layman_names import layman_name
+
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = ROOT / "config.yaml"
 RAW_CDL_DIR = ROOT / "data" / "raw" / "cdl"
@@ -107,7 +109,7 @@ def main():
             {
                 "geometry": poly,
                 "crop_code_ref_year": value,
-                "crop_name_ref_year": names.get(value, "Unknown"),
+                "crop_name_ref_year": layman_name(names.get(value, "Unknown")),
                 "acres": round(acres, 1),
             }
         )
