@@ -1,0 +1,370 @@
+{
+  "0": {
+    "name": "Unknown (0)",
+    "color": [
+      0,
+      0,
+      0
+    ]
+  },
+  "1": {
+    "name": "Corn",
+    "color": [
+      255,
+      210,
+      0
+    ]
+  },
+  "12": {
+    "name": "Sweet Corn",
+    "color": [
+      221,
+      164,
+      10
+    ]
+  },
+  "21": {
+    "name": "Barley",
+    "color": [
+      225,
+      0,
+      123
+    ]
+  },
+  "23": {
+    "name": "Spring Wheat",
+    "color": [
+      215,
+      181,
+      107
+    ]
+  },
+  "24": {
+    "name": "Winter Wheat",
+    "color": [
+      164,
+      111,
+      0
+    ]
+  },
+  "28": {
+    "name": "Oats",
+    "color": [
+      159,
+      88,
+      136
+    ]
+  },
+  "36": {
+    "name": "Alfalfa",
+    "color": [
+      255,
+      164,
+      225
+    ]
+  },
+  "37": {
+    "name": "Other Hay/Non Alfalfa",
+    "color": [
+      164,
+      241,
+      139
+    ]
+  },
+  "41": {
+    "name": "Sugarbeets",
+    "color": [
+      168,
+      0,
+      227
+    ]
+  },
+  "42": {
+    "name": "Dry Beans",
+    "color": [
+      164,
+      0,
+      0
+    ]
+  },
+  "43": {
+    "name": "Potatoes",
+    "color": [
+      111,
+      37,
+      0
+    ]
+  },
+  "53": {
+    "name": "Peas",
+    "color": [
+      83,
+      255,
+      0
+    ]
+  },
+  "61": {
+    "name": "Fallow/Idle Cropland",
+    "color": [
+      190,
+      190,
+      119
+    ]
+  },
+  "111": {
+    "name": "Open Water",
+    "color": [
+      74,
+      111,
+      162
+    ]
+  },
+  "121": {
+    "name": "Developed/Open Space",
+    "color": [
+      154,
+      154,
+      154
+    ]
+  },
+  "122": {
+    "name": "Developed/Low Intensity",
+    "color": [
+      154,
+      154,
+      154
+    ]
+  },
+  "123": {
+    "name": "Developed/Med Intensity",
+    "color": [
+      154,
+      154,
+      154
+    ]
+  },
+  "152": {
+    "name": "Shrubland",
+    "color": [
+      197,
+      213,
+      158
+    ]
+  },
+  "176": {
+    "name": "Grassland/Pasture",
+    "color": [
+      232,
+      255,
+      190
+    ]
+  },
+  "190": {
+    "name": "Woody Wetlands",
+    "color": [
+      125,
+      176,
+      176
+    ]
+  },
+  "195": {
+    "name": "Herbaceous Wetlands",
+    "color": [
+      125,
+      176,
+      176
+    ]
+  },
+  "205": {
+    "name": "Triticale",
+    "color": [
+      213,
+      158,
+      187
+    ]
+  },
+  "25": {
+    "name": "Other Small Grains",
+    "color": [
+      213,
+      158,
+      187
+    ]
+  },
+  "44": {
+    "name": "Other Crops",
+    "color": [
+      0,
+      174,
+      74
+    ]
+  },
+  "4": {
+    "name": "Sorghum",
+    "color": [
+      255,
+      158,
+      10
+    ]
+  },
+  "59": {
+    "name": "Sod/Grass Seed",
+    "color": [
+      174,
+      255,
+      221
+    ]
+  },
+  "63": {
+    "name": "Forest",
+    "color": [
+      146,
+      204,
+      146
+    ]
+  },
+  "112": {
+    "name": "Perennial Ice/Snow",
+    "color": [
+      210,
+      225,
+      248
+    ]
+  },
+  "131": {
+    "name": "Barren",
+    "color": [
+      204,
+      190,
+      162
+    ]
+  },
+  "31": {
+    "name": "Canola",
+    "color": [
+      209,
+      255,
+      0
+    ]
+  },
+  "49": {
+    "name": "Onions",
+    "color": [
+      255,
+      204,
+      102
+    ]
+  },
+  "57": {
+    "name": "Herbs",
+    "color": [
+      125,
+      210,
+      255
+    ]
+  },
+  "27": {
+    "name": "Rye",
+    "color": [
+      172,
+      0,
+      123
+    ]
+  },
+  "67": {
+    "name": "Peaches",
+    "color": [
+      255,
+      142,
+      170
+    ]
+  },
+  "70": {
+    "name": "Christmas Trees",
+    "color": [
+      0,
+      119,
+      119
+    ]
+  },
+  "33": {
+    "name": "Safflower",
+    "color": [
+      213,
+      213,
+      0
+    ]
+  },
+  "225": {
+    "name": "Winter Wheat/Corn",
+    "color": [
+      255,
+      210,
+      0
+    ]
+  },
+  "142": {
+    "name": "Evergreen Forest",
+    "color": [
+      146,
+      204,
+      146
+    ]
+  },
+  "206": {
+    "name": "Carrots",
+    "color": [
+      255,
+      102,
+      102
+    ]
+  },
+  "66": {
+    "name": "Cherries",
+    "color": [
+      255,
+      0,
+      255
+    ]
+  },
+  "68": {
+    "name": "Apples",
+    "color": [
+      185,
+      0,
+      79
+    ]
+  },
+  "237": {
+    "name": "Barley/Corn",
+    "color": [
+      255,
+      210,
+      0
+    ]
+  },
+  "14": {
+    "name": "Mint",
+    "color": [
+      125,
+      210,
+      255
+    ]
+  },
+  "228": {
+    "name": "Triticale/Corn",
+    "color": [
+      255,
+      102,
+      102
+    ]
+  },
+  "124": {
+    "name": "Developed/High Intensity",
+    "color": [
+      154,
+      154,
+      154
+    ]
+  }
+}
