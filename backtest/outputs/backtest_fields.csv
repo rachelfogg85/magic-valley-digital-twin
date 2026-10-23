@@ -1,0 +1,99 @@
+field_id,acres,actual_crop,optimized_crop,profit_diff_mid
+F06,234.8,Wheat (winter),Potatoes,51111.26
+F10,182.0,Barley,Beans,36455.33
+F09,212.3,Wheat (winter),Beans,35535.62
+F22,47.3,Fallow,Beans,12927.28
+F01,615.9,Corn,Beans,10854.62
+F21,60.2,Wheat (winter),Beans,10076.52
+F19,66.7,Corn,Sugar Beets,7787.89
+F13,111.0,Corn,Potatoes,7539.12
+F34,27.2,Fallow,Beans,7433.87
+F17,91.4,Corn,Potatoes,6207.89
+F02,338.3,Corn,Beans,5962.2
+F37,21.6,Fallow,Beans,5903.37
+F39,19.6,Fallow,Beans,5356.76
+F03,292.0,Corn,Beans,5146.21
+F41,17.9,Fallow,Beans,4892.14
+F05,273.5,Corn,Beans,4820.16
+F50,12.8,Fallow,Sugar Beets,4767.23
+F07,228.8,Corn,Beans,4032.37
+F46,14.7,Fallow,Beans,4017.57
+F47,14.3,Fallow,Beans,3908.25
+F49,12.9,Fallow,Beans,3525.62
+F51,12.5,Fallow,Beans,3416.3
+F15,94.5,Alfalfa,Potatoes,3386.88
+F52,11.0,Fallow,Beans,3006.34
+F54,10.8,Fallow,Beans,2951.68
+F53,10.8,Fallow,Beans,2951.68
+F55,10.7,Fallow,Beans,2924.35
+F48,13.5,Barley,Beans,2704.1
+F57,9.7,Fallow,Beans,2651.05
+F66,7.8,Fallow,Potatoes,2524.08
+F60,9.1,Fallow,Beans,2487.07
+F61,8.9,Fallow,Beans,2432.41
+F62,8.7,Fallow,Beans,2377.74
+F72,6.7,Fallow,Potatoes,2168.12
+F78,5.8,Fallow,Sugar Beets,2160.15
+F65,7.9,Fallow,Beans,2159.1
+F67,7.6,Fallow,Beans,2077.11
+F68,7.2,Fallow,Beans,1967.79
+F70,7.0,Fallow,Beans,1913.13
+F73,6.5,Fallow,Beans,1776.48
+F74,6.4,Fallow,Beans,1749.15
+F77,6.2,Fallow,Beans,1694.48
+F76,6.2,Fallow,Beans,1694.48
+F85,5.2,Fallow,Potatoes,1682.72
+F87,5.1,Fallow,Potatoes,1650.36
+F79,5.7,Fallow,Beans,1557.83
+F82,5.5,Fallow,Beans,1503.17
+F81,5.5,Fallow,Beans,1503.17
+F84,5.4,Fallow,Beans,1475.84
+F86,5.2,Fallow,Beans,1421.18
+F88,4.9,Fallow,Beans,1339.19
+F99,3.3,Fallow,Sugar Beets,1229.05
+F94,3.6,Fallow,Potatoes,1164.96
+F92,4.0,Fallow,Beans,1093.22
+F44,15.6,Corn,Potatoes,1059.55
+F93,3.6,Fallow,Beans,983.89
+F97,3.4,Fallow,Beans,929.23
+F98,3.3,Fallow,Beans,901.9
+F100,3.3,Fallow,Beans,901.9
+F102,3.1,Fallow,Beans,847.24
+F23,47.1,Corn,Beans,830.09
+F38,19.9,Alfalfa,Potatoes,713.22
+F91,4.2,Wheat (winter),Beans,703.01
+F28,38.4,Corn,Beans,676.76
+F29,31.3,Corn,Beans,551.63
+F83,5.5,Alfalfa,Sugar Beets,465.74
+F42,17.7,Corn,Beans,311.94
+F80,5.6,Corn,Beans,98.69
+F96,3.5,Alfalfa,Beans,-50.6
+F95,3.6,Alfalfa,Beans,-52.04
+F90,4.5,Alfalfa,Beans,-65.05
+F89,4.6,Alfalfa,Beans,-66.5
+F71,6.9,Alfalfa,Beans,-99.75
+F69,7.0,Alfalfa,Beans,-101.19
+F64,8.0,Alfalfa,Beans,-115.65
+F58,9.1,Alfalfa,Beans,-131.55
+F56,10.6,Alfalfa,Beans,-153.23
+F43,15.8,Alfalfa,Beans,-228.4
+F40,18.1,Alfalfa,Beans,-261.65
+F35,23.1,Alfalfa,Beans,-333.93
+F33,27.6,Alfalfa,Beans,-398.99
+F31,29.2,Alfalfa,Beans,-422.12
+F27,39.4,Alfalfa,Beans,-569.57
+F75,6.3,Sugar Beets,Beans,-624.56
+F25,43.7,Alfalfa,Beans,-631.73
+F24,47.0,Alfalfa,Beans,-679.43
+F59,9.1,Sugar Beets,Beans,-902.14
+F18,83.9,Alfalfa,Beans,-1212.86
+F16,93.4,Alfalfa,Beans,-1350.19
+F14,101.0,Alfalfa,Beans,-1460.06
+F11,139.2,Alfalfa,Beans,-2012.28
+F36,22.9,Sugar Beets,Beans,-2270.21
+F32,28.7,Sugar Beets,Beans,-2845.2
+F30,30.0,Sugar Beets,Beans,-2974.08
+F20,61.2,Potatoes,Beans,-3078.12
+F08,216.8,Alfalfa,Beans,-3134.06
+F04,273.6,Alfalfa,Beans,-3955.16
+F12,130.6,Potatoes,Beans,-6568.66
