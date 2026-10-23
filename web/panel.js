@@ -7,6 +7,7 @@ const yearSlider = document.getElementById('year-slider');
 
 const fmtMoney = (n) =>
   n.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+const fmtNum = (n) => Math.round(n).toLocaleString('en-US');
 
 // Minimal CSV parser that respects quoted fields (crop_params.csv's source column
 // contains commas inside quotes).
@@ -44,9 +45,9 @@ function assumptionsTable(params, crops) {
     .filter((c) => c !== 'Fallow' && params[c])
     .map((c) => {
       const p = params[c];
-      return `<tr><td>${c}</td><td>$${Number(p.price_mid).toLocaleString()}/${p.unit}</td>` +
-        `<td>${Number(p.yield_mid).toLocaleString()} ${p.unit}/ac</td>` +
-        `<td>$${Number(p.cost_per_acre).toLocaleString()}/ac</td></tr>`;
+      return `<tr><td>${c}</td><td>$${fmtNum(Number(p.price_mid))}/${p.unit}</td>` +
+        `<td>${fmtNum(Number(p.yield_mid))} ${p.unit}/ac</td>` +
+        `<td>$${fmtNum(Number(p.cost_per_acre))}/ac</td></tr>`;
     });
   if (rows.length === 0) return '';
   return `
@@ -72,7 +73,7 @@ function acresTable(acresByCrop) {
   if (rows.length === 0) return '<div class="sub">(all fields fallow)</div>';
   return (
     '<table>' +
-    rows.map(([crop, acres]) => `<tr><td>${crop}</td><td>${acres.toLocaleString()} ac</td></tr>`).join('') +
+    rows.map(([crop, acres]) => `<tr><td>${crop}</td><td>${fmtNum(acres)} ac</td></tr>`).join('') +
     '</table>'
   );
 }
@@ -104,11 +105,11 @@ export async function renderResults(result) {
       <b>Estimated profit</b>
       <div class="profit-range">${fmtMoney(result.profit_low)} &ndash; ${fmtMoney(result.profit_high)}</div>
       <div class="sub">Typical estimate: ${fmtMoney(result.profit_mid)}</div>
-      <div class="sub">For all ${totalAcres.toLocaleString()} acres, ${cropCount} crop${cropCount === 1 ? '' : 's'}, one ${yearSlider.value} growing season.</div>
+      <div class="sub">For all ${fmtNum(totalAcres)} acres, ${cropCount} crop${cropCount === 1 ? '' : 's'}, one ${yearSlider.value} growing season.</div>
     </div>
     <div class="result-block">
       <b>Water used</b>
-      ${result.total_water_af.toLocaleString()} of ${result.water_limit_af.toLocaleString()} acre-feet ${waterTag}
+      ${fmtNum(result.total_water_af)} of ${fmtNum(result.water_limit_af)} acre-feet ${waterTag}
     </div>
     <div class="result-block">
       <b>Recommended plan</b>

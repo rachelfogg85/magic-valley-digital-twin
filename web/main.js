@@ -19,6 +19,15 @@ import { initChat } from './chat.js';
 const DEFAULT_EXAGGERATION = 4;
 const ZOOM_FACTOR = 0.8;
 
+// Land-cover categories that aren't actually a farmed crop -- shown in their own
+// group/section instead of mixed in with real crops.
+const NON_CROP_NAMES = new Set([
+  'Bare Ground', 'City / Dense Buildings', 'Houses (scattered)', 'Houses / Buildings',
+  'Lawn Sod / Grass Seed', 'No Data', 'Pasture / Grazing Land', 'Roads / Yards',
+  'Shrubs / Brush', 'Water', 'Wetland (marsh)', 'Wetland (trees)',
+]);
+const isCrop = (name) => !NON_CROP_NAMES.has(name);
+
 const canvas = document.getElementById('scene');
 const yearSlider = document.getElementById('year-slider');
 const yearLabel = document.getElementById('year-label');
@@ -97,8 +106,8 @@ async function init() {
   controls.target.set(0, 0, 0);
   controls.update();
 
-  const widthMi = (meta.width * meta.meters_per_pixel / 1609.34).toFixed(1);
-  const heightMi = (meta.height * meta.meters_per_pixel / 1609.34).toFixed(1);
+  const widthMi = Math.round(meta.width * meta.meters_per_pixel / 1609.34);
+  const heightMi = Math.round(meta.height * meta.meters_per_pixel / 1609.34);
   areaSizeEl.textContent = `~${widthMi} x ${heightMi} mi`;
 
   const legend = await buildLegend();
@@ -133,15 +142,25 @@ function showPlanOnMap(result) {
   }
 }
 
-async function buildLegend() {
-  const legend = await fetch('/data/cdl_legend.json').then((r) => r.json());
-  const entries = Object.entries(legend).sort((a, b) => a[1].name.localeCompare(b[1].name));
-  legendEl.innerHTML = '<h3>What\'s growing here</h3>' + entries
+function legendRows(entries) {
+  return entries
     .map(([code, info]) => {
       const [r, g, b] = info.color;
       return `<div class="legend-row" title="USDA category: ${info.official_name}"><span class="swatch" style="background: rgb(${r},${g},${b})"></span>${info.name}</div>`;
     })
     .join('');
+}
+
+async function buildLegend() {
+  const legend = await fetch('/data/cdl_legend.json').then((r) => r.json());
+  const entries = Object.entries(legend).sort((a, b) => a[1].name.localeCompare(b[1].name));
+  const crops = entries.filter(([, info]) => isCrop(info.name));
+  const other = entries.filter(([, info]) => !isCrop(info.name));
+
+  legendEl.innerHTML =
+    '<h3>What\'s growing here</h3>' + legendRows(crops) +
+    (other.length ? '<h3 class="legend-other">Other land cover</h3>' + legendRows(other) : '');
+
   for (const [code, info] of entries) {
     cropNameToCode.set(info.name, Number(code));
     cropNameToColor.set(info.name, info.color);
@@ -151,12 +170,22 @@ async function buildLegend() {
 
 function buildCropFilter(legend) {
   const entries = Object.values(legend).sort((a, b) => a.name.localeCompare(b.name));
-  for (const info of entries) {
-    const opt = document.createElement('option');
-    opt.value = info.name;
-    opt.textContent = info.name;
-    cropFilterEl.appendChild(opt);
+  const crops = entries.filter((info) => isCrop(info.name));
+  const other = entries.filter((info) => !isCrop(info.name));
+
+  function addGroup(label, items) {
+    const group = document.createElement('optgroup');
+    group.label = label;
+    for (const info of items) {
+      const opt = document.createElement('option');
+      opt.value = info.name;
+      opt.textContent = info.name;
+      group.appendChild(opt);
+    }
+    cropFilterEl.appendChild(group);
   }
+  addGroup('Crops', crops);
+  if (other.length) addGroup('Other land cover', other);
   cropFilterEl.addEventListener('change', applyCropFilter);
 }
 

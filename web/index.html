@@ -13,34 +13,40 @@
   }
   html, body { margin: 0; height: 100%; overflow: hidden; font-family: Arial, Helvetica, sans-serif; background: #ffffff; color: var(--ink); }
   canvas { display: block; width: 100%; height: 100%; }
-  #ui {
+  #left-column {
     position: absolute; top: 16px; left: 16px; z-index: 10;
+    display: flex; flex-direction: column; gap: 14px;
+    width: 280px; max-height: calc(100vh - 32px);
+  }
+  #title-panel, #menu-panel {
     background: #ffffff; padding: 16px 18px; border-radius: 10px;
-    max-width: 280px; max-height: calc(100vh - 32px); overflow-y: auto;
     box-shadow: 0 2px 12px rgba(0,0,0,0.12); border: 1px solid #eee;
   }
-  #ui h1 {
+  #menu-panel { overflow-y: auto; min-height: 0; }
+  #title-panel h1 {
     font-size: 17px; margin: 0 0 10px; padding-bottom: 8px; color: var(--ink);
     font-weight: 700; border-bottom: 3px solid var(--forest);
   }
-  #ui label { display: block; font-size: 13px; margin-top: 12px; color: var(--ink); }
-  #ui input[type="range"] { width: 100%; accent-color: #555555; }
+  #menu-panel h2 {
+    font-size: 14px; margin: 0 0 10px; padding-bottom: 8px; color: var(--ink);
+    font-weight: 700; border-bottom: 3px solid var(--forest);
+  }
+  #menu-panel label { display: block; font-size: 13px; margin-top: 12px; color: var(--ink); }
+  #menu-panel label:first-of-type { margin-top: 0; }
+  #menu-panel input[type="range"] { width: 100%; accent-color: #555555; }
   #overview-box {
     border: 1px solid #eee; border-radius: 8px; padding: 10px 12px; background: #fafafa;
-  }
-  .section-label {
-    font-size: 12px; margin: 16px 0 2px; color: var(--muted); font-weight: 700;
-    text-transform: uppercase; letter-spacing: 0.04em;
   }
   #legend { margin-top: 14px; max-height: 220px; overflow-y: auto; font-size: 12px; }
   #legend h3 {
     font-size: 12px; margin: 0 0 6px; color: var(--muted); font-weight: 700;
     text-transform: uppercase; letter-spacing: 0.04em;
   }
+  #legend h3.legend-other { margin-top: 10px; padding-top: 8px; border-top: 1px solid #f0f0f0; }
   .legend-row { display: flex; align-items: center; margin-bottom: 3px; }
   .swatch { display: inline-block; width: 12px; height: 12px; margin-right: 6px; border: 1px solid #0002; flex-shrink: 0; border-radius: 2px; }
   #disclaimer {
-    margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--forest-light);
+    margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--forest-light);
     font-size: 11px; color: var(--muted); font-style: italic;
   }
   #intro { font-size: 12px; color: var(--ink); margin: 0 0 8px; line-height: 1.4; }
@@ -115,9 +121,16 @@
   #scenario-results td { padding: 2px 0; border-bottom: 1px solid #f0f0f0; }
   #scenario-results td:last-child { text-align: right; }
 
-  #chat-panel {
+  #map-info {
     position: absolute; left: 50%; top: 16px; transform: translateX(-50%); z-index: 10;
-    width: 420px; max-width: calc(100vw - 720px);
+    width: 420px; max-width: calc(100vw - 800px);
+    background: #ffffffee; border-radius: 10px; border: 1px solid #eee;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1); padding: 10px 14px;
+    font-size: 12px; color: var(--muted); line-height: 1.4;
+  }
+  #chat-panel {
+    position: absolute; left: 50%; top: 100px; transform: translateX(-50%); z-index: 10;
+    width: 420px; max-width: calc(100vw - 800px);
     background: #ffffff; border-radius: 10px; border: 1px solid #eee;
     box-shadow: 0 2px 12px rgba(0,0,0,0.12); display: flex; flex-direction: column;
     max-height: 280px;
@@ -127,7 +140,6 @@
     font-weight: 700;
   }
   #chat-panel h2 .icon { font-size: 16px; margin-right: 4px; }
-  #chat-sub { font-size: 11px; color: var(--muted); padding: 0 14px 8px; margin-top: -4px; }
   #chat-log { overflow-y: auto; padding: 0 14px; font-size: 12px; max-height: 190px; }
   #chat-log:empty { padding: 0; }
   #chat-log .chat-msg:first-child { margin-top: 10px; }
@@ -147,7 +159,7 @@
   }
   #chat-send:disabled { background: #999; cursor: default; }
   #chat-unavailable {
-    position: absolute; left: 50%; top: 16px; transform: translateX(-50%); z-index: 10;
+    position: absolute; left: 50%; top: 100px; transform: translateX(-50%); z-index: 10;
     background: #ffffff; border: 1px solid #eee; border-radius: 10px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.12); padding: 10px 16px; font-size: 12px;
     color: var(--muted); max-width: 360px; text-align: center; display: none;
@@ -159,14 +171,12 @@
   @media (max-width: 760px) {
     html, body { height: auto; overflow-y: auto; overflow-x: hidden; }
     canvas { width: 100%; height: 42vh; }
-    #ui, #scenario-panel, #chat-panel, #chat-unavailable {
+    #left-column, #scenario-panel, #map-info, #chat-panel, #chat-unavailable {
       position: static; left: auto; right: auto; top: auto; bottom: auto; transform: none;
       width: calc(100% - 24px); max-width: none; max-height: none; margin: 12px auto;
     }
-    #locator {
-      position: static; left: auto; right: auto; top: auto; bottom: auto;
-      width: 160px; margin: 12px auto;
-    }
+    #menu-panel { overflow-y: visible; max-height: none; }
+    #locator { width: 160px; }
     #scenario-panel { overflow-y: visible; }
     #field-tooltip, #zoom-controls, #compass { display: none; }
   }
@@ -174,14 +184,18 @@
 </head>
 <body>
 <canvas id="scene"></canvas>
-<div id="ui">
+<div id="left-column">
+<div id="title-panel">
   <h1>Magic Valley Digital Twin</h1>
   <div id="overview-box">
     <p id="intro">Real Idaho cropland, mapped in 3D since 2008 &mdash; built to show farmers what
     to plant when water runs short.</p>
     <div id="location">Jerome, ID study area &middot; <span id="area-size"></span></div>
   </div>
-  <h3 class="section-label">Menu</h3>
+  <div id="disclaimer">Decision aid, not farm advice.</div>
+</div>
+<div id="menu-panel">
+  <h2>Menu</h2>
   <label>Year: <span id="year-label"></span>
     <input type="range" id="year-slider" min="2008" max="2021" step="1" value="2021">
   </label>
@@ -192,7 +206,6 @@
     <select id="crop-filter"><option value="">All crops</option></select>
   </label>
   <div id="legend"></div>
-  <div id="disclaimer">Decision aid, not farm advice. Hover a field for details.</div>
   <div id="locator" title="Where this study area is in Idaho">
     <svg viewBox="0 0 220 320">
       <path d="M 45.8,10.0 L 45.8,53.9 L 55.5,65.8 L 55.7,77.6 L 61.5,82.7 L 67.5,84.6 L 68.2,87.6 L 79.4,99.1 L 80.7,103.8 L 88.6,108.3 L 88.9,111.1 L 97.6,110.9 L 93.4,126.8 L 92.5,136.9 L 95.7,143.5 L 90.2,148.2 L 92.4,152.6 L 90.9,157.3 L 97.3,161.8 L 104.7,155.9 L 107.7,151.2 L 113.1,155.4 L 112.3,158.9 L 115.2,167.2 L 120.2,175.8 L 123.8,178.9 L 123.6,187.1 L 127.1,190.6 L 133.3,191.1 L 137.3,204.9 L 140.7,207.3 L 143.8,203.3 L 153.2,203.5 L 160.1,199.8 L 164.2,201.9 L 171.3,200.0 L 172.8,202.3 L 178.8,200.7 L 185.8,191.8 L 190.5,199.3 L 195.9,203.7 L 195.9,309.8 L 162.4,310.0 L 106.0,310.0 L 16.4,309.8 L 16.4,231.4 L 20.4,217.3 L 17.9,213.8 L 12.1,213.1 L 10.0,207.3 L 16.1,192.0 L 19.2,190.6 L 22.3,184.3 L 21.8,180.3 L 25.3,175.1 L 27.1,167.6 L 33.3,155.0 L 30.9,149.1 L 23.8,146.0 L 19.7,138.8 L 19.5,131.3 L 15.6,123.8 L 16.1,120.2 L 15.9,63.0 L 16.2,10.0 L 45.8,10.0 Z"
@@ -201,6 +214,7 @@
     </svg>
     <span>Idaho &mdash; you are here</span>
   </div>
+</div>
 </div>
 <div id="scenario-panel">
   <h2>What should I plant?</h2>
@@ -225,9 +239,13 @@
   <button id="run-plan-btn">Run plan</button>
   <div id="scenario-results"></div>
 </div>
+<div id="map-info">
+  This grid is a real 3D terrain map of Magic Valley, Idaho, colored by which crop the USDA
+  recorded in every field, every year since 2008. Drag to orbit, scroll to zoom, hover a field for
+  details.
+</div>
 <div id="chat-panel" style="display: none;">
   <h2><span class="icon">🧑‍🌾</span>Ask the Farmer</h2>
-  <div id="chat-sub">This 3D map shows which crop grew in every field here, every year since 2008.</div>
   <div id="chat-log"></div>
   <form id="chat-form">
     <input id="chat-input" type="text" placeholder="e.g. 30% less water this year, what do I plant?" autocomplete="off">
