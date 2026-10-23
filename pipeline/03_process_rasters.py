@@ -141,6 +141,11 @@ def process_cdl_years(cfg, transform, width, height, palette):
                 },
             )
 
+        # Raw per-pixel crop codes (post-sieve, pre-blur/upscale) for the viewer's
+        # "find a crop" filter -- it needs the real per-pixel classification, not the
+        # cosmetically blurred/upscaled display image below.
+        (PROCESSED_DIR / f"cdl_codes_{year}.bin").write_bytes(arr.astype(np.uint8).tobytes(order="C"))
+
         # Upscale 2x and blur slightly so the rendered texture looks clean rather than
         # blocky at the 3D viewer's zoom levels. Cosmetic only -- crop codes and field
         # history are computed separately from the un-blurred raster data.

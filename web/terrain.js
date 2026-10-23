@@ -81,50 +81,43 @@ export function updateFieldOutlineHeights(lines, meta, heights, exaggeration) {
   }
 }
 
-// Solid, semi-transparent fill for each field, hidden by default -- shown (and
-// colored) only for fields matching the active crop filter, so "find a crop" is
-// unmistakable even against the busy crop texture underneath.
-export function buildFieldFills(outlines, meta, heights, exaggeration) {
-  const group = new THREE.Group();
-  const fillsByFieldId = new Map();
-  for (const field of outlines) {
-    const shapePoints = field.ring.map(([x, z]) => new THREE.Vector2(x, z));
-    const shape = new THREE.Shape(shapePoints);
-    const geometry = new THREE.ShapeGeometry(shape);
-    const position = geometry.attributes.position;
-    for (let i = 0; i < position.count; i++) {
-      const worldX = position.getX(i);
-      const worldZ = position.getY(i);
-      const y = sampleHeight(meta, heights, worldX, worldZ, exaggeration) + 2.0;
-      position.setXYZ(i, worldX, y, worldZ);
-    }
-    position.needsUpdate = true;
-    geometry.computeVertexNormals();
-    const material = new THREE.MeshBasicMaterial({
-      color: 0xc0392b,
-      transparent: true,
-      opacity: 0.65,
-      side: THREE.DoubleSide,
-      depthWrite: false,
-    });
-    const mesh = new THREE.Mesh(geometry, material);
-    mesh.visible = false;
-    group.add(mesh);
-    fillsByFieldId.set(field.field_id, mesh);
-  }
-  return { group, fillsByFieldId };
+// Real per-pixel crop codes (same grid as the heightmap, before the display PNG's
+// cosmetic upscale/blur) -- used to highlight a chosen crop exactly where it grows,
+// rather than approximating by field polygon (which can span several real crops; see
+// design.md's note on merged fields).
+export async function loadCropCodes(year) {
+  const buf = await fetch(`/data/cdl_codes_${year}.bin`).then((r) => r.arrayBuffer());
+  return new Uint8Array(buf);
 }
 
-export function updateFieldFillHeights(fillsByFieldId, meta, heights, exaggeration) {
-  for (const mesh of fillsByFieldId.values()) {
-    const position = mesh.geometry.attributes.position;
-    for (let i = 0; i < position.count; i++) {
-      const x = position.getX(i);
-      const z = position.getZ(i);
-      position.setY(i, sampleHeight(meta, heights, x, z, exaggeration) + 2.0);
+export function buildHighlightTexture(codes, width, height, targetCode, highlightColor) {
+  const canvas = document.createElement('canvas');
+  canvas.width = width;
+  canvas.height = height;
+  const ctx = canvas.getContext('2d');
+  const imageData = ctx.createImageData(width, height);
+  const data = imageData.data;
+  const [hr, hg, hb] = highlightColor;
+  for (let i = 0; i < codes.length; i++) {
+    const o = i * 4;
+    if (codes[i] === targetCode) {
+      data[o] = hr;
+      data[o + 1] = hg;
+      data[o + 2] = hb;
+    } else {
+      data[o] = 225;
+      data[o + 1] = 225;
+      data[o + 2] = 225;
     }
-    position.needsUpdate = true;
+    data[o + 3] = 255;
   }
+  ctx.putImageData(imageData, 0, 0);
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.colorSpace = THREE.SRGBColorSpace;
+  texture.magFilter = THREE.LinearFilter;
+  texture.minFilter = THREE.LinearMipmapLinearFilter;
+  texture.generateMipmaps = true;
+  return texture;
 }
 
 export function loadCdlTexture(year) {

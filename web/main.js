@@ -8,15 +8,12 @@ import {
   loadFieldData,
   buildFieldOutlines,
   updateFieldOutlineHeights,
-  buildFieldFills,
-  updateFieldFillHeights,
+  loadCropCodes,
+  buildHighlightTexture,
 } from './terrain.js';
 
 const DEFAULT_EXAGGERATION = 4;
-const HIGHLIGHT_COLOR = 0xc0392b;
-const NORMAL_COLOR = 0x333333;
-const DIM_COLOR = 0xdddddd;
-const DIMMED_TERRAIN_TINT = 0x999999;
+const HIGHLIGHT_RGB = [192, 57, 43];
 
 const canvas = document.getElementById('scene');
 const yearSlider = document.getElementById('year-slider');
@@ -55,7 +52,8 @@ let currentMeta = null;
 let currentHeights = null;
 let fieldData = null; // { outlines, zone, crops }
 let outlineLines = null; // [{ fieldId, acres, line }]
-let fillsByFieldId = null; // Map(fieldId -> Mesh)
+let cropNameToCode = new Map();
+let codeCache = null; // { year, codes: Uint8Array }
 
 async function init() {
   const [{ meta, heights }, fields] = await Promise.all([loadTerrainData(), loadFieldData()]);
@@ -73,10 +71,6 @@ async function init() {
   const { group, lines } = buildFieldOutlines(fields.outlines, meta, heights, DEFAULT_EXAGGERATION);
   scene.add(group);
   outlineLines = lines;
-
-  const fills = buildFieldFills(fields.outlines, meta, heights, DEFAULT_EXAGGERATION);
-  scene.add(fills.group);
-  fillsByFieldId = fills.fillsByFieldId;
 
   const span = Math.max(meta.width, meta.height) * meta.meters_per_pixel;
   camera.position.set(0, span * 0.6, span * 0.6);
@@ -103,6 +97,7 @@ async function buildLegend() {
       return `<div class="legend-row" title="USDA category: ${info.official_name}"><span class="swatch" style="background: rgb(${r},${g},${b})"></span>${info.name}</div>`;
     })
     .join('');
+  for (const [code, info] of entries) cropNameToCode.set(info.name, Number(code));
   return legend;
 }
 
@@ -117,21 +112,33 @@ function buildCropFilter(legend) {
   cropFilterEl.addEventListener('change', applyCropFilter);
 }
 
-function applyCropFilter() {
+// Highlights the chosen crop pixel-for-pixel (the real classification grid), not by
+// field polygon -- a field can be a merged blob of several real crops (see
+// design.md), so field-level highlighting was misleading about exactly where a crop
+// grows. Everything that isn't the chosen crop fades to light gray.
+async function applyCropFilter() {
   const target = cropFilterEl.value;
   const year = yearSlider.value;
 
-  // Dim the base crop texture so highlighted fields actually stand out against it,
-  // rather than relying on a thin outline color change that's easy to miss.
-  if (mesh) mesh.material.color.setHex(target ? DIMMED_TERRAIN_TINT : 0xffffff);
-
-  for (const { fieldId, line } of outlineLines) {
-    const crop = fieldData.crops[fieldId]?.[year];
-    const matches = Boolean(target) && crop && crop.crop_name === target;
-    line.material.color.setHex(!target ? NORMAL_COLOR : matches ? HIGHLIGHT_COLOR : DIM_COLOR);
-    const fill = fillsByFieldId.get(fieldId);
-    if (fill) fill.visible = matches;
+  if (!mesh) return;
+  if (!target) {
+    mesh.material.map = loadCdlTexture(year);
+    mesh.material.needsUpdate = true;
+    return;
   }
+
+  if (!codeCache || codeCache.year !== year) {
+    codeCache = { year, codes: await loadCropCodes(year) };
+  }
+  const targetCode = cropNameToCode.get(target);
+  mesh.material.map = buildHighlightTexture(
+    codeCache.codes,
+    currentMeta.width,
+    currentMeta.height,
+    targetCode,
+    HIGHLIGHT_RGB,
+  );
+  mesh.material.needsUpdate = true;
 }
 
 function updateLabels() {
@@ -179,9 +186,12 @@ function pickField() {
 yearSlider.addEventListener('input', () => {
   updateLabels();
   if (!mesh) return;
-  mesh.material.map = loadCdlTexture(yearSlider.value);
-  mesh.material.needsUpdate = true;
-  if (cropFilterEl.value) applyCropFilter();
+  if (cropFilterEl.value) {
+    applyCropFilter();
+  } else {
+    mesh.material.map = loadCdlTexture(yearSlider.value);
+    mesh.material.needsUpdate = true;
+  }
 });
 
 exagSlider.addEventListener('input', () => {
@@ -190,7 +200,6 @@ exagSlider.addEventListener('input', () => {
   const exaggeration = Number(exagSlider.value);
   applyExaggeration(mesh.geometry, currentMeta, currentHeights, exaggeration);
   if (outlineLines) updateFieldOutlineHeights(outlineLines, currentMeta, currentHeights, exaggeration);
-  if (fillsByFieldId) updateFieldFillHeights(fillsByFieldId, currentMeta, currentHeights, exaggeration);
 });
 
 window.addEventListener('resize', () => {
