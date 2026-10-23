@@ -38,6 +38,25 @@ ACREAGE_CAPS = {
     "Potatoes": CONFIG["contracts"]["potato_acreage_cap"],
 }
 
+# Every number the agent states must be traceable to one of these. Returned with
+# every tool result so the agent can cite a real source instead of a vague one.
+DATA_SOURCES = {
+    "prices": "Idaho State Tax Commission, average prices received by crop, 2018-2022",
+    "yields": "USDA NASS, Idaho state average yields, 2023",
+    "costs_per_acre": "Representative South-Central Idaho enterprise-budget magnitudes "
+    "(see crop_params.csv 'source' column per crop; UI Extension's own budget PDFs "
+    "were not machine-accessible when this was built -- treat as approximate)",
+    "water_use_per_acre": "Kimberly, ID AgriMet station, 30-year average seasonal ET "
+    "(University of Idaho Extension, Elmore County)",
+    "drought_2021_cut": "Twin Falls Canal Company 2021 delivery cut (3/4in to 1/2in per "
+    "share), per local news coverage (KMVT/KIVI)",
+    "crop_history": "USDA Cropland Data Layer (CDL) 2008-2021, via Microsoft Planetary "
+    "Computer's usda-cdl collection",
+    "field_boundaries": "Generated from CDL pixels, not surveyed -- see this repo's "
+    "output/design.md for the known limitation (adjacent same-crop fields can merge)",
+    "terrain": "USGS 3DEP 1/3 arc-second DEM",
+}
+
 
 def _plan_profit_at(plan, price_case):
     total = 0.0
@@ -59,7 +78,17 @@ def _actual_plan_for_year(year):
     return plan, {c: round(a, 1) for c, a in acres_by_crop.items()}
 
 
+YEAR_RANGE = (CONFIG["years"]["start"], CONFIG["years"]["end"])
+
+
 def run_optimizer(water_pct, year, price_case="mid"):
+    if not (YEAR_RANGE[0] <= year <= YEAR_RANGE[1]):
+        return {
+            "error": f"No data for year {year}. This study area's real crop-history and "
+            f"rotation data only covers {YEAR_RANGE[0]}-{YEAR_RANGE[1]}. Ask the user which "
+            f"year in that range they mean, or use {CONFIG['drought_year']} (the drought year "
+            "this project centers on) if they don't have one in mind."
+        }
     water_limit_af = NORMAL_WATER_AF * (water_pct / 100.0)
     result = solve(
         FIELDS, CROP_PARAMS, water_limit_af,
@@ -74,6 +103,13 @@ def run_optimizer(water_pct, year, price_case="mid"):
     actual_plan, actual_acres_by_crop = _actual_plan_for_year(year)
     result["actual_acres_by_crop"] = actual_acres_by_crop
     result["actual_profit_mid"] = _plan_profit_at(actual_plan, "mid") if actual_plan else None
+    result["units"] = {c: CROP_PARAMS[c]["unit"] for c in result["acres_by_crop"]}
+    result["sources"] = {
+        k: DATA_SOURCES[k]
+        for k in ("prices", "yields", "costs_per_acre", "water_use_per_acre", "field_boundaries")
+    }
+    if year == CONFIG.get("drought_year"):
+        result["sources"]["drought_2021_cut"] = DATA_SOURCES["drought_2021_cut"]
     return result
 
 
@@ -86,11 +122,14 @@ def get_field_history(field_id):
         "field_id": field_id,
         "acres": field.get("acres"),
         "history": {str(y): crop for y, crop in sorted(hist.items())},
+        "source": DATA_SOURCES["crop_history"],
     }
 
 
 def compare_to_actual(water_pct, year):
     result = run_optimizer(water_pct, year)
+    if "error" in result:
+        return result
     return {
         "year": year,
         "water_pct": water_pct,
@@ -103,4 +142,5 @@ def compare_to_actual(water_pct, year):
             if result["actual_profit_mid"] is not None
             else None
         ),
+        "sources": result["sources"],
     }
