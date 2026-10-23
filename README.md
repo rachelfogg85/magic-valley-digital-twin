@@ -8,13 +8,25 @@ for the visual design notes.
 
 ## Run it from a fresh clone
 
-Requires Python 3.12 (newer Python releases may not have prebuilt `rasterio` wheels yet; see
-`requirements.txt`'s pinned `rasterio==1.4.3` note if you hit a build error).
+Needs Python 3.11–3.13 — `rasterio==1.4.3` doesn't have a prebuilt wheel yet for very new
+releases like 3.14+, and pip will fail trying to build it from source (it needs GDAL, which is a
+much bigger install). Check with `python3 --version` first.
 
+**If your `python3` is already 3.11–3.13:**
 ```bash
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
+python server/app.py
+```
+
+**If it's newer (e.g. 3.14+),** use [`uv`](https://docs.astral.sh/uv/) to get a compatible Python
+without touching your system install:
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh   # skip if you already have uv
+uv venv --python 3.12 venv
+source venv/bin/activate
+uv pip install -r requirements.txt
 python server/app.py
 ```
 
