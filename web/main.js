@@ -13,7 +13,8 @@ import {
   buildFieldFills,
   updateFieldFillHeights,
 } from './terrain.js';
-import { initScenarioPanel } from './panel.js';
+import { initScenarioPanel, renderResults } from './panel.js';
+import { initChat } from './chat.js';
 
 const DEFAULT_EXAGGERATION = 4;
 const ZOOM_FACTOR = 0.8;
@@ -98,6 +99,7 @@ async function init() {
   updateLabels();
   wireInteraction();
   initScenarioPanel(showPlanOnMap);
+  initChat(showPlanOnMap);
   animate();
 }
 
@@ -110,6 +112,7 @@ function showPlanOnMap(result) {
     applyCropFilter();
   }
   currentPlan = result.plan;
+  renderResults(result);
   mesh.material.color.setHex(0xaaaaaa);
   for (const [fieldId, fillMesh] of fillsByFieldId) {
     const crop = result.plan[fieldId];

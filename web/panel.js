@@ -22,7 +22,7 @@ function acresTable(acresByCrop) {
   );
 }
 
-function renderResults(result) {
+export function renderResults(result) {
   const waterTag = result.binding_constraints.includes('water')
     ? '<span class="binding-tag">limit reached</span>'
     : '';
@@ -75,8 +75,7 @@ export function initScenarioPanel(onPlanReady) {
       });
       if (!resp.ok) throw new Error(`Server error: ${resp.status}`);
       const result = await resp.json();
-      renderResults(result);
-      onPlanReady(result);
+      onPlanReady(result); // calls renderResults() and recolors the map
     } catch (err) {
       resultsEl.innerHTML = `<div class="result-block sub">Couldn't run the plan: ${err.message}</div>`;
     } finally {

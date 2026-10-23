@@ -101,6 +101,39 @@
   #scenario-results table { width: 100%; border-collapse: collapse; }
   #scenario-results td { padding: 2px 0; border-bottom: 1px solid #f0f0f0; }
   #scenario-results td:last-child { text-align: right; }
+
+  #chat-panel {
+    position: absolute; left: 50%; bottom: 20px; transform: translateX(-50%); z-index: 10;
+    width: 420px; max-width: calc(100vw - 420px);
+    background: #ffffff; border-radius: 10px; border: 1px solid #eee;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12); display: flex; flex-direction: column;
+    max-height: 320px;
+  }
+  #chat-panel h2 {
+    font-size: 13px; margin: 0; padding: 10px 14px; color: var(--ink);
+    font-weight: 700; border-bottom: 1px solid #eee;
+  }
+  #chat-log { flex: 1; overflow-y: auto; padding: 10px 14px; font-size: 12px; max-height: 190px; }
+  .chat-msg { margin-bottom: 8px; line-height: 1.4; }
+  .chat-msg.user { color: var(--ink); font-weight: 700; }
+  .chat-msg.assistant { color: #333; }
+  .chat-msg.error { color: #a94442; }
+  #chat-form { display: flex; border-top: 1px solid #eee; }
+  #chat-input {
+    flex: 1; border: none; padding: 10px 14px; font-family: inherit; font-size: 12px;
+    outline: none; border-radius: 0 0 0 10px;
+  }
+  #chat-send {
+    border: none; background: var(--forest); color: #fff; padding: 0 16px;
+    font-family: inherit; font-size: 12px; font-weight: 700; cursor: pointer; border-radius: 0 0 10px 0;
+  }
+  #chat-send:disabled { background: #999; cursor: default; }
+  #chat-unavailable {
+    position: absolute; left: 50%; bottom: 20px; transform: translateX(-50%); z-index: 10;
+    background: #ffffff; border: 1px solid #eee; border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12); padding: 10px 16px; font-size: 12px;
+    color: var(--muted); max-width: 360px; text-align: center; display: none;
+  }
 </style>
 </head>
 <body>
@@ -136,6 +169,15 @@
   <button id="run-plan-btn">Run plan</button>
   <div id="scenario-results"></div>
 </div>
+<div id="chat-panel" style="display: none;">
+  <h2>Ask the assistant</h2>
+  <div id="chat-log"></div>
+  <form id="chat-form">
+    <input id="chat-input" type="text" placeholder="e.g. 30% less water this year, what do I plant?" autocomplete="off">
+    <button id="chat-send" type="submit">Send</button>
+  </form>
+</div>
+<div id="chat-unavailable">Chat assistant isn't configured on this server (no PORTKEY_API_KEY) &mdash; the sliders and "Run plan" button above still work fully without it.</div>
 <div id="field-tooltip"></div>
 <div id="zoom-controls">
   <button id="zoom-in" title="Zoom in" aria-label="Zoom in">+</button>
