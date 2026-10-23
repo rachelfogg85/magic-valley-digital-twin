@@ -13,7 +13,7 @@ import {
 } from './terrain.js';
 
 const DEFAULT_EXAGGERATION = 4;
-const HIGHLIGHT_RGB = [192, 57, 43];
+const ZOOM_FACTOR = 0.8;
 
 const canvas = document.getElementById('scene');
 const yearSlider = document.getElementById('year-slider');
@@ -25,6 +25,8 @@ const areaSizeEl = document.getElementById('area-size');
 const cropFilterEl = document.getElementById('crop-filter');
 const tooltipEl = document.getElementById('field-tooltip');
 const compassArrow = document.getElementById('compass-arrow');
+const zoomInBtn = document.getElementById('zoom-in');
+const zoomOutBtn = document.getElementById('zoom-out');
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xffffff);
@@ -53,6 +55,7 @@ let currentHeights = null;
 let fieldData = null; // { outlines, zone, crops }
 let outlineLines = null; // [{ fieldId, acres, line }]
 let cropNameToCode = new Map();
+let cropNameToColor = new Map();
 let codeCache = null; // { year, codes: Uint8Array }
 
 async function init() {
@@ -97,7 +100,10 @@ async function buildLegend() {
       return `<div class="legend-row" title="USDA category: ${info.official_name}"><span class="swatch" style="background: rgb(${r},${g},${b})"></span>${info.name}</div>`;
     })
     .join('');
-  for (const [code, info] of entries) cropNameToCode.set(info.name, Number(code));
+  for (const [code, info] of entries) {
+    cropNameToCode.set(info.name, Number(code));
+    cropNameToColor.set(info.name, info.color);
+  }
   return legend;
 }
 
@@ -131,12 +137,13 @@ async function applyCropFilter() {
     codeCache = { year, codes: await loadCropCodes(year) };
   }
   const targetCode = cropNameToCode.get(target);
+  const highlightColor = cropNameToColor.get(target) || [192, 57, 43];
   mesh.material.map = buildHighlightTexture(
     codeCache.codes,
     currentMeta.width,
     currentMeta.height,
     targetCode,
-    HIGHLIGHT_RGB,
+    highlightColor,
   );
   mesh.material.needsUpdate = true;
 }
@@ -201,6 +208,16 @@ exagSlider.addEventListener('input', () => {
   applyExaggeration(mesh.geometry, currentMeta, currentHeights, exaggeration);
   if (outlineLines) updateFieldOutlineHeights(outlineLines, currentMeta, currentHeights, exaggeration);
 });
+
+function zoom(factor) {
+  const offset = new THREE.Vector3().subVectors(camera.position, controls.target);
+  offset.multiplyScalar(factor);
+  camera.position.copy(controls.target).add(offset);
+  controls.update();
+}
+
+zoomInBtn.addEventListener('click', () => zoom(ZOOM_FACTOR));
+zoomOutBtn.addEventListener('click', () => zoom(1 / ZOOM_FACTOR));
 
 window.addEventListener('resize', () => {
   camera.aspect = window.innerWidth / window.innerHeight;
