@@ -25,4 +25,13 @@ paths:
   processed: data/processed
 
 contracts:
-  sugar_beet_acreage_cap: null  # fill in once we know total traced acreage (Step 9)
+  # Processor contracts cap how much acreage a grower can deliver each year, for
+  # both sugar beets and potatoes (both are grown under processor contract in the
+  # real Magic Valley, e.g. Amalgamated Sugar / Simplot-Lamb Weston-McCain). Without
+  # these caps the optimizer recommends near-total potatoes every year -- the most
+  # profitable crop per acre but never actually grown at that scale in real life
+  # (field_history.csv shows historical potato acreage averaging ~255, peaking at
+  # ~521, of our ~4,993 traced acres) -- which is exactly the degenerate "all
+  # potatoes" outcome the build plan calls out.
+  sugar_beet_acreage_cap: 750  # ~15% of traced acreage
+  potato_acreage_cap: 600      # a bit above the historical peak (521 ac), for headroom
