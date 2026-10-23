@@ -68,6 +68,39 @@
     max-width: 220px;
   }
   #field-tooltip b { display: block; margin-bottom: 2px; }
+
+  #scenario-panel {
+    position: absolute; top: 16px; right: 16px; z-index: 10;
+    background: #ffffff; padding: 16px 18px; border-radius: 10px;
+    width: 300px; max-height: calc(100vh - 32px); overflow-y: auto;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12); border: 1px solid #eee;
+  }
+  #scenario-panel h2 {
+    font-size: 15px; margin: 0 0 10px; padding-bottom: 8px; color: var(--ink);
+    font-weight: 700; border-bottom: 3px solid var(--forest);
+  }
+  #scenario-panel .sub { font-size: 12px; color: var(--muted); margin: -6px 0 12px; }
+  #scenario-panel label { display: block; font-size: 13px; margin-top: 12px; }
+  #scenario-panel input[type="range"] { width: 100%; accent-color: #555555; }
+  #scenario-panel select { width: 100%; margin-top: 4px; font-family: inherit; font-size: 12px; padding: 4px; }
+  #run-plan-btn {
+    width: 100%; margin-top: 14px; padding: 9px; background: var(--forest); color: #fff;
+    border: none; border-radius: 6px; font-family: inherit; font-size: 13px; font-weight: 700;
+    cursor: pointer;
+  }
+  #run-plan-btn:hover { background: #163f24; }
+  #run-plan-btn:disabled { background: #999; cursor: default; }
+  #scenario-results { margin-top: 14px; font-size: 12px; }
+  .result-block { margin-bottom: 12px; }
+  .result-block b { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.03em; color: var(--muted); margin-bottom: 3px; }
+  .profit-range { font-size: 16px; font-weight: 700; }
+  .binding-tag {
+    display: inline-block; margin-left: 6px; font-size: 10px; font-weight: 700;
+    color: #a94442; background: #fdecea; padding: 1px 6px; border-radius: 4px;
+  }
+  #scenario-results table { width: 100%; border-collapse: collapse; }
+  #scenario-results td { padding: 2px 0; border-bottom: 1px solid #f0f0f0; }
+  #scenario-results td:last-child { text-align: right; }
 </style>
 </head>
 <body>
@@ -85,7 +118,23 @@
     <select id="crop-filter"><option value="">All crops</option></select>
   </label>
   <div id="legend"></div>
-  <div id="disclaimer">Decision aid, not farm advice. Click a field for details.</div>
+  <div id="disclaimer">Decision aid, not farm advice. Hover a field for details.</div>
+</div>
+<div id="scenario-panel">
+  <h2>What should I plant?</h2>
+  <div class="sub">A water-shortage planning tool for the selected year.</div>
+  <label>Water available: <span id="water-label">100%</span> of a normal year
+    <input type="range" id="water-slider" min="30" max="120" step="5" value="100">
+  </label>
+  <label>Price outlook:
+    <select id="price-case">
+      <option value="low">Low</option>
+      <option value="mid" selected>Typical</option>
+      <option value="high">High</option>
+    </select>
+  </label>
+  <button id="run-plan-btn">Run plan</button>
+  <div id="scenario-results"></div>
 </div>
 <div id="field-tooltip"></div>
 <div id="zoom-controls">

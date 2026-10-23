@@ -10,7 +10,10 @@ import {
   updateFieldOutlineHeights,
   loadCropCodes,
   buildHighlightTexture,
+  buildFieldFills,
+  updateFieldFillHeights,
 } from './terrain.js';
+import { initScenarioPanel } from './panel.js';
 
 const DEFAULT_EXAGGERATION = 4;
 const ZOOM_FACTOR = 0.8;
@@ -56,6 +59,8 @@ let fieldData = null; // { outlines, zone, crops }
 let outlineLines = null; // [{ fieldId, acres, line }]
 let cropNameToCode = new Map();
 let cropNameToColor = new Map();
+let fillsByFieldId = null;
+let currentPlan = null;
 let codeCache = null; // { year, codes: Uint8Array }
 
 async function init() {
@@ -75,6 +80,10 @@ async function init() {
   scene.add(group);
   outlineLines = lines;
 
+  const fills = buildFieldFills(fields.outlines, meta, heights, DEFAULT_EXAGGERATION);
+  scene.add(fills.group);
+  fillsByFieldId = fills.fillsByFieldId;
+
   const span = Math.max(meta.width, meta.height) * meta.meters_per_pixel;
   camera.position.set(0, span * 0.6, span * 0.6);
   controls.target.set(0, 0, 0);
@@ -88,7 +97,30 @@ async function init() {
   buildCropFilter(legend);
   updateLabels();
   wireInteraction();
+  initScenarioPanel(showPlanOnMap);
   animate();
+}
+
+// Paints each field with its optimizer-recommended crop color, dims the base crop
+// texture so the recommendation reads clearly, and clears any active crop filter
+// (the two highlight mechanisms would otherwise fight over the same fields).
+function showPlanOnMap(result) {
+  if (cropFilterEl.value) {
+    cropFilterEl.value = '';
+    applyCropFilter();
+  }
+  currentPlan = result.plan;
+  mesh.material.color.setHex(0xaaaaaa);
+  for (const [fieldId, fillMesh] of fillsByFieldId) {
+    const crop = result.plan[fieldId];
+    if (crop) {
+      const [r, g, b] = cropNameToColor.get(crop) || [192, 57, 43];
+      fillMesh.material.color.setRGB(r / 255, g / 255, b / 255);
+      fillMesh.visible = true;
+    } else {
+      fillMesh.visible = false;
+    }
+  }
 }
 
 async function buildLegend() {
@@ -122,11 +154,19 @@ function buildCropFilter(legend) {
 // field polygon -- a field can be a merged blob of several real crops (see
 // design.md), so field-level highlighting was misleading about exactly where a crop
 // grows. Everything that isn't the chosen crop fades to light gray.
+function clearPlanOverlay() {
+  currentPlan = null;
+  if (!fillsByFieldId) return;
+  for (const fillMesh of fillsByFieldId.values()) fillMesh.visible = false;
+}
+
 async function applyCropFilter() {
   const target = cropFilterEl.value;
   const year = yearSlider.value;
 
   if (!mesh) return;
+  clearPlanOverlay();
+  mesh.material.color.setHex(0xffffff);
   if (!target) {
     mesh.material.map = loadCdlTexture(year);
     mesh.material.needsUpdate = true;
@@ -163,7 +203,10 @@ function wireInteraction() {
       tooltipEl.style.left = `${event.clientX + 14}px`;
       tooltipEl.style.top = `${event.clientY + 14}px`;
       const crop = fieldData.crops[field.fieldId]?.[yearSlider.value];
-      tooltipEl.innerHTML = `<b>Field ${field.fieldId}</b>${field.acres} acres<br>${yearSlider.value}: ${crop ? crop.crop_name : 'no data'}`;
+      const actualLine = `${yearSlider.value} actual: ${crop ? crop.crop_name : 'no data'}`;
+      const recommended = currentPlan?.[field.fieldId];
+      const planLine = recommended ? `<br>Recommended: ${recommended}` : '';
+      tooltipEl.innerHTML = `<b>Field ${field.fieldId}</b>${field.acres} acres<br>${actualLine}${planLine}`;
     } else {
       tooltipEl.style.display = 'none';
     }
@@ -193,6 +236,8 @@ function pickField() {
 yearSlider.addEventListener('input', () => {
   updateLabels();
   if (!mesh) return;
+  clearPlanOverlay();
+  mesh.material.color.setHex(0xffffff);
   if (cropFilterEl.value) {
     applyCropFilter();
   } else {
@@ -207,6 +252,7 @@ exagSlider.addEventListener('input', () => {
   const exaggeration = Number(exagSlider.value);
   applyExaggeration(mesh.geometry, currentMeta, currentHeights, exaggeration);
   if (outlineLines) updateFieldOutlineHeights(outlineLines, currentMeta, currentHeights, exaggeration);
+  if (fillsByFieldId) updateFieldFillHeights(fillsByFieldId, currentMeta, currentHeights, exaggeration);
 });
 
 function zoom(factor) {

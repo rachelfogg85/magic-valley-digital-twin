@@ -81,6 +81,52 @@ export function updateFieldOutlineHeights(lines, meta, heights, exaggeration) {
   }
 }
 
+// One solid-colored overlay mesh per field, hidden until a plan is run -- used to
+// show the optimizer's recommended crop per field (field-level is the right
+// granularity here, since the LP itself decides one crop per whole field).
+export function buildFieldFills(outlines, meta, heights, exaggeration) {
+  const group = new THREE.Group();
+  const fillsByFieldId = new Map();
+  for (const field of outlines) {
+    const shapePoints = field.ring.map(([x, z]) => new THREE.Vector2(x, z));
+    const shape = new THREE.Shape(shapePoints);
+    const geometry = new THREE.ShapeGeometry(shape);
+    const position = geometry.attributes.position;
+    for (let i = 0; i < position.count; i++) {
+      const worldX = position.getX(i);
+      const worldZ = position.getY(i);
+      const y = sampleHeight(meta, heights, worldX, worldZ, exaggeration) + 2.0;
+      position.setXYZ(i, worldX, y, worldZ);
+    }
+    position.needsUpdate = true;
+    geometry.computeVertexNormals();
+    const material = new THREE.MeshBasicMaterial({
+      color: 0xffffff,
+      transparent: true,
+      opacity: 0.88,
+      side: THREE.DoubleSide,
+      depthWrite: false,
+    });
+    const mesh = new THREE.Mesh(geometry, material);
+    mesh.visible = false;
+    group.add(mesh);
+    fillsByFieldId.set(field.field_id, mesh);
+  }
+  return { group, fillsByFieldId };
+}
+
+export function updateFieldFillHeights(fillsByFieldId, meta, heights, exaggeration) {
+  for (const mesh of fillsByFieldId.values()) {
+    const position = mesh.geometry.attributes.position;
+    for (let i = 0; i < position.count; i++) {
+      const x = position.getX(i);
+      const z = position.getZ(i);
+      position.setY(i, sampleHeight(meta, heights, x, z, exaggeration) + 2.0);
+    }
+    position.needsUpdate = true;
+  }
+}
+
 // Real per-pixel crop codes (same grid as the heightmap, before the display PNG's
 // cosmetic upscale/blur) -- used to highlight a chosen crop exactly where it grows,
 // rather than approximating by field polygon (which can span several real crops; see
