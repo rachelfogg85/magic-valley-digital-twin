@@ -93,7 +93,7 @@ async function init() {
   fillsByFieldId = fills.fillsByFieldId;
 
   const span = Math.max(meta.width, meta.height) * meta.meters_per_pixel;
-  camera.position.set(0, span * 0.6, span * 0.6);
+  camera.position.set(0, span * 1.0, span * 1.0);
   controls.target.set(0, 0, 0);
   controls.update();
 

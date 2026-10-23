@@ -134,7 +134,7 @@ CROPS = [
         ),
     },
     {
-        "crop": "Fallow", "unit": "n/a",
+        "crop": "Fallow", "unit": "-",  # not "n/a": pandas silently reads that as NaN
         "price_low": 0, "price_mid": 0, "price_high": 0,
         "yield_low": 0, "yield_mid": 0, "yield_high": 0,
         "cost_per_acre": 0, "water_af_per_acre": 0,

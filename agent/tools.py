@@ -22,7 +22,10 @@ FIELDS = [
 _FIELDS_BY_ID = {f["field_id"]: f for f in FIELDS}
 
 CROP_PARAMS = {
-    row["crop"]: row.to_dict() for _, row in pd.read_csv(DATA_DIR / "crop_params.csv").iterrows()
+    # keep_default_na=False: pandas otherwise silently reads strings like "n/a" or
+    # "null" as NaN in ANY column (not just numeric ones) -- bit us once already.
+    row["crop"]: row.to_dict()
+    for _, row in pd.read_csv(DATA_DIR / "crop_params.csv", keep_default_na=False).iterrows()
 }
 
 _water_baseline = pd.read_csv(DATA_DIR / "water_baseline.csv").set_index("scenario")["water_af"]
