@@ -96,12 +96,17 @@ export async function renderResults(result) {
 
   const params = await loadCropParams();
   const allCrops = [...new Set([...Object.keys(result.acres_by_crop), ...Object.keys(result.actual_acres_by_crop || {})])];
+  const totalAcres = Object.values(result.acres_by_crop).reduce((a, b) => a + b, 0);
+  const cropCount = Object.keys(result.acres_by_crop).length;
 
   resultsEl.innerHTML = `
     <div class="result-block">
       <b>Estimated profit</b>
       <div class="profit-range">${fmtMoney(result.profit_low)} &ndash; ${fmtMoney(result.profit_high)}</div>
       <div class="sub">Typical-price estimate: ${fmtMoney(result.profit_mid)}</div>
+      <div class="sub">For all ${totalAcres.toLocaleString()} acres in this study area, split across
+      ${cropCount} crop${cropCount === 1 ? '' : 's'} (see the plan below), for one growing season
+      (planted and harvested within ${yearSlider.value}).</div>
     </div>
     <div class="result-block">
       <b>Water used</b>

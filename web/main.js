@@ -35,11 +35,18 @@ const zoomOutBtn = document.getElementById('zoom-out');
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xffffff);
 
-const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 20000);
+// Size against the canvas's own CSS-determined box, not the window -- on narrow
+// screens the canvas is a fixed-height strip above the stacked panels, not the
+// full viewport, so window.innerWidth/innerHeight would be wrong here.
+function canvasSize() {
+  return { width: canvas.clientWidth, height: canvas.clientHeight };
+}
+
+const camera = new THREE.PerspectiveCamera(50, canvasSize().width / canvasSize().height, 1, 20000);
 
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
 renderer.outputColorSpace = THREE.SRGBColorSpace;
-renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setSize(canvasSize().width, canvasSize().height, false);
 renderer.setPixelRatio(window.devicePixelRatio);
 
 const controls = new OrbitControls(camera, renderer.domElement);
@@ -198,8 +205,9 @@ function updateLabels() {
 
 function wireInteraction() {
   canvas.addEventListener('pointermove', (event) => {
-    pointer.x = (event.clientX / window.innerWidth) * 2 - 1;
-    pointer.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    const rect = canvas.getBoundingClientRect();
+    pointer.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+    pointer.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
     const field = pickField();
     if (field) {
       tooltipEl.style.display = 'block';
@@ -269,9 +277,10 @@ zoomInBtn.addEventListener('click', () => zoom(ZOOM_FACTOR));
 zoomOutBtn.addEventListener('click', () => zoom(1 / ZOOM_FACTOR));
 
 window.addEventListener('resize', () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
+  const { width, height } = canvasSize();
+  camera.aspect = width / height;
   camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setSize(width, height, false);
 });
 
 function updateCompass() {

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Magic Valley Digital Twin</title>
 <style>
   :root {
@@ -115,7 +116,10 @@
     font-weight: 700; border-bottom: 1px solid #eee;
   }
   #chat-panel h2 .icon { font-size: 16px; margin-right: 4px; }
-  #chat-log { flex: 1; overflow-y: auto; padding: 10px 14px; font-size: 12px; max-height: 190px; }
+  #chat-log { overflow-y: auto; padding: 0 14px; font-size: 12px; max-height: 190px; }
+  #chat-log:empty { padding: 0; }
+  #chat-log .chat-msg:first-child { margin-top: 10px; }
+  #chat-log .chat-msg:last-child { margin-bottom: 10px; }
   .chat-msg { margin-bottom: 8px; line-height: 1.4; }
   .chat-msg.user { color: var(--ink); font-weight: 700; }
   .chat-msg.assistant { color: #333; }
@@ -135,6 +139,24 @@
     background: #ffffff; border: 1px solid #eee; border-radius: 10px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.12); padding: 10px 16px; font-size: 12px;
     color: var(--muted); max-width: 360px; text-align: center; display: none;
+  }
+
+  /* Below this width, stop floating panels over the 3D view (that's how things
+     overlapped) -- stack everything in normal document flow instead, with the map
+     as a fixed-height strip up top. */
+  @media (max-width: 760px) {
+    html, body { height: auto; overflow-y: auto; overflow-x: hidden; }
+    canvas { width: 100%; height: 42vh; }
+    #ui, #scenario-panel, #chat-panel, #chat-unavailable {
+      position: static; left: auto; right: auto; top: auto; bottom: auto; transform: none;
+      width: calc(100% - 24px); max-width: none; max-height: none; margin: 12px auto;
+    }
+    #locator {
+      position: static; left: auto; right: auto; top: auto; bottom: auto;
+      width: 160px; margin: 12px auto;
+    }
+    #scenario-panel { overflow-y: visible; }
+    #field-tooltip, #zoom-controls, #compass { display: none; }
   }
 </style>
 </head>
@@ -160,7 +182,11 @@
 </div>
 <div id="scenario-panel">
   <h2>What should I plant?</h2>
-  <div class="sub">A water-shortage planning tool for the selected year.</div>
+  <div class="sub">If this area had less water than usual this growing season, a real optimizer
+  picks which crop earns the most profit on each of the ~5,000 acres here &mdash; while staying
+  within the water you set below and real contract limits. Less water available means some
+  thirsty, high-profit crops (like alfalfa) have to give way to crops that use less water per
+  acre, which can lower total profit.</div>
   <label>Water available: <span id="water-label">100%</span> of a normal year
     <input type="range" id="water-slider" min="30" max="120" step="5" value="100">
   </label>
