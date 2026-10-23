@@ -8,6 +8,58 @@ const yearSlider = document.getElementById('year-slider');
 const fmtMoney = (n) =>
   n.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
 
+// Minimal CSV parser that respects quoted fields (crop_params.csv's source column
+// contains commas inside quotes).
+function parseCsv(text) {
+  const rows = [];
+  let row = [];
+  let field = '';
+  let inQuotes = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (inQuotes) {
+      if (c === '"' && text[i + 1] === '"') { field += '"'; i++; }
+      else if (c === '"') inQuotes = false;
+      else field += c;
+    } else if (c === '"') inQuotes = true;
+    else if (c === ',') { row.push(field); field = ''; }
+    else if (c === '\n') { row.push(field); rows.push(row); row = []; field = ''; }
+    else if (c !== '\r') field += c;
+  }
+  if (field || row.length) { row.push(field); rows.push(row); }
+  const [header, ...body] = rows.filter((r) => r.length > 1 || r[0]);
+  return body.map((r) => Object.fromEntries(header.map((h, i) => [h, r[i]])));
+}
+
+let cropParamsByName = null;
+async function loadCropParams() {
+  if (cropParamsByName) return cropParamsByName;
+  const text = await fetch('/data/crop_params.csv').then((r) => r.text());
+  cropParamsByName = Object.fromEntries(parseCsv(text).map((row) => [row.crop, row]));
+  return cropParamsByName;
+}
+
+function assumptionsTable(params, crops) {
+  const rows = crops
+    .filter((c) => c !== 'Fallow' && params[c])
+    .map((c) => {
+      const p = params[c];
+      return `<tr><td>${c}</td><td>$${Number(p.price_mid).toLocaleString()}/${p.unit}</td>` +
+        `<td>${Number(p.yield_mid).toLocaleString()} ${p.unit}/ac</td>` +
+        `<td>$${Number(p.cost_per_acre).toLocaleString()}/ac</td></tr>`;
+    });
+  if (rows.length === 0) return '';
+  return `
+    <details class="result-block">
+      <summary style="cursor:pointer; font-size: 11px; text-transform: uppercase; letter-spacing: 0.03em; color: var(--muted);">How profit is calculated</summary>
+      <table style="margin-top:6px;">
+        <tr><th>Crop</th><th>Price (typical)</th><th>Yield (typical)</th><th>Cost</th></tr>
+        ${rows.join('')}
+      </table>
+      <div class="sub">Profit per acre = price &times; yield &minus; cost. Low/high use the same formula with low/high price and yield instead. See crop_params.csv for full sourcing.</div>
+    </details>`;
+}
+
 waterSlider.addEventListener('input', () => {
   waterLabel.textContent = `${waterSlider.value}%`;
 });
@@ -22,7 +74,7 @@ function acresTable(acresByCrop) {
   );
 }
 
-export function renderResults(result) {
+export async function renderResults(result) {
   const waterTag = result.binding_constraints.includes('water')
     ? '<span class="binding-tag">limit reached</span>'
     : '';
@@ -38,6 +90,9 @@ export function renderResults(result) {
         <div class="sub">Actual estimated profit (typical prices): ${fmtMoney(result.actual_profit_mid)}</div>
       </div>`
     : '';
+
+  const params = await loadCropParams();
+  const allCrops = [...new Set([...Object.keys(result.acres_by_crop), ...Object.keys(result.actual_acres_by_crop || {})])];
 
   resultsEl.innerHTML = `
     <div class="result-block">
@@ -55,6 +110,7 @@ export function renderResults(result) {
       ${capTags}
     </div>
     ${actualBlock}
+    ${assumptionsTable(params, allCrops)}
   `;
 }
 
