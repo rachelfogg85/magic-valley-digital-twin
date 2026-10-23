@@ -1,0 +1,3 @@
+scenario,water_af,source
+normal_year,11780.4,Average implied water demand (field acres x crop_params water rate) across this study area's own 2008-2020 crop history (2021 excluded).
+drought_year_2021,7892.9,"Twin Falls Canal Company reduced 2021 per-share deliveries from 3/4 inch to 1/2 inch (and briefly 5/8 inch) due to drought -- roughly a 33% cut from a normal year, per local news coverage (KMVT/KIVI/Magic Valley Canal reporting)."
