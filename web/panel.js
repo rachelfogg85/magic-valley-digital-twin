@@ -56,7 +56,10 @@ function assumptionsTable(params, crops) {
         <tr><th>Crop</th><th>Price (typical)</th><th>Yield (typical)</th><th>Cost</th></tr>
         ${rows.join('')}
       </table>
-      <div class="sub">Profit per acre = price &times; yield &minus; cost. Low/high use the same formula with low/high price and yield instead. See crop_params.csv for full sourcing.</div>
+      <div class="sub">Profit per acre = price &times; yield &minus; cost, then &times; acres. Low/high use the same formula with low/high price and yield instead.
+      Units: bu = bushel, cwt = hundredweight (100 lb), ton = 2,000 lb, ac = acre, AF = acre-foot (water to cover 1 acre, 1 foot deep).</div>
+      <div class="sub"><a href="https://github.com/rachelfogg85/magic-valley-digital-twin/blob/main/data/processed/crop_params.csv" target="_blank" rel="noopener">View crop_params.csv on GitHub</a> for every number's exact source, or
+      <a href="https://github.com/rachelfogg85/magic-valley-digital-twin/tree/main/data/processed" target="_blank" rel="noopener">browse all the data</a> this app uses.</div>
     </details>`;
 }
 
@@ -87,7 +90,7 @@ export async function renderResults(result) {
     ? `<div class="result-block">
         <b>What was actually planted this year</b>
         ${acresTable(result.actual_acres_by_crop)}
-        <div class="sub">Actual estimated profit (typical prices): ${fmtMoney(result.actual_profit_mid)}</div>
+        <div class="sub">Actual estimated profit: ${fmtMoney(result.actual_profit_low)} &ndash; ${fmtMoney(result.actual_profit_high)} (typical ${fmtMoney(result.actual_profit_mid)})</div>
       </div>`
     : '';
 

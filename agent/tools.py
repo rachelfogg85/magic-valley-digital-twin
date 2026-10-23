@@ -102,7 +102,9 @@ def run_optimizer(water_pct, year, price_case="mid"):
 
     actual_plan, actual_acres_by_crop = _actual_plan_for_year(year)
     result["actual_acres_by_crop"] = actual_acres_by_crop
+    result["actual_profit_low"] = _plan_profit_at(actual_plan, "low") if actual_plan else None
     result["actual_profit_mid"] = _plan_profit_at(actual_plan, "mid") if actual_plan else None
+    result["actual_profit_high"] = _plan_profit_at(actual_plan, "high") if actual_plan else None
     result["units"] = {c: CROP_PARAMS[c]["unit"] for c in result["acres_by_crop"]}
     result["sources"] = {
         k: DATA_SOURCES[k]
