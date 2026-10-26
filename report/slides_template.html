@@ -76,6 +76,7 @@
   .stats { display: flex; gap: 20px; }
   .stats div { flex: 1; text-align: center; background: var(--cream); border-radius: 10px; padding: 26px 14px; }
   .stats .num { font-size: 38px; font-weight: 700; color: var(--forest); display: block; line-height: 1.1; }
+  .stats .num.loss { color: var(--red); }
   .stats .label { font-size: 13px; color: var(--muted); margin-top: 6px; display: block; }
 
   /* ---- Split layout: text one side, visual the other ---- */
@@ -191,7 +192,7 @@
   <div class="slide">
     <div class="slide-head">
       <span class="eyebrow">The Problem</span>
-      <h2>Water is running out. Planting decisions are still guesswork.</h2>
+      <h2>Water is limited and climate change is accelerating — farming decisions shouldn't be guesswork.</h2>
     </div>
     <div class="slide-body">
       <div class="stats">
@@ -200,7 +201,7 @@
           <span class="label">Twin Falls Canal Company's real 2021 water delivery cut to Magic Valley irrigators</span>
         </div>
         <div>
-          <span class="num">$280K</span>
+          <span class="num loss">&minus;$280K</span>
           <span class="label">Mid-estimate profit left on the table in just that one drought year (our backtest)</span>
         </div>
         <div>
@@ -240,7 +241,7 @@
   <div class="slide pad-tight">
     <div class="slide-head">
       <span class="eyebrow">The Solution</span>
-      <h2>One tool, four working parts</h2>
+      <h2>One solution, 4 parts, to better manage your harvest</h2>
     </div>
     <div class="slide-body">
       <div class="hero-shot">
@@ -305,15 +306,15 @@
           <ul class="split-list">
             <li>
               <div class="icon-badge"><svg class="icon"><use href="#i-droplet"/></svg></div>
-              <div><h4>1. Set the scenario</h4><p>A water level, year, and price outlook &mdash; by chat or by dragging the sliders.</p></div>
+              <div><h4>1. Set the scenario &mdash; on real years, real data</h4><p>Pick any year <strong>2008&ndash;2021</strong>: every one is backed by USDA Cropland Data Layer satellite records of what was <em>actually</em> planted in these 102 fields. 2021 is the default &mdash; Idaho's documented drought, when Twin Falls Canal Company cut deliveries by a third. Then set water (100% = 11,780 acre-feet, the long-run average here) and a price outlook.</p></div>
             </li>
             <li>
               <div class="icon-badge"><svg class="icon"><use href="#i-sliders"/></svg></div>
-              <div><h4>2. The planner solves it</h4><p>Beans, Alfalfa, Sugar Beets, and Potatoes, acre by acre &mdash; under the real water and contract limits.</p></div>
+              <div><h4>2. The planner solves it</h4><p>A linear program assigns a crop to each of the 102 fields: <strong>Beans 1,979 ac, Alfalfa 1,665, Sugar Beets 750, Potatoes 600</strong> &mdash; respecting the water budget, 3-year rotation rules, and processor contract caps. It flags what's binding: here, water plus both contract caps.</p></div>
             </li>
             <li>
               <div class="icon-badge"><svg class="icon"><use href="#i-dollar"/></svg></div>
-              <div><h4>3. The answer is a range</h4><p>$205,940&ndash;$3,880,856 estimated profit &mdash; never a single false-certain number.</p></div>
+              <div><h4>3. The answer is a range, not a false-certain number</h4><p><strong>$205,940&ndash;$3,880,856</strong> (base case $1,493,249). It's a <em>range</em> because crop prices genuinely swing &mdash; these are the real 2018&ndash;2022 Idaho highs and lows. It's a <em>wide</em> range because per-acre costs are large and fixed (potatoes run ~$3,500/acre), so a price move swings profit far harder than revenue.</p></div>
             </li>
           </ul>
         </div>
@@ -327,7 +328,7 @@
   <div class="slide">
     <div class="slide-head">
       <span class="eyebrow">Why This Is Different</span>
-      <h2>Prior art stops at one field and a spreadsheet</h2>
+      <h2>Previous innovations are limited by spreadsheets</h2>
     </div>
     <div class="slide-body">
       <table class="compare">
