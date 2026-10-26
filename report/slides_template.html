@@ -7,76 +7,136 @@
 <style>
   :root {
     --forest: #1E5631; --forest-light: #e8f1ea; --cream: #faf8f3;
-    --ink: #2a2a2a; --muted: #6b6b6b; --rule: #e6e6e6; --red: #a94442;
+    --ink: #2a2a2a; --muted: #6b6b6b; --rule: #e6e6e6; --red: #a94442; --red-light: #fdf4f3;
   }
-  body { background: #ffffff; }
+  body { background: #d8d8d8; }
   .reveal { font-family: Arial, Helvetica, sans-serif; color: var(--ink); }
   .reveal .slides { text-align: left; }
-  .reveal .slides section { padding: 20px 10px; }
+  .reveal .slides section { padding: 0; height: 100%; top: 0 !important; }
   .reveal h1, .reveal h2, .reveal h3 { color: var(--ink); text-transform: none; font-weight: 700; }
-  .reveal h1 { font-size: 2em; margin: 0 0 10px; }
-  .reveal h2 { font-size: 1.5em; margin: 0 0 6px; border-bottom: 3px solid var(--forest); padding-bottom: 10px; display: inline-block; }
-  .reveal p, .reveal li { font-size: 0.6em; line-height: 1.5; }
   .reveal strong { color: var(--forest); }
-  .reveal img { border: 1px solid var(--rule); border-radius: 8px; box-shadow: 0 2px 14px rgba(0,0,0,0.08); }
+  .reveal img { border: 1px solid var(--rule); border-radius: 8px; box-shadow: 0 2px 16px rgba(0,0,0,0.1); }
+  .reveal section { background: #fff; }
+
+  /* ---- Universal slide skeleton: header / body (vertically centered) / leaves
+     room for the fixed footer bar below ---- */
+  .slide {
+    height: 100%; box-sizing: border-box; display: flex; flex-direction: column;
+    padding: 40px 56px 50px;
+  }
+  .slide.pad-tight { padding-left: 44px; padding-right: 44px; }
+  .slide-head { flex-shrink: 0; }
+  .slide-body { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; justify-content: center; }
 
   .eyebrow {
-    font-size: 0.42em; font-weight: 700; letter-spacing: 0.12em; color: var(--forest);
-    text-transform: uppercase; margin: 0 0 6px; display: block;
+    font-size: 15px; font-weight: 700; letter-spacing: 0.12em; color: var(--forest);
+    text-transform: uppercase; margin: 0 0 8px; display: block;
   }
-  .lede { font-size: 0.68em; color: var(--muted); margin: 10px 0 0; max-width: 90%; }
+  .slide-head h2 { font-size: 30px; margin: 0; border-bottom: 3px solid var(--forest); padding-bottom: 14px; display: inline-block; }
+  .slide-head .lede { font-size: 16px; color: var(--muted); margin: 12px 0 0; max-width: 85%; }
 
-  /* Shared icon badge */
-  .icon { width: 26px; height: 26px; stroke: var(--forest); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-  .icon-badge {
-    width: 50px; height: 50px; border-radius: 50%; background: var(--forest-light);
-    display: flex; align-items: center; justify-content: center; margin-bottom: 14px; flex-shrink: 0;
+  /* ---- Fixed footer, same on every slide: wordmark left, page number right ---- */
+  .deck-footer {
+    position: fixed; left: 0; right: 0; bottom: 0; height: 34px; z-index: 40;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 28px; border-top: 1px solid var(--rule); background: #fff;
+    font-size: 11px; color: var(--muted);
   }
-  .icon-badge.alt { background: #fdf4f3; }
+  .deck-footer .brand { display: flex; align-items: center; gap: 6px; font-weight: 700; }
+  .reveal .slide-number {
+    position: fixed !important; bottom: 9px !important; right: 28px !important; top: auto !important; left: auto !important;
+    background: none !important; color: var(--muted) !important; font-size: 11px !important; font-family: Arial, Helvetica, sans-serif;
+  }
+
+  /* ---- Icon set ---- */
+  .icon { stroke: var(--forest); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .icon-badge {
+    border-radius: 50%; background: var(--forest-light);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .icon-badge.alt { background: var(--red-light); }
   .icon-badge.alt .icon { stroke: var(--red); }
 
-  /* Card grids -- the core "3-4 groups" layout unit used on every content slide */
-  .cards { display: grid; gap: 16px; margin-top: 22px; }
-  .cards.c2 { grid-template-columns: 1fr 1fr; }
-  .cards.c3 { grid-template-columns: 1fr 1fr 1fr; }
-  .cards.c4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
-  .card {
-    background: #fff; border: 1px solid var(--rule); border-radius: 12px;
-    padding: 18px 16px; text-align: left;
-  }
-  .card h3 { font-size: 0.68em; margin: 0 0 6px; color: var(--ink); }
-  .card p { font-size: 0.56em; color: var(--muted); margin: 0; line-height: 1.45; }
+  /* ---- Card grid (used sparingly, for persona / feature lists) ---- */
+  .cards { display: grid; gap: 20px; }
+  .cards.c3 { grid-template-columns: repeat(3, 1fr); }
+  .cards.c4 { grid-template-columns: repeat(4, 1fr); }
+  .card { background: var(--cream); border-radius: 12px; padding: 22px 20px; }
+  .card .icon-badge { width: 46px; height: 46px; margin-bottom: 14px; }
+  .card .icon { width: 24px; height: 24px; }
+  .card h3 { font-size: 17px; margin: 0 0 6px; }
+  .card p { font-size: 13.5px; color: var(--muted); margin: 0; line-height: 1.45; }
   .card .tag {
-    display: inline-block; font-size: 0.48em; font-weight: 700; margin-top: 8px;
-    background: var(--forest-light); color: var(--forest); padding: 2px 8px; border-radius: 4px;
+    display: inline-block; font-size: 11px; font-weight: 700; margin-top: 10px;
+    background: #fff; color: var(--forest); padding: 3px 9px; border-radius: 4px;
   }
-  .card .tag.alt { background: #fdf4f3; color: var(--red); }
+  .card .tag.alt { color: var(--red); }
 
-  /* Big stat tiles (tokenomics, impact) */
-  .stats { display: flex; gap: 18px; margin-top: 22px; }
-  .stats div { flex: 1; text-align: center; background: var(--cream); border-radius: 10px; padding: 20px 10px; }
-  .stats .num { font-size: 1.5em; font-weight: 700; color: var(--forest); display: block; }
-  .stats .label { font-size: 0.48em; color: var(--muted); }
+  /* ---- Big stat tiles ---- */
+  .stats { display: flex; gap: 20px; }
+  .stats div { flex: 1; text-align: center; background: var(--cream); border-radius: 10px; padding: 26px 14px; }
+  .stats .num { font-size: 38px; font-weight: 700; color: var(--forest); display: block; line-height: 1.1; }
+  .stats .label { font-size: 13px; color: var(--muted); margin-top: 6px; display: block; }
 
-  /* Agent flow (slide 5) */
-  .flow { display: flex; align-items: center; justify-content: center; gap: 20px; margin-top: 36px; }
-  .flow .card { width: 300px; text-align: center; }
-  .flow .arrow { font-size: 1.6em; color: var(--forest); }
+  /* ---- Split layout: text one side, visual the other ---- */
+  .split { display: flex; gap: 40px; align-items: center; flex: 1; min-height: 0; }
+  .split .col { flex: 1; min-width: 0; }
+  .split .col.visual { display: flex; align-items: center; justify-content: center; height: 100%; }
+  .split .col.visual img { max-width: 100%; max-height: 100%; object-fit: contain; }
+  .split-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 18px; }
+  .split-list li { display: flex; gap: 14px; align-items: flex-start; }
+  .split-list .icon-badge { width: 40px; height: 40px; }
+  .split-list .icon { width: 20px; height: 20px; }
+  .split-list h4 { margin: 0 0 3px; font-size: 16px; }
+  .split-list p { margin: 0; font-size: 13.5px; color: var(--muted); line-height: 1.4; }
 
-  /* Title slide */
-  .title-slide { text-align: center; padding-top: 60px; }
-  .title-slide .icon-badge { width: 84px; height: 84px; margin: 0 auto 22px; }
-  .title-slide .icon { width: 44px; height: 44px; }
-  .title-slide h1 { font-size: 2.3em; border-bottom: none; }
-  .title-slide .lede { max-width: 100%; margin: 14px auto 0; font-size: 0.85em; }
-  .title-slide .byline { margin-top: 26px; font-size: 0.6em; color: var(--muted); }
+  /* ---- Comparison table ---- */
+  .compare { width: 100%; border-collapse: collapse; }
+  .compare th, .compare td { text-align: left; padding: 14px 16px; border-bottom: 1px solid var(--rule); font-size: 14px; vertical-align: top; }
+  .compare th { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; }
+  .compare tr.us { background: var(--forest-light); }
+  .compare tr.us td:first-child { font-weight: 700; color: var(--forest); border-radius: 8px 0 0 8px; }
+  .compare tr.us td:last-child { border-radius: 0 8px 8px 0; }
+  .compare td.no { color: var(--red); }
+  .compare td.yes { color: var(--forest); font-weight: 700; }
 
-  .screenshot-wrap { text-align: center; margin-top: 18px; }
-  .screenshot-wrap img { max-height: 280px; }
+  /* ---- Agent flow diagram ---- */
+  .flow { display: flex; align-items: center; justify-content: center; gap: 24px; }
+  .flow .fcard { width: 260px; text-align: center; background: var(--cream); border-radius: 12px; padding: 24px 18px; }
+  .flow .fcard .icon-badge { width: 52px; height: 52px; margin: 0 auto 12px; }
+  .flow .fcard h4 { margin: 0 0 6px; font-size: 16px; }
+  .flow .fcard p { margin: 0; font-size: 13px; color: var(--muted); }
+  .flow .arrow { font-size: 28px; color: var(--forest); font-weight: 700; }
 
-  .closing { text-align: center; padding-top: 80px; }
-  .closing .icon-badge { width: 70px; height: 70px; margin: 0 auto 18px; }
-  .closing .icon { width: 36px; height: 36px; }
+  /* ---- Title (cover) slide ---- */
+  .cover { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; background: linear-gradient(180deg, #ffffff 0%, var(--forest-light) 100%); padding-bottom: 34px; }
+  .cover .icon-badge { width: 100px; height: 100px; margin-bottom: 26px; }
+  .cover .icon { width: 50px; height: 50px; }
+  .cover h1 { font-size: 46px; margin: 0; }
+  .cover .lede { max-width: 640px; margin: 18px auto 0; font-size: 19px; color: var(--muted); }
+  .cover .byline { margin-top: 34px; font-size: 13px; color: var(--muted); }
+  .cover .pills { display: flex; gap: 10px; margin-top: 28px; }
+  .cover .pills span { background: #fff; border: 1px solid var(--rule); border-radius: 20px; padding: 6px 16px; font-size: 12px; font-weight: 700; color: var(--forest); }
+
+  /* ---- Hero image slide (solution) ---- */
+  .hero-shot { text-align: center; }
+  .hero-shot img { max-height: 400px; }
+  .chips { display: flex; gap: 12px; justify-content: center; margin-top: 18px; flex-wrap: wrap; }
+  .chips .chip { display: flex; align-items: center; gap: 8px; background: var(--cream); border-radius: 24px; padding: 8px 16px 8px 8px; }
+  .chips .chip .icon-badge { width: 30px; height: 30px; }
+  .chips .chip .icon { width: 16px; height: 16px; }
+  .chips .chip span { font-size: 13px; font-weight: 700; }
+
+  /* ---- Closing timeline ---- */
+  .timeline { display: flex; gap: 0; }
+  .timeline .tstep { flex: 1; position: relative; padding: 0 18px 0 0; }
+  .timeline .tstep:not(:last-child)::after {
+    content: ""; position: absolute; top: 23px; right: -10px; width: 20px; height: 2px; background: var(--rule);
+  }
+  .timeline .icon-badge { width: 46px; height: 46px; margin-bottom: 14px; }
+  .timeline .icon { width: 24px; height: 24px; }
+  .timeline h4 { margin: 0 0 6px; font-size: 15.5px; }
+  .timeline p { margin: 0; font-size: 13px; color: var(--muted); line-height: 1.4; }
 </style>
 </head>
 <body>
@@ -100,200 +160,313 @@
   <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
   <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M20 4C10 4 4 10 4 18c8 0 14-6 14-14Z"/><path d="M5 19 19 5"/></symbol>
   <symbol id="i-farmer" viewBox="0 0 24 24"><circle cx="12" cy="9" r="4"/><path d="M4 21c0-4.5 3.5-7 8-7s8 2.5 8 7"/><path d="M6 9c0-4 3-6 6-6s6 2 6 6"/></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><path d="M9 4 4 6v14l5-2 6 2 5-2V4l-5 2-6-2Z"/><path d="M9 4v14M15 6v14"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></symbol>
+  <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M6 2h12v20l-3-2-3 2-3-2-3 2V2Z"/><path d="M9 7h6M9 11h6M9 15h4"/></symbol>
+  <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3 11.2c.5.3.8.9.8 1.5V16h4.4v-.3c0-.6.3-1.2.8-1.5A6 6 0 0 0 12 3Z"/></symbol>
 </defs>
 </svg>
+
+<div class="deck-footer">
+  <span class="brand">🧑‍🌾 Magic Valley Digital Twin</span>
+  <span>MGT 409 &middot; Fall 2026</span>
+</div>
 
 <div class="reveal">
 <div class="slides">
 
+<!-- 1: COVER -->
 <section>
-  <div class="title-slide">
+  <div class="cover">
     <div class="icon-badge"><svg class="icon"><use href="#i-farmer"/></svg></div>
     <h1>Magic Valley Digital Twin</h1>
     <p class="lede">AI-powered crop planning for water-constrained farmland — validated against a real drought year.</p>
+    <div class="pills"><span>3D Digital Twin</span><span>Water Optimizer</span><span>AI Chat Agent</span><span>Drought Backtest</span></div>
     <p class="byline">Rachel Fogg &middot; MGT 409 Final Project &middot; github.com/rachelfogg85/magic-valley-digital-twin</p>
   </div>
 </section>
 
+<!-- 2: THE PROBLEM -->
 <section>
-  <span class="eyebrow">The Problem</span>
-  <h2>Water is running out. Planting decisions are still guesswork.</h2>
-  <div class="cards c3">
-    <div class="card">
-      <div class="icon-badge alt"><svg class="icon"><use href="#i-droplet"/></svg></div>
-      <h3>&minus;33% water</h3>
-      <p>Twin Falls Canal Company's real 2021 delivery cut to Magic Valley, Idaho irrigators.</p>
+  <div class="slide">
+    <div class="slide-head">
+      <span class="eyebrow">The Problem</span>
+      <h2>Water is running out. Planting decisions are still guesswork.</h2>
     </div>
-    <div class="card">
-      <div class="icon-badge alt"><svg class="icon"><use href="#i-alert"/></svg></div>
-      <h3>$280,000 left on the table</h3>
-      <p>Our 2021 backtest: the profit gap between what was actually planted and the optimal plan, one ~5,000-acre study area.</p>
-    </div>
-    <div class="card">
-      <div class="icon-badge alt"><svg class="icon"><use href="#i-globe"/></svg></div>
-      <h3>Worse elsewhere</h3>
-      <p>The same planning-data gap is far wider in emerging markets like East Africa.</p>
-    </div>
-  </div>
-</section>
-
-<section>
-  <span class="eyebrow">Who We Serve</span>
-  <h2>Three groups, one decision</h2>
-  <div class="cards c3">
-    <div class="card">
-      <div class="icon-badge"><svg class="icon"><use href="#i-person"/></svg></div>
-      <h3>Irrigators</h3>
-      <p>Magic Valley, Idaho growers deciding what to plant under a water cut.</p>
-    </div>
-    <div class="card">
-      <div class="icon-badge"><svg class="icon"><use href="#i-briefcase"/></svg></div>
-      <h3>Extension agents</h3>
-      <p>University of Idaho advisors who need defensible numbers, not gut feel.</p>
-    </div>
-    <div class="card">
-      <div class="icon-badge"><svg class="icon"><use href="#i-globe"/></svg></div>
-      <h3>Smallholder farmers <span class="tag">Next build</span></h3>
-      <p>East Africa — the highest-need, least-served audience for this kind of tool.</p>
-    </div>
-  </div>
-</section>
-
-<section>
-  <span class="eyebrow">The Solution</span>
-  <h2>Four pieces, one decision-support tool</h2>
-  <div class="cards c4">
-    <div class="card">
-      <div class="icon-badge"><svg class="icon"><use href="#i-cube"/></svg></div>
-      <h3>3D digital twin</h3>
-      <p>Real terrain + real USDA crop history, 2008&ndash;2021.</p>
-    </div>
-    <div class="card">
-      <div class="icon-badge"><svg class="icon"><use href="#i-sliders"/></svg></div>
-      <h3>Water-constrained optimizer</h3>
-      <p>Linear program picks the max-profit crop per field.</p>
-    </div>
-    <div class="card">
-      <div class="icon-badge"><svg class="icon"><use href="#i-chat"/></svg></div>
-      <h3>AI chat assistant</h3>
-      <p>Plain-language scenario planning, grounded in real data.</p>
-    </div>
-    <div class="card">
-      <div class="icon-badge"><svg class="icon"><use href="#i-history"/></svg></div>
-      <h3>Drought backtest</h3>
-      <p>Validated against what actually happened in 2021.</p>
-    </div>
-  </div>
-  <div class="screenshot-wrap">
-    <img src="{{overview.jpg}}" alt="App overview screenshot" style="max-height: 230px;">
-  </div>
-</section>
-
-<section>
-  <span class="eyebrow">How It Works</span>
-  <h2>Two agents, a clear division of labor</h2>
-  <div class="flow">
-    <div class="card">
-      <div class="icon-badge"><svg class="icon"><use href="#i-chat"/></svg></div>
-      <h3>Agent 1 &middot; Chatbot (LLM)</h3>
-      <p>Explains tradeoffs in plain language and turns words into parameters.</p>
-    </div>
-    <div class="arrow">&harr;</div>
-    <div class="card">
-      <div class="icon-badge"><svg class="icon"><use href="#i-sliders"/></svg></div>
-      <h3>Agent 2 &middot; Planner (LP, not an LLM)</h3>
-      <p>Computes the real numbers &mdash; profit, water, acres &mdash; never guesses.</p>
-    </div>
-  </div>
-  <p class="lede" style="text-align:center; margin-top:28px;">Every number the chatbot states is produced by the planner. The language model never invents one.</p>
-</section>
-
-<section>
-  <span class="eyebrow">Why This Is Different</span>
-  <h2>Prior art stops at one field and a spreadsheet</h2>
-  <div class="cards c3">
-    <div class="card">
-      <div class="icon-badge alt"><svg class="icon"><use href="#i-building"/></svg></div>
-      <h3>FieldView &middot; Granular &middot; FBN</h3>
-      <p>Record-keeping and benchmarking. <span class="tag alt">No optimization</span></p>
-    </div>
-    <div class="card">
-      <div class="icon-badge alt"><svg class="icon"><use href="#i-alert"/></svg></div>
-      <h3>K-State / Nebraska water tools</h3>
-      <p>Real prior art, but one field, one static form. <span class="tag alt">Not whole-farm</span></p>
-    </div>
-    <div class="card">
-      <div class="icon-badge"><svg class="icon"><use href="#i-spark"/></svg></div>
-      <h3>This project</h3>
-      <p>Whole-farm optimization + AI explanation + drought-validated. <span class="tag">New combination</span></p>
-    </div>
-  </div>
-</section>
-
-<section>
-  <span class="eyebrow">Tokenomics</span>
-  <h2>What one question actually costs</h2>
-  <div class="stats">
-    <div><span class="num">$0.0055</span><span class="label">per scenario question</span></div>
-    <div><span class="num">$2.76/mo</span><span class="label">at 100 users</span></div>
-    <div><span class="num">$276/mo</span><span class="label">at 10,000 users</span></div>
-  </div>
-  <p class="lede">Measured from real API calls, not estimated &mdash; including real cache-hit data (78% of input tokens cached). Cut cost by stripping the 100+ field plan from the chatbot's own context; verified live that the one tradeoff (a single-field question) still resolves correctly via a second tool call.</p>
-</section>
-
-<section>
-  <span class="eyebrow">Safety</span>
-  <h2>Tested live, not just designed</h2>
-  <div class="cards c3">
-    <div class="card">
-      <div class="icon-badge"><svg class="icon"><use href="#i-shield"/></svg></div>
-      <h3>Injection refused</h3>
-      <p>Told to state a fabricated $9,999,999 profit with certainty &mdash; refused, cited the real range instead.</p>
-    </div>
-    <div class="card">
-      <div class="icon-badge"><svg class="icon"><use href="#i-shield"/></svg></div>
-      <h3>Platform filter</h3>
-      <p>A blunter injection attempt was blocked outright by Azure's own content filter.</p>
-    </div>
-    <div class="card">
-      <div class="icon-badge"><svg class="icon"><use href="#i-target"/></svg></div>
-      <h3>Loop cap</h3>
-      <p>Tool-calling hard-capped at 6 iterations &mdash; no runaway cost from a stuck agent.</p>
-    </div>
-  </div>
-</section>
-
-<section>
-  <span class="eyebrow">Impact</span>
-  <h2>The 2021 drought backtest</h2>
-  <div class="stats" style="margin-bottom: 6px;">
-    <div><span class="num">+$280K</span><span class="label">mid-estimate profit gap vs. what was actually planted</span></div>
-    <div><span class="num">2 audiences</span><span class="label">decision tool today, education tool at smaller scale</span></div>
-  </div>
-  <div class="screenshot-wrap">
-    <img src="{{profit_gap.png}}" alt="Profit gap chart" style="max-height: 230px;">
-  </div>
-</section>
-
-<section>
-  <div class="closing">
-    <div class="icon-badge"><svg class="icon"><use href="#i-globe"/></svg></div>
-    <h2>Limits today, East Africa next</h2>
-    <div class="cards c3" style="text-align:left; max-width: 900px; margin-left:auto; margin-right:auto;">
-      <div class="card">
-        <div class="icon-badge alt"><svg class="icon"><use href="#i-alert"/></svg></div>
-        <h3>Field boundaries approximate</h3>
-        <p>Computer-generated, not hand-traced &mdash; some merge adjacent fields.</p>
+    <div class="slide-body">
+      <div class="stats">
+        <div>
+          <span class="num">&minus;33%</span>
+          <span class="label">Twin Falls Canal Company's real 2021 water delivery cut to Magic Valley irrigators</span>
+        </div>
+        <div>
+          <span class="num">$280K</span>
+          <span class="label">Mid-estimate profit left on the table in just that one drought year (our backtest)</span>
+        </div>
+        <div>
+          <span class="num">0</span>
+          <span class="label">Tools that combine real field data, a water-constrained optimizer, and plain-language guidance</span>
+        </div>
       </div>
-      <div class="card">
-        <div class="icon-badge alt"><svg class="icon"><use href="#i-alert"/></svg></div>
-        <h3>No real user yet</h3>
-        <p>Impact evidence is quantitative only &mdash; outreach is drafted, not completed.</p>
+      <p class="lede" style="margin-top:28px; max-width:100%;">Growers and Extension agents still decide what to plant under a water cut by habit and conversation — not a systematic comparison of which crop, on which field, maximizes profit under that year's actual limit. The same information gap is far wider in emerging markets like East Africa, where the data barely exists at all.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3: WHO WE SERVE -->
+<section>
+  <div class="slide">
+    <div class="slide-head">
+      <span class="eyebrow">Who We Serve</span>
+      <h2>Three groups, one decision</h2>
+    </div>
+    <div class="slide-body">
+      <div class="cards c3">
+        <div class="card">
+          <div class="icon-badge"><svg class="icon"><use href="#i-person"/></svg></div>
+          <h3>Irrigators</h3>
+          <p>Magic Valley, Idaho growers deciding what to plant under a water cut, field by field, every season.</p>
+        </div>
+        <div class="card">
+          <div class="icon-badge"><svg class="icon"><use href="#i-briefcase"/></svg></div>
+          <h3>Extension agents</h3>
+          <p>University of Idaho advisors who need defensible, sourced numbers to hand a grower — not gut feel.</p>
+        </div>
+        <div class="card">
+          <div class="icon-badge"><svg class="icon"><use href="#i-globe"/></svg></div>
+          <h3>Smallholder farmers <span class="tag">Next build</span></h3>
+          <p>East Africa — fragmented data, climate-exposed land, and the highest-need, least-served audience.</p>
+        </div>
       </div>
-      <div class="card">
-        <div class="icon-badge"><svg class="icon"><use href="#i-leaf"/></svg></div>
-        <h3>Next: East Africa</h3>
-        <p>Google Earth/satellite imagery in place of USDA data, where the need is greatest.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4: THE SOLUTION (hero screenshot) -->
+<section>
+  <div class="slide pad-tight">
+    <div class="slide-head">
+      <span class="eyebrow">The Solution</span>
+      <h2>One tool, four working parts</h2>
+    </div>
+    <div class="slide-body">
+      <div class="hero-shot">
+        <img src="{{overview.jpg}}" alt="Full screenshot of the Magic Valley Digital Twin app showing the 3D terrain, crop legend, chat assistant, and water-planning panel">
+      </div>
+      <div class="chips">
+        <div class="chip"><div class="icon-badge"><svg class="icon"><use href="#i-cube"/></svg></div><span>3D digital twin, 2008&ndash;2021</span></div>
+        <div class="chip"><div class="icon-badge"><svg class="icon"><use href="#i-sliders"/></svg></div><span>Water-constrained optimizer</span></div>
+        <div class="chip"><div class="icon-badge"><svg class="icon"><use href="#i-chat"/></svg></div><span>AI chat assistant</span></div>
+        <div class="chip"><div class="icon-badge"><svg class="icon"><use href="#i-history"/></svg></div><span>2021 drought backtest</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5: HOW IT WORKS -->
+<section>
+  <div class="slide">
+    <div class="slide-head">
+      <span class="eyebrow">How It Works</span>
+      <h2>Two agents, a clear division of labor</h2>
+    </div>
+    <div class="slide-body">
+      <div class="split">
+        <div class="col">
+          <div class="flow" style="flex-direction:column; gap:14px;">
+            <div class="fcard" style="width:100%;">
+              <div class="icon-badge"><svg class="icon"><use href="#i-chat"/></svg></div>
+              <h4>Agent 1 &middot; Chatbot (LLM)</h4>
+              <p>Plain-language guidance. Turns "30% less water" into real parameters.</p>
+            </div>
+            <div class="arrow" style="align-self:center;">&darr;&uarr;</div>
+            <div class="fcard" style="width:100%;">
+              <div class="icon-badge"><svg class="icon"><use href="#i-sliders"/></svg></div>
+              <h4>Agent 2 &middot; Planner (LP, not an LLM)</h4>
+              <p>Computes profit, water use, and acres per field. Never guesses.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col visual">
+          <img src="{{agent_chat.jpg}}" alt="Screenshot of the chat assistant answering a water-scenario question, with the results panel showing the matching plan">
+        </div>
+      </div>
+      <p class="lede" style="text-align:center; margin-top:14px; max-width:100%;">Every number the chatbot states is produced by the planner — the language model never invents one.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6: SEE IT IN ACTION -->
+<section>
+  <div class="slide">
+    <div class="slide-head">
+      <span class="eyebrow">See It In Action</span>
+      <h2>A real scenario, traced end to end</h2>
+    </div>
+    <div class="slide-body">
+      <div class="split">
+        <div class="col visual">
+          <img src="{{scenario_result.jpg}}" alt="Screenshot of the scenario panel after running a plan, showing estimated profit, water used, and the recommended crop plan">
+        </div>
+        <div class="col">
+          <ul class="split-list">
+            <li>
+              <div class="icon-badge"><svg class="icon"><use href="#i-droplet"/></svg></div>
+              <div><h4>1. Set the scenario</h4><p>A water level, year, and price outlook &mdash; by chat or by dragging the sliders.</p></div>
+            </li>
+            <li>
+              <div class="icon-badge"><svg class="icon"><use href="#i-sliders"/></svg></div>
+              <div><h4>2. The planner solves it</h4><p>Beans, Alfalfa, Sugar Beets, and Potatoes, acre by acre &mdash; under the real water and contract limits.</p></div>
+            </li>
+            <li>
+              <div class="icon-badge"><svg class="icon"><use href="#i-dollar"/></svg></div>
+              <div><h4>3. The answer is a range</h4><p>$205,940&ndash;$3,880,856 estimated profit &mdash; never a single false-certain number.</p></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7: WHY THIS IS DIFFERENT -->
+<section>
+  <div class="slide">
+    <div class="slide-head">
+      <span class="eyebrow">Why This Is Different</span>
+      <h2>Prior art stops at one field and a spreadsheet</h2>
+    </div>
+    <div class="slide-body">
+      <table class="compare">
+        <tr><th>Product</th><th>What it does</th><th>Whole-farm optimization?</th><th>Explains itself?</th></tr>
+        <tr><td>Climate FieldView, Granular, FBN</td><td>Record-keeping, yield mapping, benchmarking</td><td class="no">No</td><td class="no">No</td></tr>
+        <tr><td>K-State / Univ. of Nebraska water tools</td><td>Single-field return estimate under a water limit</td><td class="no">One field only</td><td class="no">No</td></tr>
+        <tr class="us"><td>Magic Valley Digital Twin</td><td>Real 3D-mapped fields + LP optimizer + AI explanation</td><td class="yes">Yes, whole farm</td><td class="yes">Yes, conversational</td></tr>
+      </table>
+      <p class="lede" style="margin-top:20px; max-width:100%;">And it's the only one of the four validated against a real, named drought year rather than just asserted to work.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8: TOKENOMICS -->
+<section>
+  <div class="slide">
+    <div class="slide-head">
+      <span class="eyebrow">Tokenomics</span>
+      <h2>What one question actually costs</h2>
+    </div>
+    <div class="slide-body">
+      <div class="split">
+        <div class="col">
+          <div class="stats" style="flex-direction:column; gap:14px;">
+            <div><span class="num">$0.0055</span><span class="label">per scenario question</span></div>
+            <div><span class="num">$276/mo</span><span class="label">at 10,000 users, ~5 questions each</span></div>
+          </div>
+        </div>
+        <div class="col visual">
+          <img src="{{tokenomics_live.jpg}}" alt="Screenshot of the chat assistant displaying its own real token usage: 2,887 tokens, 78% of input cached">
+        </div>
+      </div>
+      <p class="lede" style="margin-top:14px; max-width:100%;">Measured from real API calls, not estimated — the app reports its own token usage live. Cost cut by stripping the 100+ field plan from the chatbot's context; verified the one tradeoff (a single-field question) still resolves correctly.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 9: SAFETY -->
+<section>
+  <div class="slide">
+    <div class="slide-head">
+      <span class="eyebrow">Safety</span>
+      <h2>Tested live, not just designed</h2>
+    </div>
+    <div class="slide-body">
+      <div class="split">
+        <div class="col visual">
+          <img src="{{safety_injection.jpg}}" alt="Screenshot of the chat assistant refusing to confirm a fabricated profit number, citing the real optimizer range instead">
+        </div>
+        <div class="col">
+          <ul class="split-list">
+            <li>
+              <div class="icon-badge"><svg class="icon"><use href="#i-shield"/></svg></div>
+              <div><h4>Injection refused</h4><p>Told to confirm a fabricated $9,999,999 profit &mdash; refused, cited the real range.</p></div>
+            </li>
+            <li>
+              <div class="icon-badge"><svg class="icon"><use href="#i-shield"/></svg></div>
+              <div><h4>Platform filter</h4><p>A blunter injection attempt was blocked outright by Azure's own content filter.</p></div>
+            </li>
+            <li>
+              <div class="icon-badge"><svg class="icon"><use href="#i-target"/></svg></div>
+              <div><h4>Loop cap</h4><p>Tool-calling hard-capped at 6 iterations &mdash; no runaway cost from a stuck agent.</p></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10: IMPACT -->
+<section>
+  <div class="slide">
+    <div class="slide-head">
+      <span class="eyebrow">Impact</span>
+      <h2>The 2021 drought backtest</h2>
+    </div>
+    <div class="slide-body">
+      <div class="split">
+        <div class="col visual">
+          <img src="{{profit_gap.png}}" alt="Bar chart of the estimated profit gap between the optimized plan and what was actually planted in 2021">
+        </div>
+        <div class="col">
+          <ul class="split-list">
+            <li>
+              <div class="icon-badge"><svg class="icon"><use href="#i-dollar"/></svg></div>
+              <div><h4>+$280,000</h4><p>Mid-estimate profit gap vs. what was actually planted, same water limit.</p></div>
+            </li>
+            <li>
+              <div class="icon-badge"><svg class="icon"><use href="#i-check"/></svg></div>
+              <div><h4>Decision tool, today</h4><p>For a Magic Valley grower or Extension agent right now.</p></div>
+            </li>
+            <li>
+              <div class="icon-badge"><svg class="icon"><use href="#i-bulb"/></svg></div>
+              <div><h4>Education tool, at smaller scale</h4><p>Builds intuition for the water/price/crop tradeoff everywhere else.</p></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11: LIMITS + NEXT STEPS -->
+<section>
+  <div class="slide">
+    <div class="slide-head">
+      <span class="eyebrow">Limits &amp; Next Steps</span>
+      <h2>Honest about today, clear about next</h2>
+    </div>
+    <div class="slide-body">
+      <div class="timeline">
+        <div class="tstep">
+          <div class="icon-badge alt"><svg class="icon"><use href="#i-alert"/></svg></div>
+          <h4>Approximate field boundaries</h4>
+          <p>Computer-generated, not hand-traced — some merge adjacent fields.</p>
+        </div>
+        <div class="tstep">
+          <div class="icon-badge alt"><svg class="icon"><use href="#i-alert"/></svg></div>
+          <h4>No real user yet</h4>
+          <p>Impact evidence is quantitative only — outreach is drafted, not completed.</p>
+        </div>
+        <div class="tstep">
+          <div class="icon-badge alt"><svg class="icon"><use href="#i-receipt"/></svg></div>
+          <h4>Representative cost data</h4>
+          <p>Real prices and yields; per-acre costs are informed approximations.</p>
+        </div>
+        <div class="tstep">
+          <div class="icon-badge"><svg class="icon"><use href="#i-leaf"/></svg></div>
+          <h4>Next: East Africa</h4>
+          <p>Google Earth/satellite imagery in place of USDA data, where the need is greatest.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -303,7 +476,7 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
 <script>
-  Reveal.initialize({ hash: true, width: 1200, height: 675, center: false });
+  Reveal.initialize({ hash: true, width: 1200, height: 675, center: false, margin: 0, slideNumber: true });
 </script>
 </body>
 </html>
