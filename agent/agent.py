@@ -49,6 +49,12 @@ Rules you must always follow:
   tools can answer (e.g. soil conditions, weather forecasts, equipment, labor, markets), say so
   plainly -- do not fill the gap with an invented or general-knowledge answer.
 - Remind the user this is a decision aid, not farm advice, at least once per conversation.
+- Summarize a plan by acres per crop (e.g. "Beans: 1,979 acres, Potatoes: 600 acres"), the way
+  the results panel on screen does. Never list or enumerate individual field IDs (there are over
+  100 fields) unless the user asks about one specific field by name. A wall of field IDs is not a
+  useful answer.
+- Keep answers short: a few sentences, not a long report. State the headline numbers (profit
+  range, water used, acres by crop, binding constraints) plainly and skip restating the question.
 """
 
 
@@ -137,6 +143,29 @@ TOOL_FUNCTIONS = {
     "compare_to_actual": agent_tools.compare_to_actual,
 }
 
+# Keys whose values should read as whole numbers in the agent's reply, matching the
+# on-screen panel (which shows no decimals). Profit keys round to whole dollars;
+# the rest (acres, water) round to whole units.
+_WHOLE_NUMBER_KEYS = {
+    "profit_low", "profit_mid", "profit_high",
+    "actual_profit_low", "actual_profit_mid", "actual_profit_high",
+    "optimized_profit_mid", "profit_gap_mid",
+    "total_water_af", "water_limit_af",
+    "acres_by_crop", "actual_acres_by_crop", "optimized_acres_by_crop",
+}
+
+
+def _round_for_display(value):
+    if isinstance(value, dict):
+        return {k: _round_for_display(v) for k, v in value.items()}
+    if isinstance(value, (int, float)):
+        return round(value)
+    return value
+
+
+def _round_result(result):
+    return {k: (_round_for_display(v) if k in _WHOLE_NUMBER_KEYS else v) for k, v in result.items()}
+
 
 def chat(messages):
     """messages: list of {"role": "user"|"assistant", "content": str} (prior turns).
@@ -164,8 +193,14 @@ def chat(messages):
             result = fn(**args)
             if isinstance(result, dict) and "plan" in result:
                 latest_plan = result
+                # The model only needs the summary to explain a plan in words (acres
+                # by crop, profit, water); the field-by-field map (100+ entries) is
+                # for the map/panel UI only, via latest_plan -- sending it to the
+                # model as well just invites it to enumerate field IDs in prose, and
+                # costs real tokens for no benefit (see report.html's Tokenomics).
+                result = {k: v for k, v in result.items() if k != "plan"}
             full_messages.append(
-                {"role": "tool", "tool_call_id": call.id, "content": json.dumps(result)}
+                {"role": "tool", "tool_call_id": call.id, "content": json.dumps(_round_result(result))}
             )
 
     return "I couldn't finish reasoning about that in time -- try a simpler question.", latest_plan
