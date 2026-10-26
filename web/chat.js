@@ -7,11 +7,21 @@ const chatSend = document.getElementById('chat-send');
 
 let history = [];
 
-function addMessage(role, text) {
+function addMessage(role, text, usage) {
   const div = document.createElement('div');
   div.className = `chat-msg ${role}`;
   div.textContent = (role === 'user' ? 'You: ' : role === 'error' ? 'Error: ' : '') + text;
   chatLog.appendChild(div);
+  // Real token counts for this reply, straight from the API -- so the tokenomics
+  // numbers in the report are always reproducible with a screenshot, not just a claim.
+  if (usage && usage.prompt_tokens) {
+    const total = usage.prompt_tokens + usage.completion_tokens;
+    const cachedPct = Math.round((usage.cached_tokens / usage.prompt_tokens) * 100);
+    const note = document.createElement('div');
+    note.className = 'chat-usage';
+    note.textContent = `${total.toLocaleString()} tokens (${usage.prompt_tokens.toLocaleString()} in, ${usage.completion_tokens.toLocaleString()} out, ${cachedPct}% of input cached) · ${usage.calls} call${usage.calls === 1 ? '' : 's'}`;
+    chatLog.appendChild(note);
+  }
   chatLog.scrollTop = chatLog.scrollHeight;
 }
 
@@ -51,7 +61,7 @@ export async function initChat(onPlanReady) {
       const data = await resp.json();
       if (!resp.ok) throw new Error(data.error || `Server error: ${resp.status}`);
 
-      addMessage('assistant', data.reply);
+      addMessage('assistant', data.reply, data.usage);
       history.push({ role: 'assistant', content: data.reply });
       if (data.plan) onPlanReady(data.plan);
     } catch (err) {

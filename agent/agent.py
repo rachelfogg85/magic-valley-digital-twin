@@ -178,11 +178,16 @@ def _round_result(result):
 
 def chat(messages):
     """messages: list of {"role": "user"|"assistant", "content": str} (prior turns).
-    Returns (reply_text, latest_plan_or_None)."""
+    Returns (reply_text, latest_plan_or_None, usage_dict). usage_dict is real token
+    counts straight from Portkey/Azure for this call, summed across every turn (a
+    scenario question takes 2: one to decide to call a tool, one to write the answer)
+    -- shown in the chat UI itself so real tokenomics numbers are always one screenshot
+    away instead of only visible in a server log."""
     client = build_client()
     full_messages = [{"role": "system", "content": SYSTEM_PROMPT}] + messages
 
     latest_plan = None
+    usage = {"prompt_tokens": 0, "cached_tokens": 0, "completion_tokens": 0, "calls": 0}
     for _ in range(6):  # hard cap so a tool-call loop can never run forever
         resp = client.chat.completions.create(
             model=MODEL, messages=full_messages, tools=TOOL_SCHEMAS,
@@ -190,11 +195,17 @@ def chat(messages):
                                       # chat.completions with reasoning disabled;
                                       # the alternative is the separate /v1/responses API
         )
+        if resp.usage:
+            usage["prompt_tokens"] += resp.usage.prompt_tokens
+            usage["completion_tokens"] += resp.usage.completion_tokens
+            cached = getattr(resp.usage.prompt_tokens_details, "cached_tokens", None) or 0
+            usage["cached_tokens"] += cached
+        usage["calls"] += 1
         msg = resp.choices[0].message
         full_messages.append(msg.model_dump(exclude_none=True))
 
         if not msg.tool_calls:
-            return msg.content or "", latest_plan
+            return msg.content or "", latest_plan, usage
 
         for call in msg.tool_calls:
             fn = TOOL_FUNCTIONS[call.function.name]
@@ -212,4 +223,4 @@ def chat(messages):
                 {"role": "tool", "tool_call_id": call.id, "content": json.dumps(_round_result(result))}
             )
 
-    return "I couldn't finish reasoning about that in time -- try a simpler question.", latest_plan
+    return "I couldn't finish reasoning about that in time -- try a simpler question.", latest_plan, usage

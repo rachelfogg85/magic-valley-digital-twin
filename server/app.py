@@ -40,10 +40,10 @@ def api_agent():
     body = request.get_json(force=True) or {}
     messages = body.get("messages", [])
     try:
-        reply, plan = chat_agent.chat(messages)
+        reply, plan, usage = chat_agent.chat(messages)
     except Exception as e:  # noqa: BLE001 -- surface any failure to the chat box, don't 500 silently
         return jsonify({"error": str(e)}), 500
-    return jsonify({"reply": reply, "plan": plan})
+    return jsonify({"reply": reply, "plan": plan, "usage": usage})
 
 
 @app.route("/data/<path:path>")
