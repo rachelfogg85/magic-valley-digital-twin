@@ -1,0 +1,11 @@
+# ONLY needed to regenerate data/processed/ from scratch with the pipeline/ scripts.
+# You do NOT need this to run the app -- data/processed/ is committed to the repo.
+#
+# rasterio 1.4.3 has no prebuilt wheel for Python 3.14+, and building it from source
+# needs GDAL, so use Python 3.11-3.13 for the pipeline (see README).
+-r requirements.txt
+rasterio==1.4.3
+shapely
+numpy
+Pillow
+requests

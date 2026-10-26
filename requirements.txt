@@ -1,14 +1,12 @@
-rasterio==1.4.3
-requests
-geopandas
-shapely
-numpy
-pandas
-Pillow
-pulp==2.9.0
+# Everything needed to RUN the app, its tests, and the backtest.
+# Pure-Python/wheel-only -- installs on any Python 3.11+, including 3.14.
+# (Regenerating data/processed/ from scratch needs requirements-pipeline.txt instead.)
 flask
-openai
-python-dotenv
-pytest
+geopandas
+pandas
+pulp==2.9.0
 pyyaml
+python-dotenv
+openai
 matplotlib
+pytest

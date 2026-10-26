@@ -8,25 +8,12 @@ for the visual design notes.
 
 ## Run it from a fresh clone
 
-Needs Python 3.11–3.13 — `rasterio==1.4.3` doesn't have a prebuilt wheel yet for very new
-releases like 3.14+, and pip will fail trying to build it from source (it needs GDAL, which is a
-much bigger install). Check with `python3 --version` first.
+Needs Python 3.11 or newer (3.14 is fine). Four commands:
 
-**If your `python3` is already 3.11–3.13:**
 ```bash
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-python server/app.py
-```
-
-**If it's newer (e.g. 3.14+),** use [`uv`](https://docs.astral.sh/uv/) to get a compatible Python
-without touching your system install:
-```bash
-curl -LsSf https://astral.sh/uv/install.sh | sh   # skip if you already have uv
-uv venv --python 3.12 venv
-source venv/bin/activate
-uv pip install -r requirements.txt
 python server/app.py
 ```
 
@@ -36,8 +23,30 @@ squats on it). Everything except the chat assistant works immediately with no AP
 
 All data the app needs is already in `data/processed/` (committed to this repo); no data API keys
 or re-running the pipeline is required to use the app. `data/raw/` (the original downloads) is
-gitignored and not needed to run the app — only to regenerate `data/processed/` from scratch via
-the numbered scripts in `pipeline/` (see `CLAUDE.md` for what each one does).
+gitignored and not needed to run the app.
+
+<details>
+<summary><strong>Only if you want to regenerate the data from scratch</strong></summary>
+
+The numbered scripts in `pipeline/` rebuild `data/processed/` from the original public sources
+(see `CLAUDE.md` for what each one does). They need extra geo-raster libraries, which the app
+itself does not:
+
+```bash
+pip install -r requirements-pipeline.txt
+```
+
+That pulls in `rasterio==1.4.3`, which has no prebuilt wheel for Python 3.14+ (pip would try to
+build it from source, which needs GDAL). So use **Python 3.11–3.13** for the pipeline. If your
+`python3` is newer, [`uv`](https://docs.astral.sh/uv/) gets you a compatible one without touching
+your system install:
+
+```bash
+uv venv --python 3.12 venv-pipeline
+source venv-pipeline/bin/activate
+uv pip install -r requirements-pipeline.txt
+```
+</details>
 
 ### Enabling the chat assistant
 
