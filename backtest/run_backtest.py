@@ -92,19 +92,25 @@ def make_acres_chart(actual_acres, optimized_acres, path):
     plt.close(fig)
 
 
-def make_gap_chart(actual_range, with_rotation_range, no_rotation_range, path):
-    labels = ["Optimized\n(with rotation)", "Optimized\n(no rotation)"]
-    gaps_mid = [with_rotation_range["mid"] - actual_range["mid"], no_rotation_range["mid"] - actual_range["mid"]]
-    gaps_low = [with_rotation_range["low"] - actual_range["low"], no_rotation_range["low"] - actual_range["low"]]
-    gaps_high = [with_rotation_range["high"] - actual_range["high"], no_rotation_range["high"] - actual_range["high"]]
+def make_profit_compare_chart(actual_range, with_rotation_range, no_rotation_range, path):
+    # A direct side-by-side of absolute profit (not a "gap of a gap") is far easier to
+    # read at a glance than plotting the gap itself: the gap's own low-high range is
+    # wide enough to span zero (actual and optimized profit swing together under the
+    # same price scenario, but not by exactly the same amount), which made the
+    # previous gap-only chart look like noise even though the mid-estimate gap is a
+    # real, consistent ~$280k across both rotation assumptions.
+    labels = ["Actual\n2021", "Optimized\n(with rotation)", "Optimized\n(no rotation)"]
+    ranges = [actual_range, with_rotation_range, no_rotation_range]
+    mids = [r["mid"] for r in ranges]
+    err_low = [r["mid"] - r["low"] for r in ranges]
+    err_high = [r["high"] - r["mid"] for r in ranges]
+    colors = ["#6b6b6b", "#1E5631", "#8fae91"]
 
-    fig, ax = plt.subplots(figsize=(6, 5))
-    err_low = [m - l for m, l in zip(gaps_mid, gaps_low)]
-    err_high = [h - m for m, h in zip(gaps_mid, gaps_high)]
-    ax.bar(labels, gaps_mid, yerr=[err_low, err_high], capsize=8, color=["#1E5631", "#c0392b"])
+    fig, ax = plt.subplots(figsize=(7, 5))
+    ax.bar(labels, mids, yerr=[err_low, err_high], capsize=8, color=colors)
     ax.axhline(0, color="black", linewidth=0.8)
-    ax.set_ylabel("Profit gap vs. actual ($)")
-    ax.set_title(f"Estimated profit gap, {DROUGHT_YEAR} drought\n(mid estimate, low-high range)")
+    ax.set_ylabel("Estimated profit ($)")
+    ax.set_title(f"Actual vs. optimized profit, {DROUGHT_YEAR} drought\n(mid estimate, low-high range)")
     fig.tight_layout()
     fig.savefig(path, dpi=150)
     plt.close(fig)
@@ -131,7 +137,7 @@ def main():
     diff_table.to_csv(OUTPUT_DIR / "backtest_fields.csv", index=False)
 
     make_acres_chart(actual_acres, with_rotation["acres_by_crop"], OUTPUT_DIR / "acres_by_crop.png")
-    make_gap_chart(actual_range, with_rotation_range, no_rotation_range, OUTPUT_DIR / "profit_gap.png")
+    make_profit_compare_chart(actual_range, with_rotation_range, no_rotation_range, OUTPUT_DIR / "profit_gap.png")
 
     print(f"=== {DROUGHT_YEAR} drought-year backtest ===")
     print(f"Actual water supply used that year (real IDWR/TFCC-informed estimate): {drought_water_af:,.0f} acre-feet")
