@@ -62,10 +62,15 @@ DATA_SOURCES = {
 
 
 def _plan_profit_at(plan, price_case):
+    # Vary price only, holding yield at its typical level. Varying both together (low
+    # price AND low yield at once, or high AND high) stacks two independent risks in
+    # the same direction and produces an unrealistically wide range -- a bad crop year
+    # doesn't necessarily coincide with a bad price year. This isolates price risk,
+    # which is the bigger and better-documented driver (5 years of real sale prices).
     total = 0.0
     for field_id, crop in plan.items():
         p = CROP_PARAMS[crop]
-        profit_per_acre = p[f"price_{price_case}"] * p[f"yield_{price_case}"] - p["cost_per_acre"]
+        profit_per_acre = p[f"price_{price_case}"] * p["yield_mid"] - p["cost_per_acre"]
         total += _FIELDS_BY_ID[field_id]["acres"] * profit_per_acre
     return round(total, 2)
 

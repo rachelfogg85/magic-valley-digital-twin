@@ -16,13 +16,14 @@
   #left-column {
     position: absolute; top: 16px; left: 16px; z-index: 10;
     display: flex; flex-direction: column; gap: 14px;
-    width: 280px; max-height: calc(100vh - 32px);
+    width: 320px; height: calc(100vh - 32px);
   }
   #title-panel, #menu-panel {
     background: #ffffff; padding: 16px 18px; border-radius: 10px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.12); border: 1px solid #eee;
   }
-  #menu-panel { overflow-y: auto; min-height: 0; }
+  #title-panel { flex-shrink: 0; }
+  #menu-panel { flex: 1; overflow-y: auto; min-height: 0; }
   #title-panel h1 {
     font-size: 17px; margin: 0 0 10px; padding-bottom: 8px; color: var(--ink);
     font-weight: 700; border-bottom: 3px solid var(--forest);
@@ -34,11 +35,15 @@
   #menu-panel label { display: block; font-size: 13px; margin-top: 12px; color: var(--ink); }
   #menu-panel label:first-of-type { margin-top: 0; }
   #menu-panel input[type="range"] { width: 100%; accent-color: #555555; }
-  #title-row { display: flex; gap: 10px; align-items: stretch; }
-  #overview-box {
-    flex: 1; min-width: 0; border: 1px solid #eee; border-radius: 8px;
-    padding: 10px 12px; background: #fafafa;
+  .slider-row { display: flex; align-items: center; gap: 6px; }
+  .slider-row input[type="range"] { flex: 1; min-width: 0; }
+  .slider-end { font-size: 10px; color: var(--muted); flex-shrink: 0; }
+  .slider-note { font-size: 11px; color: var(--muted); margin-top: 4px; line-height: 1.3; }
+  #title-row {
+    display: flex; gap: 10px; align-items: stretch; border: 1px solid #eee;
+    border-radius: 8px; padding: 10px 12px; background: #fafafa;
   }
+  #overview-box { flex: 1; min-width: 0; }
   #legend { margin-top: 14px; max-height: 220px; overflow-y: auto; font-size: 12px; }
   #legend h3 {
     font-size: 12px; margin: 0 0 6px; color: var(--muted); font-weight: 700;
@@ -72,8 +77,8 @@
   #zoom-controls button:last-child { border-bottom: none; }
   #zoom-controls button:hover { background: #f2f2f2; }
   #locator {
-    width: 64px; flex-shrink: 0; border: 1px solid #eee; border-radius: 8px;
-    padding: 6px 6px 4px; text-align: center;
+    width: 64px; flex-shrink: 0; border-left: 1px solid #e3e3e3;
+    padding-left: 10px; text-align: center;
   }
   #locator svg { width: 100%; height: auto; display: block; }
   #locator span { font-size: 9px; color: var(--muted); line-height: 1.3; }
@@ -170,7 +175,8 @@
       position: static; left: auto; right: auto; top: auto; bottom: auto; transform: none;
       width: calc(100% - 24px); max-width: none; max-height: none; margin: 12px auto;
     }
-    #menu-panel { overflow-y: visible; max-height: none; }
+    #left-column { height: auto; }
+    #menu-panel { flex: none; overflow-y: visible; max-height: none; }
     #title-row { flex-direction: column; }
     #locator { width: 90px; margin: 0 auto; }
     #scenario-panel { overflow-y: visible; }
@@ -203,9 +209,13 @@
   <div id="disclaimer">Decision aid, not farm advice.</div>
 </div>
 <div id="menu-panel">
-  <h2>Menu</h2>
+  <h2>Magic Valley Land &amp; Crop Key</h2>
   <label>Year: <span id="year-label"></span>
-    <input type="range" id="year-slider" min="2008" max="2021" step="1" value="2021">
+    <div class="slider-row">
+      <span class="slider-end">2008</span>
+      <input type="range" id="year-slider" min="2008" max="2021" step="1" value="2021">
+      <span class="slider-end">2021</span>
+    </div>
   </label>
   <label>Vertical exaggeration: <span id="exag-label"></span>
     <input type="range" id="exag-slider" min="1" max="10" step="0.5" value="4">
@@ -217,23 +227,26 @@
 </div>
 </div>
 <div id="scenario-panel">
-  <h2>What should I plant?</h2>
-  <div class="intro-text"><strong>For farmers and Extension agents:</strong> when water runs
-  short, this finds the most profitable crop for every field &mdash; replacing guesswork with
-  real numbers.</div>
+  <h2>Land and Water Optimizer</h2>
+  <div class="intro-text">Crop Management tool to optimize your land for changes in water.</div>
   <ol id="how-to">
     <li>Set how much water is available</li>
     <li>Choose a price outlook</li>
     <li>Click Run plan</li>
   </ol>
   <label>Water available: <span id="water-label">100%</span> of a normal year
-    <input type="range" id="water-slider" min="30" max="120" step="5" value="100">
+    <div class="slider-row">
+      <span class="slider-end">30%</span>
+      <input type="range" id="water-slider" min="30" max="120" step="5" value="100">
+      <span class="slider-end">120%</span>
+    </div>
+    <div class="slider-note">100% = a normal year, <span id="normal-water-af">11,780</span> acre-feet (the long-run average water delivered to this area). 2021&rsquo;s drought cut this to about 67%.</div>
   </label>
   <label>Price outlook:
     <select id="price-case">
-      <option value="low">Low</option>
-      <option value="mid" selected>Typical</option>
-      <option value="high">High</option>
+      <option value="low">Worst Case</option>
+      <option value="mid" selected>Base Case</option>
+      <option value="high">Optimal Case</option>
     </select>
   </label>
   <button id="run-plan-btn">Run plan</button>

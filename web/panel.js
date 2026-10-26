@@ -54,7 +54,7 @@ function assumptionsTable(params, crops) {
     <details class="result-block">
       <summary style="cursor:pointer; font-size: 11px; text-transform: uppercase; letter-spacing: 0.03em; color: var(--muted);">How profit is calculated</summary>
       <table style="margin-top:6px;">
-        <tr><th>Crop</th><th>Price (typical)</th><th>Yield (typical)</th><th>Cost</th></tr>
+        <tr><th>Crop</th><th>Price (base case)</th><th>Yield (base case)</th><th>Cost</th></tr>
         ${rows.join('')}
       </table>
       <div class="sub">Profit per acre = price &times; yield &minus; cost, then &times; acres. Low/high use the same formula with low/high price and yield instead.
@@ -91,7 +91,7 @@ export async function renderResults(result) {
     ? `<div class="result-block">
         <b>What was actually planted this year</b>
         ${acresTable(result.actual_acres_by_crop)}
-        <div class="sub">Actual estimated profit: ${fmtMoney(result.actual_profit_low)} &ndash; ${fmtMoney(result.actual_profit_high)} (typical ${fmtMoney(result.actual_profit_mid)})</div>
+        <div class="sub">Actual estimated profit: ${fmtMoney(result.actual_profit_low)} &ndash; ${fmtMoney(result.actual_profit_high)} (base case ${fmtMoney(result.actual_profit_mid)})</div>
       </div>`
     : '';
 
@@ -104,7 +104,8 @@ export async function renderResults(result) {
     <div class="result-block">
       <b>Estimated profit</b>
       <div class="profit-range">${fmtMoney(result.profit_low)} &ndash; ${fmtMoney(result.profit_high)}</div>
-      <div class="sub">Typical estimate: ${fmtMoney(result.profit_mid)}</div>
+      <div class="sub">Base case estimate: ${fmtMoney(result.profit_mid)}</div>
+      <div class="sub">Range reflects worst-case to optimal-case crop prices (2018&ndash;2022), holding yield at its typical level.</div>
       <div class="sub">For all ${fmtNum(totalAcres)} acres, ${cropCount} crop${cropCount === 1 ? '' : 's'}, one ${yearSlider.value} growing season.</div>
     </div>
     <div class="result-block">
