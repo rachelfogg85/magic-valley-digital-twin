@@ -78,7 +78,23 @@ function acresTable(acresByCrop) {
   );
 }
 
+// Keep the sliders/dropdown in sync with whatever scenario this plan was actually run
+// for -- matters most when the plan came from the chat agent (e.g. "what about less
+// water?"), since otherwise the controls would still show the old values.
+function syncControls(result) {
+  if (result.water_pct != null && Number(waterSlider.value) !== result.water_pct) {
+    waterSlider.value = result.water_pct;
+    waterSlider.dispatchEvent(new Event('input'));
+  }
+  if (result.year != null && Number(yearSlider.value) !== result.year) {
+    yearSlider.value = result.year;
+    yearSlider.dispatchEvent(new Event('input'));
+  }
+  if (result.price_case) priceCaseSelect.value = result.price_case;
+}
+
 export async function renderResults(result) {
+  syncControls(result);
   const waterTag = result.binding_constraints.includes('water')
     ? '<span class="binding-tag">limit reached</span>'
     : '';

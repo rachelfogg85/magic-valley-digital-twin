@@ -103,6 +103,12 @@ def run_optimizer(water_pct, year, price_case="mid"):
         year=year, price_case=price_case, use_rotation=True,
         history=HISTORY, acreage_caps=ACREAGE_CAPS,
     )
+    # Echoed back so the UI can move its sliders to match this scenario -- otherwise
+    # a plan the chat agent ran (e.g. "what about less water?") would recolor the map
+    # without the water/year/price controls on screen reflecting what was actually run.
+    result["water_pct"] = water_pct
+    result["year"] = year
+    result["price_case"] = price_case
     result["profit_low"] = _plan_profit_at(result["plan"], "low")
     result["profit_mid"] = _plan_profit_at(result["plan"], "mid")
     result["profit_high"] = _plan_profit_at(result["plan"], "high")
