@@ -1,9 +1,9 @@
 # Magic Valley Digital Twin
 
-A browser-based 3D twin of real Idaho farmland (~5,700 acres near Jerome, ID) showing what was
-planted in every field since 2008, with a linear-program optimizer and an AI agent that recommend
-what to plant under a water shortage. See [report/report.html](report/report.html) (open by
-double-clicking, no server needed) for the full writeup, or [output/design.md](output/design.md)
+A browser-based 3D twin of real Idaho farmland (102 fields, ~4,993 acres near Jerome, ID) showing
+what was planted in every field since 2008, with a linear-program optimizer and an AI agent that
+recommend what to plant under a water shortage. See [report/report.html](report/report.html) (open
+by double-clicking, no server needed) for the full writeup, or [output/design.md](output/design.md)
 for the visual design notes.
 
 ## Run it from a fresh clone
@@ -31,8 +31,8 @@ python server/app.py
 ```
 
 Open **http://localhost:5050** (port 5000 is skipped on purpose — macOS's AirPlay Receiver often
-squats on it). The year/exaggeration/"find a crop" sliders and the "Run plan" scenario tool work
-immediately, with no API key. Only the chat box at the bottom needs a key — see below.
+squats on it). Everything except the chat assistant works immediately with no API key — only the
+"Ask the Farmer" box at the top needs one (see "Enabling the chat assistant" below).
 
 All data the app needs is already in `data/processed/` (committed to this repo); no data API keys
 or re-running the pipeline is required to use the app. `data/raw/` (the original downloads) is
@@ -47,6 +47,41 @@ the numbered scripts in `pipeline/` (see `CLAUDE.md` for what each one does).
 3. Restart `python server/app.py`. If no key is found, the chat box hides itself automatically and
    shows a note that the sliders still work without it — this is expected, not a bug.
 
+## Using the app
+
+The screen has three parts: the **map** in the middle, the **Land & Crop Key** on the left, and the
+**Land and Water Optimizer** on the right, with the **Ask the Farmer** chat box at the top.
+
+**1. Explore the land (left panel).** Drag to orbit the 3D terrain, scroll to zoom, and hover any
+field to see its size and what was actually planted there that year. Move the **Year** slider
+(2008–2021) to replay two decades of real USDA crop history — the fields recolor each year.
+**Vertical exaggeration** stretches the terrain so the canyon and slopes are easier to read, and
+**Find a crop** highlights every field growing one crop so you can see how it moved around over
+time.
+
+**2. Run a water scenario (right panel).** This is the core of the tool:
+
+- Set **Water available** (30%–120% of a normal year; 100% = 11,780 acre-feet, the long-run average
+  delivery here, and 2021's real drought cut it to about 67%).
+- Pick a **Price outlook** — Worst / Base / Optimal Case, based on the real 2018–2022 spread in
+  Idaho crop prices.
+- Click **Run plan**. The optimizer assigns a crop to each of the 102 fields to maximize profit
+  under that water limit, the real rotation rules, and the sugar beet / potato contract caps.
+
+The map recolors to show the recommended plan, and the panel reports the estimated profit range,
+how much of the water budget the plan uses, acres by crop, and — for comparison — what was actually
+planted that year. Expand **How profit is calculated** to see every price, yield, and cost figure
+with its source.
+
+**3. Ask in plain English (chat box).** With a key configured, ask things like *"We have 30% less
+water this year, what should I plant?"* or *"What has field F10 grown historically?"* The assistant
+runs the same optimizer behind the scenes, so the sliders and results panel update to match its
+answer, and it reports its own token usage under each reply. It only states numbers that came back
+from a tool call — if you ask it to confirm a number it can't verify, it will refuse.
+
+> This is a decision aid, not farm advice. Profit is always shown as a range, never a single
+> certain number.
+
 ## Repo layout
 
 - `pipeline/` — numbered scripts that build `data/processed/` from public sources (USGS terrain,
@@ -59,8 +94,9 @@ the numbered scripts in `pipeline/` (see `CLAUDE.md` for what each one does).
 - `web/` — the 3D viewer (plain JS + three.js, no build step, no framework).
 - `backtest/run_backtest.py` — the 2021 drought-year backtest; `backtest/outputs/` has its charts
   and CSV.
-- `report/` — `report.html` (built by `report/build_report.py`, which embeds the figures) and
-  `output/design.md` (visual design decisions and iteration history).
+- `report/` — `report.html` and `slides.html`, each built as a single self-contained file by
+  `build_report.py` / `build_slides.py` (they embed everything in `report/figures/`).
+- `output/design.md` — visual design decisions and iteration history.
 
 ## Running the tests
 
