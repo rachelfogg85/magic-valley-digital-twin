@@ -109,6 +109,17 @@ def run_optimizer(water_pct, year, price_case="mid"):
     result["actual_profit_mid"] = _plan_profit_at(actual_plan, "mid") if actual_plan else None
     result["actual_profit_high"] = _plan_profit_at(actual_plan, "high") if actual_plan else None
     result["units"] = {c: CROP_PARAMS[c]["unit"] for c in result["acres_by_crop"]}
+    # Real per-acre water use for every crop this area can grow, most to least
+    # water-intensive -- lets the agent explain the water/profit tradeoff in plain
+    # language (e.g. "alfalfa uses far more water per acre than beans") using our
+    # own sourced data, instead of unverified general farming knowledge.
+    result["water_use_by_crop_af_per_acre"] = dict(
+        sorted(
+            ((c, p["water_af_per_acre"]) for c, p in CROP_PARAMS.items() if c != "Fallow"),
+            key=lambda kv: kv[1],
+            reverse=True,
+        )
+    )
     result["sources"] = {
         k: DATA_SOURCES[k]
         for k in ("prices", "yields", "costs_per_acre", "water_use_per_acre", "field_boundaries")
